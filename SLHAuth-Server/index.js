@@ -31,9 +31,12 @@ app.use(express.json());
 
 app.use('/slh/auth', require('./routes/auth') );
 
+//DEMAS RUTAS PARA DESPLEGAR EN HEROKU
 
+app.get('*', (req, res)=>{
 
-
+        res.sendFile (path.resolve(__dirname, 'public/index.html'));
+});
 
 
 

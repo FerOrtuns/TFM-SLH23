@@ -51,6 +51,7 @@ try {
             uid: dbUser.id,
             msg: `Usuario ${name} creado en DB correctamente`,
             name, 
+            email,
             token
         });
     
@@ -116,6 +117,7 @@ const loginUsuario = async (req, res = response )=>{
        msg:'Login de Usuario realizado correctamente',
        uid: dbUser.id,
        name: dbUser.name,
+       email: dbUser.email,
        token
    });
   
@@ -139,16 +141,18 @@ const loginUsuario = async (req, res = response )=>{
 
 const renewToken = async (req,res = response)=>{
 
-    const { uid, name } = req;
+    const { uid } = req;
 
+    const dbUser = await Usuario.findById( uid ); 
     
-    const token = await generarJWT(uid, name);
+    const token = await generarJWT(uid, dbUser.name);
     
     return res.json({
         ok:true,
         msg:'renew',
         uid,
-        name,
+        name: dbUser.name,
+        email: dbUser.email,
         token
         
     });

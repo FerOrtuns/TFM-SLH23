@@ -1,23 +1,30 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-import { MyteamComponent } from './pages/myteam/myteam.component';
+import { MyleagueModule } from './myleague/myleague.module';
+import { MynbaModule } from './mynba/mynba.module';
 
 const routes: Routes = [
-
-  
   {
     path:'',
-    component: HomeComponent,
-    children:[
-      {
-        path:'myteam', component: MyteamComponent
-      },
-      {
-        path:'**', redirectTo: 'dashboard'
-      }
-  ]
+    component: HomeComponent
+  },
+  {
+    path:'myleague',
+    loadChildren: ()=> import ('../dashboard/myleague/myleague.module').then (m => m.MyleagueModule)
+  },
+  {
+    path:'mynba',
+    loadChildren: ()=> import ('../dashboard/mynba/mynba.module').then (m => m.MynbaModule)
+  },
+  {
+    path:'myteam',
+    loadChildren: ()=> import ('../dashboard/myteam/myteam.module').then (m => m.MyteamModule)
+  },
+  {
+    path:'**', redirectTo: ''
   }
+
 ];
 
 @NgModule({
