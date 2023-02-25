@@ -29,6 +29,7 @@ app.use(express.json());
 
 // RUTAS
 
+app.use('/slh/dashboard', require('./routes/dashboard') )
 app.use('/slh/auth', require('./routes/auth') );
 
 //DEMAS RUTAS PARA DESPLEGAR EN HEROKU
