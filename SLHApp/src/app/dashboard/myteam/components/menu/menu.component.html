@@ -2,9 +2,9 @@
 <mat-sidenav-container fullscreen>
         
             
-    <mat-sidenav #sidenav mode="over">
-        <mat-toolbar color="primary">
-            <span> Menú </span>
+    <mat-sidenav #sidenav mode="side">
+        <mat-toolbar>
+            <span> Menú My Team </span>
             <span class="spacer"></span>
 
             <button mat-icon-button (click)="sidenav.toggle()">
@@ -14,40 +14,27 @@
 
         <mat-nav-list>
             <a (click)="sidenav.toggle()"
-                routerLink="/dashboard/myteam"
+                routerLink="/dashboard/myteam/infoGM"
                 mat-list-item
                 routerLinkActive="active"    >
                 <mat-icon mat-list-item>fingerprint</mat-icon>
-                <span> Mi Equipo SLH </span>
+                <span> Mi Equipazo </span>
             </a>
             <a (click)="sidenav.toggle()"
                 routerLink="#"
                 mat-list-item
                 routerLinkActive="active"    >
                 <mat-icon mat-list-item>group</mat-icon>
-                <span> Mi Liga SLH </span>
+                <span> Ofertas Recibidas </span>
             </a>
             <a (click)="sidenav.toggle()"
                 routerLink="#"
                 mat-list-item
                 routerLinkActive="active"    >
                 <mat-icon mat-list-item>scoreboard</mat-icon>
-                <span> NBA </span>
+                <span> Ofertas Enviadas </span>
             </a>
-            <a (click)="sidenav.toggle()"
-                routerLink="#"
-                mat-list-item
-                routerLinkActive="active"    >
-                <mat-icon mat-list-item>flag</mat-icon>
-                <span> Comisionado </span>
-            </a>
-            <a (click)="sidenav.toggle()"
-                routerLink="#"
-                mat-list-item
-                routerLinkActive="active"    >
-                <mat-icon mat-list-item>block</mat-icon>
-                <span> Administrador </span>
-            </a>
+           
           
         </mat-nav-list>
 
@@ -55,7 +42,7 @@
     
         <mat-toolbar>
             
-            <span> Menu </span>
+            <span> Menu GM </span>
 
             <button mat-icon-button
                     (click)="sidenav.toggle()">
@@ -64,15 +51,15 @@
 
             <span class="spacer"></span>
             
-            <pre>{{ user.name }}</pre>
+          <!--   <pre>{{ user.name }}</pre> -->
             <!-- <pre>{{ user.email }}</pre> -->
             <!-- <pre>{{ user.uid }}</pre> -->
             
 
-            <button mat-button
-                    (click)="logout()">Logout
+         <!--    <button mat-button
+                    (click)="#">Logout
                 <mat-icon>logout</mat-icon>
-            </button>
+            </button> -->
 
         </mat-toolbar>
     

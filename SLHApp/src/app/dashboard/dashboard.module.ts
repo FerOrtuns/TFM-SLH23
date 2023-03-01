@@ -18,6 +18,10 @@ import { HeadComponent } from './components/head/head.component';
     CommonModule,
     DashboardRoutingModule,
     MaterialModule
+  ],
+  exports: [
+    SidenavComponent,
+    HeadComponent
   ]
 })
 export class DashboardModule { }

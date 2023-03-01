@@ -28,6 +28,7 @@ const GmInfoSchema = Schema ({
     ENM1: Number,
     Telegram: String,
     Cortes2223: String,
+    alt_img: String
 
 });
 

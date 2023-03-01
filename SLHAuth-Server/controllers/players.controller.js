@@ -1,38 +1,50 @@
 
 const { response} = require('express');
 const { default: mongoose } = require('mongoose');
-const GmInfo = require('../models/GmInfo');
+const players = require('../models/player');
 
 
 
 
-const infoGMs = async (req,res = response)=>{
+const getRoster = async (req,res = response)=>{
 
-    const  idGM = req.params.idGM;
+    const  AKA = req.params.AKA;
 
     /* const { xid } = req; */
 
     /* const xidGM  = mongoose.Types.ObjectId(xid); */
 
- /*    console.log(idGM); */
-
+/*     console.log(AKA);
+ */
     /* console.log(xid); */
 
     /* const dbGM = await GmInfo.findById( { _id: xid } );  */
     
     /* const dbGM = await GmInfo.findOne( {idGM: xid} );  */
 
-    const dbGM = await GmInfo.find( {idGM: idGM}, 'idGM AKA EQUIPO Nickname Salarios SalarioLibre JUGADORES Mail2 Telegram alt_img DERECHOS');
+    const myRoster = await players.find( {TEAM: AKA}, 'PLAYER POS TIPO TEAM SALARIO AÑOS OPT');
 
+    console.log(myRoster);
+
+    
     /* const dbGMAKA = await GmInfo.findOne({ AKA: "ATL"} );  */
     
  /*    console.log(dbGMAKA); */
-    console.log(dbGM);
-    
+/*     console.log('myRoster desde el back : ', myRoster);
+       return JSON.parse(myRoster);
 
+        
+  */
     return res.json({
 
-        dbGM
+          myRoster 
+         /* nombre: myRoster.PLAYER,
+           posicion: myRoster.POS,
+           tipo: myRoster.TIPO,
+           equipoSLH: myRoster.TEAM,
+           salario: myRoster.SALARIO,
+           añosContrato: myRoster.AÑOS,
+           opcion: myRoster.OPT */
     /*     ok:true,
         msg:'infoGM', */
         /* idGM: dbGM.idGM,  
@@ -43,12 +55,12 @@ const infoGMs = async (req,res = response)=>{
          
         
         
-    });
+  });
 };
 
 
     module.exports = {
         
-        infoGMs
+        getRoster
         
     }

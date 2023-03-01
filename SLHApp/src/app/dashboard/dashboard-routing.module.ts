@@ -20,7 +20,7 @@ const routes: Routes = [
     loadChildren: ()=> import ('../dashboard/myteam/myteam.module').then (m => m.MyteamModule)
   },
   {
-    path:'**', redirectTo: ''
+    path:'**', redirectTo: 'HomeComponent'
   }
 
 ];

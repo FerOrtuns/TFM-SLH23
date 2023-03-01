@@ -6,6 +6,11 @@ import {MatListModule} from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatTableModule} from '@angular/material/table';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   exports: [
@@ -14,7 +19,13 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatListModule,
     MatMenuModule,
     MatSidenavModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatCardModule,
+    MatGridListModule,
+    MatProgressSpinnerModule,
+    MatTableModule,
+    MatFormFieldModule
+    
   ]
 })
 export class MaterialModule { }
