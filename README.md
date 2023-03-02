@@ -11,15 +11,17 @@ npm install -g @angular/cli
 Then run:
 ````
 npm install
+ng build
 ````
 And try to make the server up: 
 ```
 ng server -o
 ```
 NOTE: 
-If you have some errors about memory, you should change the budget in the angular.json file and rise it to 2Mb
+If you have some errors about memory, you should change the budget in the angular.json file and rise it to 
+2Mb or whatever is needed.
 
-Once everthing is alright you should see the localhost port where the app is running.
+Once everything is alright you should see the localhost port where the app is running.
 
 ### SLHAuth
 Secondly, we need to make sure the server database is running. We need to install the packages.
@@ -33,5 +35,4 @@ npm run dev
 ````
 It should give a message like "BD conectada OK"
 
-IMPORTANT: connection to mongo db is in cloud, you should get you IP whitelisted before using it. 
-
+IMPORTANT: connection to mongo db is in cloud, you should get your IP whitelisted before using it (website).

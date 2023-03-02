@@ -32,20 +32,20 @@ login(){
   this.authService.login( email, password )
   .subscribe( ok =>{
 
-    console.log(ok);
-    
+    console.log('ok', ok);
+
 
     if(ok === true){
-
+      console.log('in ok')
       this.router.navigateByUrl('/dashboard');
     }else{
 
       Swal.fire('Error', ok, 'error');
       /* TODO: MSG ERROR */
     }
-    
+
   })
-  
+
 }
 
 
