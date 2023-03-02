@@ -6,13 +6,15 @@ import { HomeComponent } from './pages/home/home.component';
 import { MaterialModule } from '../material/material.module';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { HeadComponent } from './components/head/head.component';
+import { MenunavComponent } from './components/menunav/menunav.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
     SidenavComponent,
-    HeadComponent
+    HeadComponent,
+    MenunavComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { HeadComponent } from './components/head/head.component';
   ],
   exports: [
     SidenavComponent,
-    HeadComponent
+    HeadComponent,
+    MenunavComponent
   ]
 })
 export class DashboardModule { }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { dbGM } from 'src/app/dashboard/interfaces/dbgm.interface';
+import { DBGMresLite } from 'src/app/dashboard/interfaces/dbGMrespLite.interface';
 import { InfogmService } from '../../../services/infogm.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class InfogmComponent implements OnInit {
 
 idGM! : number; 
 
-gminfo!: dbGM ;
+gminfo!: DBGMresLite ;
 /* 
 logosrc: string = this.gminfo.dbGM[0].alt_img!; */
 

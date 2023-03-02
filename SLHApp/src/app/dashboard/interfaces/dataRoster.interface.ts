@@ -1,9 +1,7 @@
 
-export interface MyRoster {
 
-    myRoster: [
-{
-    _id?:            string,
+export interface dataRoster {
+ 
     PLAYER?:         string,
     TIPO?:           Tipo,
     TEAM?:           Team,
@@ -11,31 +9,9 @@ export interface MyRoster {
     SALARIO?:        number,
     AÑOS?:           number,
     OPT?:            Opt
-}
-    ]
+  }
 
-    }
-
-    export interface MyPlayer {
-
-         
-    
-        _id?:            string,
-        PLAYER?:         string,
-        TIPO?:           Tipo,
-        TEAM?:           Team,
-        POS?:            Pos,
-        SALARIO?:        number,
-        AÑOS?:           number,
-        OPT?:            Opt
-    }
-        
-    
-        
-    
-
-
-
+  
 
 
 export enum Opt {

@@ -3,7 +3,9 @@
 <mat-divider></mat-divider>
 <br>
 
-<!-- <div fxLayout="row wrap" fxLayoutAlign="center end">
+
+<!-- 
+<div fxLayout="row wrap" fxLayoutAlign="center end">
  
  <mat-selection-list #myp>
      <mat-list-option *ngFor="let myp of myroster.myRoster">
@@ -15,49 +17,80 @@
     Options selected: {{myp.selectedOptions.selected.length}}
 </p>
 
-</div> -->
-
+</div>
+ 
 <pre>{{myroster | json }}</pre>
-<!-- MAT TABLE -->
+ 
+MAT TABLE  -->
+<form [formGroup]="miForm">
 
-<!-- 
 <mat-form-field>
     <mat-label>Filter</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input formControlName="filter">
   </mat-form-field>
   
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8"> -->
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8"> 
   
-    <!-- tipo numero -->
-    <!-- <ng-container matColumnDef="Tipo">
+<!--     tipo numero  -->
+
+    <ng-container matColumnDef="Num">
       <th mat-header-cell *matHeaderCellDef> No. </th>
       <td mat-cell *matCellDef="let element"> {{element.position}} </td>
     </ng-container>
-   -->
-    <!-- Name Column -->
-  <!--   <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Name </th>
-      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+   
+<!--     TIPO Column  -->
+
+    <ng-container matColumnDef="Tipo">
+      <th mat-header-cell *matHeaderCellDef> Tipo </th>
+      <td mat-cell *matCellDef="let element"> {{element.TIPO}} </td>
     </ng-container>
-   -->
-    <!-- Weight Column -->
-  <!--   <ng-container matColumnDef="weight">
-      <th mat-header-cell *matHeaderCellDef> Weight </th>
-      <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+   
+<!--     Pos Column  -->
+
+    <ng-container matColumnDef="Pos">
+      <th mat-header-cell *matHeaderCellDef> Pos </th>
+      <td mat-cell *matCellDef="let element"> {{element.POS}} </td>
     </ng-container>
-   -->
-    <!-- Symbol Column -->
-   <!--  <ng-container matColumnDef="symbol">
+   
+<!--     Nombre Column  -->
+
+    <ng-container matColumnDef="Nombre">
       <th mat-header-cell *matHeaderCellDef> Symbol </th>
-      <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.PLAYER}} </td>
     </ng-container>
+   
+<!--     Salario Column  -->
+
+    <ng-container matColumnDef="Salario">
+      <th mat-header-cell *matHeaderCellDef> Salario </th>
+      <td mat-cell *matCellDef="let element"> {{element.SALARIO}} </td>
+    </ng-container>
+   
+<!--     Años Column  -->
+<!-- 
+    <ng-container matColumnDef="Años">
+      <th mat-header-cell *matHeaderCellDef> Años </th>
+      <td mat-cell *matCellDef="let element"> {{element.AÑOS}} </td>
+    </ng-container> -->
+   
+<!--     OPT Column  -->
+
+    <ng-container matColumnDef="OPT">
+      <th mat-header-cell *matHeaderCellDef> OPT </th>
+      <td mat-cell *matCellDef="let element"> {{element.OPT}} </td>
+    </ng-container>
+
+
+
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-   -->
-    <!-- Row shown when there is no matching data. -->
-  <!--   <tr class="mat-row" *matNoDataRow>
+   
+<!--     Row shown when there is no matching data.  -->
+
+    <tr class="mat-row" *matNoDataRow>
       <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
     </tr>
   </table>
-   -->
+   
+</form>

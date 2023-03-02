@@ -1,0 +1,58 @@
+
+<mat-toolbar class="menubar">
+
+    <button mat-button [matMenuTriggerFor]="myteam">Mi Equipo</button>
+<mat-menu #myteam="matMenu" yPosition="below">
+  <button mat-menu-item routerLink="/dashboard/myteam/infoGM" routerLinkActive="active">Info</button>
+  <mat-icon mat-list-item>fingerprint</mat-icon>
+  <button mat-menu-item routerLink="/dashboard/myteam/ofertasEnviadas" routerLinkActive="active">Ofertas Enviadas</button>
+  <mat-icon mat-list-item>send</mat-icon>
+  <button mat-menu-item routerLink="/dashboard/myteam/ofertasRecibidas" routerLinkActive="active">Ofertas Recibidas</button>
+  <mat-icon mat-list-item>recived</mat-icon>
+</mat-menu>
+
+<button mat-button [matMenuTriggerFor]="miliga">Mi Liga</button>
+<mat-menu #miliga="matMenu" yPosition="below">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu>
+
+<button mat-button [matMenuTriggerFor]="minba">Mi NBA</button>
+<mat-menu #minba="matMenu" xPosition="before" yPosition="below">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu>
+
+
+<button mat-button [matMenuTriggerFor]="comis">Comisionado</button>
+<mat-menu #comis="matMenu" xPosition="after" yPosition="below">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu>
+
+<button mat-button [matMenuTriggerFor]="admin">Admin</button>
+<mat-menu #admin="matMenu">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu>
+            
+    
+
+    <span class="spacer"></span>
+    
+    <pre>{{ user.name }}</pre>
+    <!-- <pre>{{ user.email }}</pre> -->
+    <!-- <pre>{{ user.uid }}</pre> -->
+    
+
+    <button mat-button
+            (click)="logout()">Logout
+        <mat-icon>logout</mat-icon>
+    </button>
+
+</mat-toolbar>
+
+
+
+
+

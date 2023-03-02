@@ -10,6 +10,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { MaterialModule } from 'src/app/material/material.module';
 import { InfogmComponent } from './components/infogm/infogm.component';
 import { RosterComponent } from './components/roster/roster.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { RosterComponent } from './components/roster/roster.component';
         CommonModule,
         MyteamRoutingModule,
         DashboardModule, // no se si es lo mejor para traer el app nav.. revisar TODO:
-        MaterialModule
+        MaterialModule,
+        ReactiveFormsModule
     ]
 })
 export class MyteamModule { }
