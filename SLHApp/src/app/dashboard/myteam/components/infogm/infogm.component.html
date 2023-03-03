@@ -26,13 +26,13 @@
 
 
                 <mat-list-item >Manager : {{ gminfo.Nickname }}</mat-list-item>
-                
+
                 <mat-list-item >Numero de Jugadores : {{ gminfo.JUGADORES }}</mat-list-item>
                 <mat-list-item >Numero de Derechos : {{ gminfo.DERECHOS }}</mat-list-item>
                 <mat-list-item >Ingresos : 130 </mat-list-item>
                 <mat-list-item >Gastos : {{ gminfo.Salarios }}</mat-list-item>
                 <mat-list-item >CAP Libre: {{ gminfo.SalarioLibre }}</mat-list-item>
-               
+
 
         </mat-card-content>
 
@@ -46,16 +46,20 @@
             <span class="spacer"></span>
 
             <mat-card-subtitle><mat-icon material-icons-sharp>send</mat-icon>Telegram : {{ gminfo.Telegram }}</mat-card-subtitle>
-        
+
         </mat-card-footer>
-    
+
     </mat-card>
 
     </div> -->
-<!-- 
+<!--
     <app-roster></app-roster> -->
-<!-- 
-  
- <pre>{{ gminfo.EQUIPO}}</pre>   
- <pre>{{ gminfo.Mail2}}</pre>    -->
- <pre>{{ gminfo.Nickname}}</pre>   
+<section *ngIf="loaded">
+
+  <div *ngIf="gminfo.hasOwnProperty('EQUIPO')">
+    {{ gminfo.EQUIPO}}
+  </div>
+
+</section>
+
+

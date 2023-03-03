@@ -10,21 +10,27 @@ import { InfogmService } from '../../../services/infogm.service';
 })
 export class InfogmComponent implements OnInit {
 
-idGM! : number; 
+idGM! : number;
 
 gminfo!: MyGM ;
+
+loaded!: boolean;
 
 
 constructor ( private infogmS : InfogmService) {}
 
   ngOnInit() {
-    
+
     this.infogmS.getInfoGM(this.idGM)
                 .subscribe( resp => {
                   this.gminfo = resp;
-                  
+                  console.log('resp', resp, this.loaded)
+                  this.loaded = true;
+                  console.log('loaded',this.loaded)
                 })
-                
+
   }
+
+
 
 }
