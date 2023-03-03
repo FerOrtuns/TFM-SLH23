@@ -1,65 +1,65 @@
-<!-- <br>
-<h1 align="center"> Detalle del GM </h1>
-<mat-divider></mat-divider>
-<br>
+<section *ngIf="loaded">
 
-<div fxLayout="row wrap" fxLayoutAlign="center end">
+  <br>
+  <h1 align="center"> Detalle del GM </h1>
+  <mat-divider></mat-divider>
+  <br>
 
+  <div fxLayout="row wrap" fxLayoutAlign="center end">
 
     <mat-card>
-        <mat-card-header>
-            <mat-card-title> {{ gminfo.EQUIPO }}</mat-card-title>
-            <br>
-            <br>
-            <mat-card-subtitle> {{ gminfo.AKA }}</mat-card-subtitle>
-
-                <span class="spacer"></span>
-
-            <img mat-card-image [src]=[gminfo.alt_img]>
-
-        </mat-card-header>
+      <mat-card-header>
+        <mat-card-title *ngIf="gminfo.hasOwnProperty('EQUIPO')">
+          {{ gminfo.EQUIPO}}
+        </mat-card-title>
         <br>
-        <mat-divider></mat-divider>
         <br>
+        <mat-card-subtitle> {{ gminfo.AKA }}</mat-card-subtitle>
 
-        <mat-card-content align="center">
+        <span class="spacer"></span>
+
+        <img mat-card-image [src]=[gminfo.alt_img]>
+
+      </mat-card-header>
+      <br>
+      <mat-divider></mat-divider>
+      <br>
+
+      <mat-card-content align="center">
 
 
-                <mat-list-item >Manager : {{ gminfo.Nickname }}</mat-list-item>
+        <mat-list-item>Manager : {{ gminfo.Nickname }}</mat-list-item>
 
-                <mat-list-item >Numero de Jugadores : {{ gminfo.JUGADORES }}</mat-list-item>
-                <mat-list-item >Numero de Derechos : {{ gminfo.DERECHOS }}</mat-list-item>
-                <mat-list-item >Ingresos : 130 </mat-list-item>
-                <mat-list-item >Gastos : {{ gminfo.Salarios }}</mat-list-item>
-                <mat-list-item >CAP Libre: {{ gminfo.SalarioLibre }}</mat-list-item>
+        <mat-list-item>Numero de Jugadores : {{ gminfo.JUGADORES }}</mat-list-item>
+        <mat-list-item>Numero de Derechos : {{ gminfo.DERECHOS }}</mat-list-item>
+        <mat-list-item>Ingresos : 130</mat-list-item>
+        <mat-list-item>Gastos : {{ gminfo.Salarios }}</mat-list-item>
+        <mat-list-item>CAP Libre: {{ gminfo.SalarioLibre }}</mat-list-item>
 
 
-        </mat-card-content>
+      </mat-card-content>
 
-        <br>
-        <mat-divider></mat-divider>
-        <br>
+      <br>
+      <mat-divider></mat-divider>
+      <br>
 
-        <mat-card-footer>
-            <mat-card-title> <mat-icon material-icons-outlined>email</mat-icon> E-mail  : {{ gminfo.Mail2 }} </mat-card-title>
+      <mat-card-footer>
+        <mat-card-title>
+          <mat-icon material-icons-outlined>email</mat-icon>
+          E-mail : {{ gminfo.Mail2 }} </mat-card-title>
 
-            <span class="spacer"></span>
+        <span class="spacer"></span>
 
-            <mat-card-subtitle><mat-icon material-icons-sharp>send</mat-icon>Telegram : {{ gminfo.Telegram }}</mat-card-subtitle>
+        <mat-card-subtitle>
+          <mat-icon material-icons-sharp>send</mat-icon>
+          Telegram : {{ gminfo.Telegram }}</mat-card-subtitle>
 
-        </mat-card-footer>
+      </mat-card-footer>
 
     </mat-card>
 
-    </div> -->
-<!--
-    <app-roster></app-roster> -->
-<section *ngIf="loaded">
-
-  <div *ngIf="gminfo.hasOwnProperty('EQUIPO')">
-    {{ gminfo.EQUIPO}}
   </div>
+  <!--
+      <app-roster></app-roster> -->
 
 </section>
-
-

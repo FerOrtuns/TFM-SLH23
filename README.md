@@ -11,6 +11,9 @@ npm install -g @angular/cli
 Then run:
 ````
 npm install
+````
+And build the project. You'll need to be Sudo or execute the terminal as admin:
+````
 ng build
 ````
 And try to make the server up: 
