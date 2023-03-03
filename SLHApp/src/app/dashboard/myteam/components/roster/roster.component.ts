@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
-import { dataRoster } from 'src/app/dashboard/interfaces/dataRoster.interface';
-import { MyPlayer, MyRoster } from 'src/app/dashboard/interfaces/Myroster.interface';
+import { MyPlayer } from 'src/app/dashboard/interfaces/MyPlayer.interface';
 
 import { InfogmService } from 'src/app/dashboard/services/infogm.service';
 
@@ -25,32 +24,24 @@ table {
 export class RosterComponent  implements OnInit {
 
 
-  miForm : FormGroup = new FormGroup({
+ /*  miForm : FormGroup = new FormGroup({
 
     filter: new FormControl('buscar')
-  });
+  }); */
 
   AKA!: string ;
 
-  myroster!: MyRoster ;
-/*   roster!: string [];
- */  
-  roster  = (this.myroster.myRoster).forEach(element=> this.plantilla.push(element));
-
- 
-  plantilla!: dataRoster [];
-
- ELEMENT_DATA: dataRoster[] = this.plantilla;
+  myroster!: MyPlayer[] ;
 
   
- displayedColumns: string[] = ['Tipo', 'Pos', 'Nombre', 'Salario', 'Años', 'Opt' ];
- dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+ displayedColumns: string[] = ['Tipo', 'Pos', 'Nombre', 'Salario', 'Years', 'Opt' ];
+ dataSource = new MatTableDataSource(this.myroster);
 
-
+/* 
  applyFilter(event: Event) {
    const filterValue = (event.target as HTMLInputElement).value;
    this.dataSource.filter = filterValue.trim().toLowerCase();
- }
+ } */
 
 
   constructor ( private infogmS : InfogmService) {}
@@ -76,8 +67,8 @@ export class RosterComponent  implements OnInit {
 
  /*                  
  */                  console.log(this.myroster);
-                  console.log(this.plantilla);
-/*                   console.log('myroster',this.myroster);
+/*                   console.log(this.plantilla);
+ *//*                   console.log('myroster',this.myroster);
  *//*                   console.log('plantilla',this.plantilla);
  */                  
                 })

@@ -10,7 +10,7 @@ const playerSchema = Schema ({
     TIPO: String, 
     TEAM: String,
     SALARIO: Number,
-    AÑOS: Number,
+    YEARS: Number,
     OPT: String
 
    

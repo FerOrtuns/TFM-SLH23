@@ -2,9 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
-import { dbGM } from '../interfaces/dbgm.interface';
-import { MyRoster } from '../interfaces/Myroster.interface';
-import { DBGMresLite } from '../interfaces/dbGMrespLite.interface';
+import { MyPlayer } from '../interfaces/MyPlayer.interface';
+import { MyGM } from '../interfaces/MyGM.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -20,28 +19,28 @@ export class InfogmService {
 
   // GET INFO DE UN SOLO GM POR EL IDGM
 
-  getInfoGM ( idGM: number ) : Observable <DBGMresLite> {
+  getInfoGM ( idGM: number ) : Observable <MyGM> {
 
     const url = `${this._baseUrl}/dashboard/myteam/infoGMs/${this.idGM}`
 
-    return this.http.get<DBGMresLite>(url)
+    return this.http.get<MyGM>(url)
   };
 
   // GET DE ROSTER POR AKA DE LA DB DE PLAYERS
 
-  getRoster ( AKA: string ) : Observable <MyRoster> {
+  getRoster ( AKA: string ) : Observable <MyPlayer[]> {
 
     const url = `${this._baseUrl}/dashboard/myteam/players/${this.AKA}`
 
-    return this.http.get<MyRoster>(url)
+    return this.http.get<MyPlayer[]>(url)
   };
 
   // GET INFPO DE TODOS LOS GMS A LA VEZ
 
-  getInfoGMS () : Observable <dbGM[]> {
+  getInfoGMS () : Observable <MyGM[]> {
 
     const url = `${this._baseUrl}/dashboard/infoGMs/${this.idGM}`
 
-    return this.http.get<dbGM[]>(url, )
+    return this.http.get<MyGM[]>(url, )
   }
 }

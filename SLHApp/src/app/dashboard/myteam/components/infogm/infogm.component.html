@@ -1,4 +1,4 @@
-<br>
+<!-- <br>
 <h1 align="center"> Detalle del GM </h1>
 <mat-divider></mat-divider>
 <br>
@@ -8,33 +8,31 @@
 
     <mat-card>
         <mat-card-header>
-            <mat-card-title> {{ gminfo.dbGM[0].EQUIPO }}</mat-card-title>
+            <mat-card-title> {{ gminfo.EQUIPO }}</mat-card-title>
             <br>
             <br>
-            <mat-card-subtitle> {{ gminfo.dbGM[0].AKA }}</mat-card-subtitle>
+            <mat-card-subtitle> {{ gminfo.AKA }}</mat-card-subtitle>
 
                 <span class="spacer"></span>
 
-            <!-- <img mat-card-image style="height: 7rem; width: 7rem;" src="https://upload.wikimedia.org/wikipedia/en/thumb/2/24/Atlanta_Hawks_logo.svg/1200px-Atlanta_Hawks_logo.svg.png"> -->
-
-            <img mat-card-image [src]=[gminfo.dbGM[0].alt_img]>
+            <img mat-card-image [src]=[gminfo.alt_img]>
 
         </mat-card-header>
         <br>
         <mat-divider></mat-divider>
         <br>
+
         <mat-card-content align="center">
 
 
-                <mat-list-item >Manager : {{ gminfo.dbGM[0].Nickname }}</mat-list-item>
+                <mat-list-item >Manager : {{ gminfo.Nickname }}</mat-list-item>
                 
-                <mat-list-item >Numero de Jugadores : {{ gminfo.dbGM[0].JUGADORES }}</mat-list-item>
-                <mat-list-item >Numero de Derechos : {{ gminfo.dbGM[0].DERECHOS }}</mat-list-item>
+                <mat-list-item >Numero de Jugadores : {{ gminfo.JUGADORES }}</mat-list-item>
+                <mat-list-item >Numero de Derechos : {{ gminfo.DERECHOS }}</mat-list-item>
                 <mat-list-item >Ingresos : 130 </mat-list-item>
-                <mat-list-item >Gastos : {{ gminfo.dbGM[0].Salarios }}</mat-list-item>
-                <mat-list-item >CAP Libre: {{ gminfo.dbGM[0].SalarioLibre }}</mat-list-item>
-<!--                 <mat-list-item >LOGO: {{ gminfo.dbGM[0].alt_img }}</mat-list-item> 
- -->                
+                <mat-list-item >Gastos : {{ gminfo.Salarios }}</mat-list-item>
+                <mat-list-item >CAP Libre: {{ gminfo.SalarioLibre }}</mat-list-item>
+               
 
         </mat-card-content>
 
@@ -43,16 +41,21 @@
         <br>
 
         <mat-card-footer>
-            <mat-card-title> <mat-icon material-icons-outlined>email</mat-icon> E-mail  : {{ gminfo.dbGM[0].Mail2 }} </mat-card-title>
+            <mat-card-title> <mat-icon material-icons-outlined>email</mat-icon> E-mail  : {{ gminfo.Mail2 }} </mat-card-title>
 
             <span class="spacer"></span>
 
-            <mat-card-subtitle><mat-icon material-icons-sharp>send</mat-icon>Telegram : {{ gminfo.dbGM[0].Telegram }}</mat-card-subtitle>
+            <mat-card-subtitle><mat-icon material-icons-sharp>send</mat-icon>Telegram : {{ gminfo.Telegram }}</mat-card-subtitle>
         
         </mat-card-footer>
     
     </mat-card>
 
-    </div>
-
-    <app-roster></app-roster>
+    </div> -->
+<!-- 
+    <app-roster></app-roster> -->
+<!-- 
+  
+ <pre>{{ gminfo.EQUIPO}}</pre>   
+ <pre>{{ gminfo.Mail2}}</pre>    -->
+ <pre>{{ gminfo.Nickname}}</pre>   

@@ -22,12 +22,12 @@
 <pre>{{myroster | json }}</pre>
  
 MAT TABLE  -->
-<form [formGroup]="miForm">
-
-<mat-form-field>
+<!-- <form [formGroup]="miForm">
+ -->
+<!-- <mat-form-field>
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input formControlName="filter">
-  </mat-form-field>
+  </mat-form-field> -->
   
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8"> 
   
@@ -67,11 +67,11 @@ MAT TABLE  -->
     </ng-container>
    
 <!--     Años Column  -->
-<!-- 
-    <ng-container matColumnDef="Años">
+
+    <ng-container matColumnDef="Years">
       <th mat-header-cell *matHeaderCellDef> Años </th>
-      <td mat-cell *matCellDef="let element"> {{element.AÑOS}} </td>
-    </ng-container> -->
+      <td mat-cell *matCellDef="let element"> {{element.YEARS}} </td>
+    </ng-container>
    
 <!--     OPT Column  -->
 
@@ -88,9 +88,9 @@ MAT TABLE  -->
    
 <!--     Row shown when there is no matching data.  -->
 
-    <tr class="mat-row" *matNoDataRow>
+   <!--  <tr class="mat-row" *matNoDataRow>
       <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
-    </tr>
+    </tr> -->
   </table>
-   
-</form>
+   <!-- 
+</form> -->
