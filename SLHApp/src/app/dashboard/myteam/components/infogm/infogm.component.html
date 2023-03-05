@@ -1,7 +1,21 @@
-<!-- <br>
-<h1 align="center"> Detalle del GM </h1>
-<mat-divider></mat-divider>
-<br>
+
+
+  
+ 
+
+ <mat-grid-list cols="1" *ngIf="!gminfo; else divLoaded">
+    <mat-grid-tile>
+        <mat-spinner></mat-spinner>
+    </mat-grid-tile>
+</mat-grid-list>
+
+<ng-template #divLoaded> 
+
+
+<!-- <br> -->
+<!-- <h1 align="center"> Detalle del GM </h1>
+ --><mat-divider></mat-divider>
+<!-- <br> -->
 
 <div fxLayout="row wrap" fxLayoutAlign="center end">
 
@@ -25,37 +39,45 @@
         <mat-card-content align="center">
 
 
-                <mat-list-item >Manager : {{ gminfo.Nickname }}</mat-list-item>
+                <mat-list-item >Manager : <strong>{{ gminfo.Nickname }}</strong></mat-list-item>
                 
                 <mat-list-item >Numero de Jugadores : {{ gminfo.JUGADORES }}</mat-list-item>
                 <mat-list-item >Numero de Derechos : {{ gminfo.DERECHOS }}</mat-list-item>
                 <mat-list-item >Ingresos : 130 </mat-list-item>
                 <mat-list-item >Gastos : {{ gminfo.Salarios }}</mat-list-item>
-                <mat-list-item >CAP Libre: {{ gminfo.SalarioLibre }}</mat-list-item>
+                <mat-list-item >CAP Libre : <strong>{{ gminfo.SalarioLibre }}</strong></mat-list-item>
                
 
         </mat-card-content>
 
         <br>
-        <mat-divider></mat-divider>
+         <mat-divider></mat-divider>
         <br>
-
+        
         <mat-card-footer>
-            <mat-card-title> <mat-icon material-icons-outlined>email</mat-icon> E-mail  : {{ gminfo.Mail2 }} </mat-card-title>
-
+            <a mat-card-title><mat-icon material-icons-outlined> email</mat-icon> E-mail  : {{ gminfo.Mail2 }} </a>
+            <br>
+            
             <span class="spacer"></span>
 
-            <mat-card-subtitle><mat-icon material-icons-sharp>send</mat-icon>Telegram : {{ gminfo.Telegram }}</mat-card-subtitle>
-        
+
+            <a mat-card-subtitle><mat-icon material-icons-sharp> send</mat-icon>Telegram : {{ gminfo.Telegram }}</a>
+
         </mat-card-footer>
+            <br>
+        <mat-card-actions>
+            <span class="spacer"></span>
+            <button mat-fab extended color="primary" routerLink="/dashboard/myteam/players">
+                <mat-icon>groups</mat-icon>Roster</button>
+        </mat-card-actions>
+        
+       
     
     </mat-card>
 
-    </div> -->
-<!-- 
-    <app-roster></app-roster> -->
-<!-- 
-  
- <pre>{{ gminfo.EQUIPO}}</pre>   
- <pre>{{ gminfo.Mail2}}</pre>    -->
- <pre>{{ gminfo.Nickname}}</pre>   
+    </div>
+
+
+</ng-template>
+
+<!--   <pre>{{ gminfo | json }}</pre>    -->

@@ -7,6 +7,7 @@ import { MaterialModule } from '../material/material.module';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { HeadComponent } from './components/head/head.component';
 import { MenunavComponent } from './components/menunav/menunav.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { MenunavComponent } from './components/menunav/menunav.component';
     HomeComponent,
     SidenavComponent,
     HeadComponent,
-    MenunavComponent
+    MenunavComponent,
+    SpinnerComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +26,8 @@ import { MenunavComponent } from './components/menunav/menunav.component';
   exports: [
     SidenavComponent,
     HeadComponent,
-    MenunavComponent
+    MenunavComponent,
+    SpinnerComponent
   ]
 })
 export class DashboardModule { }

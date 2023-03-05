@@ -21,28 +21,39 @@ table {
 `
   ]
 })
+
+
+
+
 export class RosterComponent  implements OnInit {
 
 
  /*  miForm : FormGroup = new FormGroup({
 
-    filter: new FormControl('buscar')
+    filter: new FormControl()
   }); */
 
   AKA!: string ;
 
   myroster!: MyPlayer[] ;
 
-  
- displayedColumns: string[] = ['Tipo', 'Pos', 'Nombre', 'Salario', 'Years', 'Opt' ];
- dataSource = new MatTableDataSource(this.myroster);
-
 /* 
- applyFilter(event: Event) {
-   const filterValue = (event.target as HTMLInputElement).value;
-   this.dataSource.filter = filterValue.trim().toLowerCase();
- } */
+  ELEMENT_DATA: MyPlayer[] = []; */
 
+  
+  
+ displayedColumns: string[] = ['TIPO', 'POS', 'PLAYER', 'SALARIO', 'YEARS', 'OPT' ];
+
+/*  dataSource = this.myroster;
+ */ dataSource = new MatTableDataSource(this.myroster);
+
+
+/*  applyFilter(event: Event) {
+   const filterValue = (event.target as HTMLInputElement).value;
+   this.dataSource.filter = filterValue.trim().toLowerCase(); 
+   
+ }
+*/
 
   constructor ( private infogmS : InfogmService) {}
 

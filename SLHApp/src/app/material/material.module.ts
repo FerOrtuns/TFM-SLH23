@@ -11,6 +11,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatTableModule} from '@angular/material/table';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
 
 @NgModule({
   exports: [
@@ -24,7 +26,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatGridListModule,
     MatProgressSpinnerModule,
     MatTableModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatInputModule
     
   ]
 })

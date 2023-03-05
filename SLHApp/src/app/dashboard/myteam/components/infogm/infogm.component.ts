@@ -13,6 +13,10 @@ export class InfogmComponent implements OnInit {
 idGM! : number; 
 
 gminfo!: MyGM ;
+/* 
+loaded: boolean = false;
+
+if (gminfo: MyGM){this.loaded = true;}; */
 
 
 constructor ( private infogmS : InfogmService) {}
