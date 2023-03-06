@@ -2,35 +2,35 @@
 <mat-toolbar class="menubar">
 
     <button mat-button [matMenuTriggerFor]="myteam">Mi Equipo</button>
-<mat-menu #myteam="matMenu" yPosition="below">
-  <button mat-menu-item routerLink="/dashboard/myteam/infoGM" routerLinkActive="active">Info</button>
-  <mat-icon mat-list-item>fingerprint</mat-icon>
-  <button mat-menu-item routerLink="/dashboard/myteam/ofertasEnviadas" routerLinkActive="active">Ofertas Enviadas</button>
-  <mat-icon mat-list-item>send</mat-icon>
-  <button mat-menu-item routerLink="/dashboard/myteam/ofertasRecibidas" routerLinkActive="active">Ofertas Recibidas</button>
-  <mat-icon mat-list-item>recived</mat-icon>
+<mat-menu #myteam="matMenu">
+  <button mat-menu-item routerLink="/dashboard/myteam/infoGM" routerLinkActive="active"><mat-icon mat-list-item>fingerprint</mat-icon>Info</button>
+  
+  <button mat-menu-item routerLink="/dashboard/myteam/ofertasEnviadas" routerLinkActive="active"><mat-icon mat-list-item>send</mat-icon>Ofertas Enviadas</button>
+  
+  <button mat-menu-item routerLink="/dashboard/myteam/ofertasRecibidas" routerLinkActive="active"><mat-icon mat-list-item>business</mat-icon>Ofertas Recibidas</button>
+  
 </mat-menu>
 
 <button mat-button [matMenuTriggerFor]="miliga">Mi Liga</button>
-<mat-menu #miliga="matMenu" yPosition="below">
+<mat-menu #miliga="matMenu">
   <button mat-menu-item>Item 1</button>
   <button mat-menu-item>Item 2</button>
 </mat-menu>
 
 <button mat-button [matMenuTriggerFor]="minba">Mi NBA</button>
-<mat-menu #minba="matMenu" xPosition="before" yPosition="below">
+<mat-menu #minba="matMenu">
   <button mat-menu-item>Item 1</button>
   <button mat-menu-item>Item 2</button>
 </mat-menu>
 
 
-<button mat-button [matMenuTriggerFor]="comis">Comisionado</button>
+<button mat-button [matMenuTriggerFor]="comis" disabled="true">Comisionado</button>
 <mat-menu #comis="matMenu" xPosition="after" yPosition="below">
   <button mat-menu-item>Item 1</button>
   <button mat-menu-item>Item 2</button>
 </mat-menu>
 
-<button mat-button [matMenuTriggerFor]="admin">Admin</button>
+<button mat-button [matMenuTriggerFor]="admin" disabled="true">Admin</button>
 <mat-menu #admin="matMenu">
   <button mat-menu-item>Item 1</button>
   <button mat-menu-item>Item 2</button>

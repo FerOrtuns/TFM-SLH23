@@ -9,6 +9,8 @@ import { HeadComponent } from './components/head/head.component';
 import { MenunavComponent } from './components/menunav/menunav.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 @NgModule({
   declarations: [
@@ -21,13 +23,15 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    MaterialModule
+    MaterialModule,
+    FlexLayoutModule
   ],
   exports: [
     SidenavComponent,
     HeadComponent,
     MenunavComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    FlexLayoutModule
   ]
 })
 export class DashboardModule { }

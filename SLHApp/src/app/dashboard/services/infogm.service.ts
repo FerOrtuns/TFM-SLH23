@@ -11,8 +11,8 @@ import { MyGM } from '../interfaces/MyGM.interface';
 export class InfogmService {
 
   private _baseUrl: string = environment.baseUrl;
-  private idGM: number = 1 ; //TODO: cambiar esto a var
-  private AKA: string = "ATL" ; //TODO: cambiar esto a var
+  private idGM: number = 22 ; //TODO: cambiar esto a var
+  private AKA: string = "LAK" ; //TODO: cambiar esto a var
   
 
   constructor(private http: HttpClient) { }

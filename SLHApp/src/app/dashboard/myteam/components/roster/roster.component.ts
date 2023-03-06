@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { MyPlayer } from 'src/app/dashboard/interfaces/MyPlayer.interface';
 
 import { InfogmService } from 'src/app/dashboard/services/infogm.service';
+import { MyGM } from '../../../interfaces/MyGM.interface';
 
 @Component({
   selector: 'app-roster',
@@ -18,6 +19,26 @@ table {
   font-size: 14px;
   width: 100%;
 }
+.mypTIPO{
+    border-right: 1px solid currentColor;
+    background: #334455;
+}
+.mypTIPO2{
+    border-right: 1px solid currentColor;
+    text-align: center;
+    
+}
+.mypTIPO3{
+    text-align: center;
+    background-color: #334455;
+    color: pink;
+    font-size: x-large;
+}
+.mypNONMBRE{
+    background: #334455;
+    color: pink;
+    font-size: x-large;
+}
 `
   ]
 })
@@ -27,6 +48,7 @@ table {
 
 export class RosterComponent  implements OnInit {
 
+  @Input() gminfo!: MyGM;
 
  /*  miForm : FormGroup = new FormGroup({
 
@@ -62,32 +84,6 @@ export class RosterComponent  implements OnInit {
     this.infogmS.getRoster(this.AKA)
                 .subscribe( resp => {
                   this.myroster = resp;
-
-                     /* this.roster.push(i[]); */
-                  
-/*                   this.plantilla.push(this.myroster.myRoster!);
- *//*                  this.roster =  JSON.stringify(resp);
-
- */
-
-/*                     this.roster = resp;
- *//* 
-                 this.roster =  JSON.stringify(this.myroster);
-                 this.plantilla =  JSON.stringify(this.roster); */
-
-
- /*                  
- */                  console.log(this.myroster);
-/*                   console.log(this.plantilla);
- *//*                   console.log('myroster',this.myroster);
- *//*                   console.log('plantilla',this.plantilla);
- */                  
                 })
-                
-                
-  }
-
-
-  
-
-}
+          }
+};
