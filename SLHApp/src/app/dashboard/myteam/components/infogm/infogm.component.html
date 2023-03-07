@@ -87,19 +87,19 @@
             <div fxFlex="100">
                 <div fxFlex="50">
  
-            <a mat-card-content>
-                <!-- <mat-icon material-icons-outlined> email</mat-icon> -->
-                 E-mail  : {{ gminfo.Mail2 }} </a>
+ 
+                    <button mat-fab extended color="accent">
+                        <mat-icon>email</mat-icon>E-mail  : {{ gminfo.Mail2 }}</button>
+    
+                
             </div>
             <div fxFlex="50">
            
-           <!--  <span class="spacer"></span> -->
 
 
-            <a mat-card-conten>
-                <!-- <mat-icon material-icons-sharp> send</mat-icon> -->
-                
-                Telegram : {{ gminfo.Telegram }}</a>
+
+                <button mat-fab extended color="secondary" routerLink="/dashboard/myteam/players">
+                    <mat-icon>near_me</mat-icon>Telegram : {{ gminfo.Telegram }}</button>
 
                     </div>
                 </div>

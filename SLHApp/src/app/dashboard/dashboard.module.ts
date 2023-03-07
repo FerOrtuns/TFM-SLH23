@@ -10,6 +10,7 @@ import { MenunavComponent } from './components/menunav/menunav.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { EquiposComponent } from './myleague/pages/equipos/equipos.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     SidenavComponent,
     HeadComponent,
     MenunavComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    EquiposComponent
   ],
   imports: [
     CommonModule,

@@ -39,7 +39,7 @@ export class InfogmService {
 
   getInfoGMS () : Observable <MyGM[]> {
 
-    const url = `${this._baseUrl}/dashboard/infoGMs/${this.idGM}`
+    const url = `${this._baseUrl}/dashboard/myleague/equipos`
 
     return this.http.get<MyGM[]>(url, )
   }

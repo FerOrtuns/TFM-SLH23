@@ -1,7 +1,7 @@
 
 <mat-toolbar class="menubar">
 
-    <button mat-button [matMenuTriggerFor]="myteam">Mi Equipo</button>
+    <button mat-fab extended color="primary" [matMenuTriggerFor]="myteam"><strong>Mi Equipo</strong></button>
 <mat-menu #myteam="matMenu">
   <button mat-menu-item routerLink="/dashboard/myteam/infoGM" routerLinkActive="active"><mat-icon mat-list-item>fingerprint</mat-icon>Info</button>
   
@@ -11,26 +11,26 @@
   
 </mat-menu>
 
-<button mat-button [matMenuTriggerFor]="miliga">Mi Liga</button>
+<button mat-fab extended color="primary" [matMenuTriggerFor]="miliga"><strong>Mi Liga</strong></button>
 <mat-menu #miliga="matMenu">
-  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item routerLink="/dashboard/myleague/equipos" routerLinkActive="active"> Equipos </button>
   <button mat-menu-item>Item 2</button>
 </mat-menu>
 
-<button mat-button [matMenuTriggerFor]="minba">Mi NBA</button>
+<button mat-fab extended color="accent" [matMenuTriggerFor]="minba"><strong>NBA</strong></button>
 <mat-menu #minba="matMenu">
   <button mat-menu-item>Item 1</button>
   <button mat-menu-item>Item 2</button>
 </mat-menu>
 
 
-<button mat-button [matMenuTriggerFor]="comis" disabled="true">Comisionado</button>
-<mat-menu #comis="matMenu" xPosition="after" yPosition="below">
+<button mat-fab extended color="warn" [matMenuTriggerFor]="comis" disabled="true">Comisionado</button>
+<mat-menu #comis="matMenu">
   <button mat-menu-item>Item 1</button>
   <button mat-menu-item>Item 2</button>
 </mat-menu>
 
-<button mat-button [matMenuTriggerFor]="admin" disabled="true">Admin</button>
+<button mat-fab extended color="basic" [matMenuTriggerFor]="admin" disabled="true">Admin</button>
 <mat-menu #admin="matMenu">
   <button mat-menu-item>Item 1</button>
   <button mat-menu-item>Item 2</button>
@@ -40,7 +40,8 @@
 
     <span class="spacer"></span>
     
-    <pre>{{ user.name }}</pre>
+    <button mat-fab extended color="warn">{{ user.name }}</button>
+    
     <!-- <pre>{{ user.email }}</pre> -->
     <!-- <pre>{{ user.uid }}</pre> -->
     

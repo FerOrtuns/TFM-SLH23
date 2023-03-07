@@ -30,6 +30,7 @@ app.use(express.json());
 // RUTAS
 
 app.use('/slh/dashboard/myteam/infoGMs', require('./routes/dashboard') );
+app.use('/slh/dashboard/myleague/equipos', require('./routes/equipos') );
 app.use('/slh/dashboard/myteam/players', require('./routes/players') );
 app.use('/slh/auth', require('./routes/auth') );
 

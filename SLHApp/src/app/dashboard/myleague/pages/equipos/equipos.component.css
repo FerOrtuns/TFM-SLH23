@@ -1,0 +1,28 @@
+table {
+    width: 100%;
+  }
+  
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  .mypTIPO{
+      border-right: 1px solid currentColor;
+      background: #334455;
+  }
+  .mypTIPO2{
+      border-right: 1px solid currentColor;
+      text-align: center;
+      
+  }
+  .equiposTableHeader{
+      text-align: center;
+      background-color: #222222;
+      color: #e70768;
+      font-size: x-large;
+  }
+  .mypNONMBRE{
+      background-color: #334455;
+      color: pink;
+      font-size: x-large;
+  }

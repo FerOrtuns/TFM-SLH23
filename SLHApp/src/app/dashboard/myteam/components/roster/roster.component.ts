@@ -31,12 +31,12 @@ table {
 .mypTIPO3{
     text-align: center;
     background-color: #334455;
-    color: pink;
+    color: #e70768;
     font-size: x-large;
 }
 .mypNONMBRE{
     background: #334455;
-    color: pink;
+    color: #e70768;
     font-size: x-large;
 }
 `
@@ -48,7 +48,7 @@ table {
 
 export class RosterComponent  implements OnInit {
 
-  @Input() gminfo!: MyGM;
+ /*  @Input() gminfo!: MyGM; */
 
  /*  miForm : FormGroup = new FormGroup({
 
