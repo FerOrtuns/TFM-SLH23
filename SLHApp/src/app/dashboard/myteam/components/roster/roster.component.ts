@@ -11,40 +11,9 @@ import { Team } from '../../../interfaces/MyPlayer.interface';
 @Component({
   selector: 'app-roster',
   templateUrl: './roster.component.html',
-  styles: [
-    `
-table {
-  width: 100%;
-}
-
-.mat-mdc-form-field {
-  font-size: 14px;
-  width: 100%;
-}
-.mypTIPO{
-    border-right: 1px solid currentColor;
-    background: #334455;
-}
-.mypTIPO2{
-    border-right: 1px solid currentColor;
-    text-align: center;
-    
-}
-.mypTIPO3{
-    text-align: center;
-    background-color: #334455;
-    color: #e70768;
-    font-size: x-large;
-}
-.mypNONMBRE{
-    background: #334455;
-    color: #e70768;
-    font-size: x-large;
-}
-`
-  ]
+  styleUrls: ['./roster.component.css']
+  
 })
-
 
 
 

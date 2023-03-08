@@ -14,25 +14,15 @@ export class EquiposComponent implements OnInit {
 
   AKA! : string ;
   
-/*   search: string = this.equiposinfo.forEach((AKA)=>{
 
-      if (this.equiposinfo.aka)
-      return AKA
-  }) */
+ /*  myaka(element: MyGM){
 
-
-  myaka(element: MyGM){
-/* 
- element.innerText(); */
 
   this.AKA = element.AKA;
 
   window.location.href = "/dashboard/myteam/player/"+this.AKA;  
-
-    /* 
-     */
-    
-  };
+ 
+  }; */
 
   dataSource = new MatTableDataSource(this.equiposinfo);
 

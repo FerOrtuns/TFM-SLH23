@@ -12,8 +12,8 @@ export class InfogmService {
 
   private _baseUrl: string = environment.baseUrl;
   private idGM: number = 1 ; //TODO: cambiar esto a var
-  
-  private AKA!: string ; //TODO: cambiar esto a var
+  /* 
+  private AKA!: string ; //TODO: cambiar esto a var */
   
 
   constructor(private http: HttpClient) { }

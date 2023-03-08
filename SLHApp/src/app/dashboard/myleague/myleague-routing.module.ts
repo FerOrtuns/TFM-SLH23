@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from '../pages/home/home.component';
 import { EquiposComponent } from './pages/equipos/equipos.component';
-import { RostersComponent } from './pages/rosters/rosters.component';
 
 const routes: Routes = [
   {
@@ -13,11 +12,6 @@ const routes: Routes = [
         path:'equipos',
         component: EquiposComponent
       },
-      {
-        path:'rosters/:AKA',
-        component: RostersComponent
-      },
-    
       {
         path:'**', redirectTo:''
       }

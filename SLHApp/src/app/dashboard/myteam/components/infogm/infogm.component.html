@@ -98,7 +98,7 @@
 
 
 
-                <button mat-fab extended color="secondary" [routerLink]="['/dashboard/myteam/players', gminfo.AKA]">
+                <button mat-fab extended color="secondary">
                     <mat-icon>near_me</mat-icon>Telegram : {{ gminfo.Telegram }}</button>
 
                     </div>
@@ -108,7 +108,7 @@
             
         <mat-card-actions>
             <span class="spacer"></span>
-            <button mat-fab extended color="primary" routerLink="/dashboard/myteam/players">
+            <button mat-fab extended color="primary"  [routerLink]="['/dashboard/myteam/players', gminfo.AKA]">
                 <mat-icon>groups</mat-icon>Roster</button>
         </mat-card-actions>
         
