@@ -11,8 +11,9 @@ import { MyGM } from '../interfaces/MyGM.interface';
 export class InfogmService {
 
   private _baseUrl: string = environment.baseUrl;
-  private idGM: number = 22 ; //TODO: cambiar esto a var
-  private AKA: string = "LAK" ; //TODO: cambiar esto a var
+  private idGM: number = 1 ; //TODO: cambiar esto a var
+  
+  private AKA!: string ; //TODO: cambiar esto a var
   
 
   constructor(private http: HttpClient) { }
@@ -30,7 +31,7 @@ export class InfogmService {
 
   getRoster ( AKA: string ) : Observable <MyPlayer[]> {
 
-    const url = `${this._baseUrl}/dashboard/myteam/players/${this.AKA}`
+    const url = `${this._baseUrl}/dashboard/myteam/players/${AKA}`
 
     return this.http.get<MyPlayer[]>(url)
   };

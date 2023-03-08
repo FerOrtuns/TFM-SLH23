@@ -12,6 +12,28 @@ export class EquiposComponent implements OnInit {
 
   equiposinfo!: MyGM [];
 
+  AKA! : string ;
+  
+/*   search: string = this.equiposinfo.forEach((AKA)=>{
+
+      if (this.equiposinfo.aka)
+      return AKA
+  }) */
+
+
+  myaka(element: MyGM){
+/* 
+ element.innerText(); */
+
+  this.AKA = element.AKA;
+
+  window.location.href = "/dashboard/myteam/player/"+this.AKA;  
+
+    /* 
+     */
+    
+  };
+
   dataSource = new MatTableDataSource(this.equiposinfo);
 
   displayedColumns: string[] = [ 'Roster', 'alt_img', 'Nickname', 'JUGADORES', 'Salarios', 'SalarioLibre', 'Mail2' ];

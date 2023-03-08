@@ -13,7 +13,7 @@
 
 <button mat-fab extended color="primary" [matMenuTriggerFor]="miliga"><strong>Mi Liga</strong></button>
 <mat-menu #miliga="matMenu">
-  <button mat-menu-item routerLink="/dashboard/myleague/equipos" routerLinkActive="active"> Equipos </button>
+  <button mat-menu-item routerLink="/dashboard/myleague/equipos" routerLinkActive="active"><mat-icon mat-list-item>groups</mat-icon> Equipos </button>
   <button mat-menu-item>Item 2</button>
 </mat-menu>
 
@@ -40,7 +40,7 @@
 
     <span class="spacer"></span>
     
-    <button mat-fab extended color="warn">{{ user.name }}</button>
+    <button mat-raised-button extended color="warn">{{ user.name }}</button>
     
     <!-- <pre>{{ user.email }}</pre> -->
     <!-- <pre>{{ user.uid }}</pre> -->

@@ -16,7 +16,7 @@ const routes: Routes = [
         component: InfogmComponent
       },
       {
-        path:'players',
+        path:'players/:AKA',
         component: RosterComponent
       },
       {

@@ -1,10 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
+import { ActivatedRoute } from '@angular/router';
 import { MyPlayer } from 'src/app/dashboard/interfaces/MyPlayer.interface';
 
 import { InfogmService } from 'src/app/dashboard/services/infogm.service';
 import { MyGM } from '../../../interfaces/MyGM.interface';
+import { Team } from '../../../interfaces/MyPlayer.interface';
 
 @Component({
   selector: 'app-roster',
@@ -55,12 +57,14 @@ export class RosterComponent  implements OnInit {
     filter: new FormControl()
   }); */
 
-  AKA!: string ;
-
+  AKA!: string;
   myroster!: MyPlayer[] ;
-
 /* 
-  ELEMENT_DATA: MyPlayer[] = []; */
+  AKA: string = this.myroster.TEAM;
+ */
+/* 
+
+ELEMENT_DATA: MyPlayer[] = []; */
 
   
   
@@ -77,13 +81,18 @@ export class RosterComponent  implements OnInit {
  }
 */
 
-  constructor ( private infogmS : InfogmService) {}
+  constructor ( private infogmS : InfogmService,
+                private route: ActivatedRoute) {}
 
   ngOnInit() {
+
+    let AKA  = this.route.snapshot.paramMap.get("AKA");
     
-    this.infogmS.getRoster(this.AKA)
+    this.infogmS.getRoster(AKA!)
                 .subscribe( resp => {
                   this.myroster = resp;
+
+                  
                 })
           }
 };
