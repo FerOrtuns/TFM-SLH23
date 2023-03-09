@@ -36,9 +36,7 @@ export class EquiposComponent implements OnInit {
       this.infogmS.getInfoGMS()
                   .subscribe( resp => {
                     this.equiposinfo = resp;
-                    
-                  })
-                  
+                          
+                 })               
     }
-
 }

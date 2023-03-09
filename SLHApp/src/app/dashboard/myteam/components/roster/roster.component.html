@@ -1,9 +1,4 @@
-<!-- 
-<app-infogm></app-infogm> -->
 
-<!-- <h1 align="center"> Roster de  </h1>
-<mat-divider></mat-divider>
-<br> -->
 
 <mat-grid-list cols="1" *ngIf="!dataSource; else divLoaded2">
   <mat-grid-tile>
@@ -13,17 +8,12 @@
 
 
 <ng-template #divLoaded2>
-  <!-- 
-  <span *ngFor="let myp of myroster"></span> 
 
-      {{myp.TIPO}} : {{myp.POS}} - {{myp.PLAYER}} : {{myp.SALARIO}}
--->
-
-  <!-- 
-
-<div fxLayout="row wrap" fxLayoutAlign="center end"> -->
+<!-- 
+<div fxLayout="row wrap" fxLayoutAlign="center"> -->
 
 
+  <mat-card>
 
 
 <!-- 
@@ -37,16 +27,35 @@
 
 
   </form>  -->
+
+  <mat-grid-list cols="1" *ngIf="!gminfoT; else divLoadedT">
+    <mat-grid-tile>
+        <mat-spinner></mat-spinner>
+    </mat-grid-tile>
+  </mat-grid-list>
+
   
+<ng-template #divLoadedT>
+
   <mat-card>
-    <mat-card-header>
-    <mat-card-title> EQUIPO </mat-card-title>
-<!-- 
+  
+    <mat-card-header class="tituloEquipo">
+    <mat-card-title style="margin-left: 25px;"> {{gminfoT.EQUIPO}} </mat-card-title>  
+    <br>
+    <br>
+    <mat-card-subtitle style="margin-left: 25px;"> {{ gminfoT.AKA }}</mat-card-subtitle>
+
         <span class="spacer"></span>
 
-    <img mat-card-image [src]=[gminfo.alt_img]> -->
+    <img mat-card-image [src]=[gminfoT.alt_img] style="margin-right: 25px;">
 
-</mat-card-header>
+    </mat-card-header>
+</mat-card>
+
+    
+</ng-template>
+
+
 <br>
 <mat-divider></mat-divider>
 <br>
@@ -127,8 +136,11 @@
     
 </mat-selection-list> -->
   
+<!-- 
+</div> -->
 
 </ng-template>
+
 
 <!-- <p>
     Options selected: {{myp2.selectedOptions.selected.length}}

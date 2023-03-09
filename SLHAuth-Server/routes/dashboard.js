@@ -5,7 +5,7 @@ const { infoGMs } = require('../controllers/dashInfoGMs.controller');
 const router = Router();
 
 
-router.get('/:idGM', infoGMs);
+router.get('/:AKA', infoGMs);
 
 
 

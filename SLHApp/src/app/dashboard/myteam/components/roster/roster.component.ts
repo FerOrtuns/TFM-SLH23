@@ -2,11 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
+import { MyGM } from 'src/app/dashboard/interfaces/MyGM.interface';
 import { MyPlayer } from 'src/app/dashboard/interfaces/MyPlayer.interface';
 
 import { InfogmService } from 'src/app/dashboard/services/infogm.service';
-import { MyGM } from '../../../interfaces/MyGM.interface';
-import { Team } from '../../../interfaces/MyPlayer.interface';
 
 @Component({
   selector: 'app-roster',
@@ -19,15 +18,23 @@ import { Team } from '../../../interfaces/MyPlayer.interface';
 
 export class RosterComponent  implements OnInit {
 
- /*  @Input() gminfo!: MyGM; */
-
+/*   @Input() equiposinfo!: MyGM;
+ */
  /*  miForm : FormGroup = new FormGroup({
 
     filter: new FormControl()
   }); */
 
-  AKA!: string;
+  /* AKA!: string; */
   myroster!: MyPlayer[] ;
+  gminfoT!: MyGM ;
+
+  
+/*   loaded: boolean = false;
+
+  if (gminfoT && myroster){this.loaded = true;}; */
+
+
 /* 
   AKA: string = this.myroster.TEAM;
  */
@@ -36,7 +43,8 @@ export class RosterComponent  implements OnInit {
 ELEMENT_DATA: MyPlayer[] = []; */
 
   
-  
+/* Equipo: string = this.gminfo.EQUIPO!;
+ */  
  displayedColumns: string[] = ['TIPO', 'POS', 'PLAYER', 'SALARIO', 'YEARS', 'OPT' ];
 
 /*  dataSource = this.myroster;
@@ -59,9 +67,15 @@ ELEMENT_DATA: MyPlayer[] = []; */
     
     this.infogmS.getRoster(AKA!)
                 .subscribe( resp => {
-                  this.myroster = resp;
-
-                  
+                  this.myroster = resp;                  
                 })
+                
+                
+    this.infogmS.getInfoGMByAKA(AKA!)
+                .subscribe(resp=> {
+                  this.gminfoT = resp;
+                })
+
+   
           }
 };

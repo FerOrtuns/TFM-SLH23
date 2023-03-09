@@ -3,7 +3,7 @@
 
     <button mat-fab extended color="primary" [matMenuTriggerFor]="myteam"><strong>Mi Equipo</strong></button>
 <mat-menu #myteam="matMenu">
-  <button mat-menu-item routerLink="/dashboard/myteam/infoGM" routerLinkActive="active"><mat-icon mat-list-item>fingerprint</mat-icon>Info</button>
+  <button mat-menu-item routerLink="/dashboard/myteam/infoGMs" routerLinkActive="active"><mat-icon mat-list-item>fingerprint</mat-icon>Info</button>
   
   <button mat-menu-item routerLink="/dashboard/myteam/ofertasEnviadas" routerLinkActive="active"><mat-icon mat-list-item>send</mat-icon>Ofertas Enviadas</button>
   
@@ -14,7 +14,7 @@
 <button mat-fab extended color="primary" [matMenuTriggerFor]="miliga"><strong>Mi Liga</strong></button>
 <mat-menu #miliga="matMenu">
   <button mat-menu-item routerLink="/dashboard/myleague/equipos" routerLinkActive="active"><mat-icon mat-list-item>groups</mat-icon> Equipos </button>
-  <button mat-menu-item>Item 2</button>
+  <button mat-menu-item routerLink="/dashboard/myleague/playersfa" routerLinkActive="active"><mat-icon mat-list-item>2k</mat-icon> Agencia Libre </button>
 </mat-menu>
 
 <button mat-fab extended color="accent" [matMenuTriggerFor]="minba"><strong>NBA</strong></button>

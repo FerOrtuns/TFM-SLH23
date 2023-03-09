@@ -11,18 +11,15 @@ import { MyGM } from '../interfaces/MyGM.interface';
 export class InfogmService {
 
   private _baseUrl: string = environment.baseUrl;
-  private idGM: number = 1 ; //TODO: cambiar esto a var
-  /* 
-  private AKA!: string ; //TODO: cambiar esto a var */
   
 
   constructor(private http: HttpClient) { }
 
-  // GET INFO DE UN SOLO GM POR EL IDGM
+  // GET INFO DE UN SOLO GM POR EL aka
 
-  getInfoGM ( idGM: number ) : Observable <MyGM> {
+  getInfoGMByAKA ( AKA: string  ) : Observable <MyGM> {
 
-    const url = `${this._baseUrl}/dashboard/myteam/infoGMs/${this.idGM}`
+    const url = `${this._baseUrl}/dashboard/myteam/infoGMs/${AKA}`
 
     return this.http.get<MyGM>(url)
   };
@@ -36,12 +33,28 @@ export class InfogmService {
     return this.http.get<MyPlayer[]>(url)
   };
 
-  // GET INFPO DE TODOS LOS GMS A LA VEZ
+  // GET DE ROSTER POR AKA DE LA DB DE PLAYERS
+
+  getFA () : Observable <MyPlayer[]> {
+
+    const url = `${this._baseUrl}/dashboard/myteam/playersfa`
+
+    return this.http.get<MyPlayer[]>(url)
+  };
+
+  // GET INFO DE TODOS LOS GMS A LA VEZ
 
   getInfoGMS () : Observable <MyGM[]> {
 
     const url = `${this._baseUrl}/dashboard/myleague/equipos`
 
     return this.http.get<MyGM[]>(url, )
+  }
+
+  getInfoGmByEmail (email: string) : Observable <MyGM> {
+
+    const url = `${this._baseUrl}/dashboard/myteam/infoGM/${email}`
+
+    return this.http.get<MyGM>(url, )
   }
 }
