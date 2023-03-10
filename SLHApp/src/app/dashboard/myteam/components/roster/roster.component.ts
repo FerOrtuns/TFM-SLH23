@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
@@ -18,14 +18,13 @@ import { InfogmService } from 'src/app/dashboard/services/infogm.service';
 
 export class RosterComponent  implements OnInit {
 
-/*   @Input() equiposinfo!: MyGM;
- */
+ 
  /*  miForm : FormGroup = new FormGroup({
 
     filter: new FormControl()
   }); */
 
-  /* AKA!: string; */
+
   myroster!: MyPlayer[] ;
   gminfoT!: MyGM ;
 
@@ -34,21 +33,10 @@ export class RosterComponent  implements OnInit {
 
   if (gminfoT && myroster){this.loaded = true;}; */
 
-
-/* 
-  AKA: string = this.myroster.TEAM;
- */
-/* 
-
-ELEMENT_DATA: MyPlayer[] = []; */
-
   
-/* Equipo: string = this.gminfo.EQUIPO!;
- */  
- displayedColumns: string[] = ['TIPO', 'POS', 'PLAYER', 'SALARIO', 'YEARS', 'OPT' ];
+displayedColumns: string[] = ['TIPO', 'POS', 'PLAYER', 'SALARIO', 'YEARS', 'OPT' ];
 
-/*  dataSource = this.myroster;
- */ dataSource = new MatTableDataSource(this.myroster);
+dataSource = new MatTableDataSource(this.myroster);
 
 
 /*  applyFilter(event: Event) {

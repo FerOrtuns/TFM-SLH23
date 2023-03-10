@@ -12,6 +12,9 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatTableModule} from '@angular/material/table';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 @NgModule({
@@ -27,7 +30,10 @@ import { MatInputModule } from '@angular/material/input';
     MatProgressSpinnerModule,
     MatTableModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatBadgeModule,
+    MatCheckboxModule,
+    MatTabsModule
     
   ]
 })

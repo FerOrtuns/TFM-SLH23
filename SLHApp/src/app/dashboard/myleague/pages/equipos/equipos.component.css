@@ -17,8 +17,8 @@ table {
   }
   .equiposTableHeader{
       text-align: center;
-      background-color: #222222;
-      color: #e70768;
+      background: linear-gradient(#e70768, #444444, );
+      color: #FFFFFF;
       font-size: x-large;
   }
   .mypNONMBRE{

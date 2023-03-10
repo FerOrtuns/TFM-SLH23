@@ -25,10 +25,6 @@ const routes: Routes = [
         component: RosterComponent
       },
       {
-        path:'playersfa',
-        component: RosterComponent
-      },
-      {
         path:'ofertasEnviadas',
         component: OfertasEnviadasComponent
       },
