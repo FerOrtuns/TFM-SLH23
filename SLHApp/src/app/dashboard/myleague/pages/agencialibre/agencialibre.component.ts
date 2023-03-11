@@ -13,9 +13,11 @@ export class AgencialibreComponent implements OnInit {
 
   
   pujaFAForm : FormGroup = this.fb.group({
-    name: ['',[Validators.required, Validators.minLength(3)]],
-    ofertaFA: ['',[Validators.required, Validators.email]],
-    years: ['',[Validators.required, Validators.minLength(6)]],
+    nameP: ['',[Validators.required]],
+    ofertaFA: ['',[Validators.required]],
+    years: ['',[Validators.required]],
+    team: ['',[Validators.required]],
+    startTimeOffer: ['',[Validators.required]],
   })
 
 /*     filter: new FormControl()
@@ -23,7 +25,7 @@ export class AgencialibreComponent implements OnInit {
 
 
 
-
+public page : number = 0;
  
   
   
@@ -49,4 +51,18 @@ export class AgencialibreComponent implements OnInit {
 })
   }
 
+  nextPage(){
+
+    if(this.page< this.listaFAs.length-5){
+      this.page += 5;
+    }
+    
+  }
+
+  prevPage(){
+    if(this.page > 0){
+      this.page -= 5;
+    }
+  
+  }
 }

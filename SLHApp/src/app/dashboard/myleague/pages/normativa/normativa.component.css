@@ -1,0 +1,13 @@
+pdf-viewer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(5px 5px 5px #222222);
+  }
+  textarea {
+      margin-top: 15px; 
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+  }

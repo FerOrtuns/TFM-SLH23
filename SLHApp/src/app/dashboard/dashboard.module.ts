@@ -9,6 +9,7 @@ import { MenunavComponent } from './components/menunav/menunav.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { PageFilterPipe } from './pipes/page-filter.pipe';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     HeadComponent,
     MenunavComponent,
     SpinnerComponent,
+    PageFilterPipe,
     
   ],
   imports: [
@@ -29,7 +31,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     HeadComponent,
     MenunavComponent,
     SpinnerComponent,
-    FlexLayoutModule
+    FlexLayoutModule,
+    PageFilterPipe
   ]
 })
 export class DashboardModule { }

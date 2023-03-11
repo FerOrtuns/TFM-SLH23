@@ -59,7 +59,8 @@
   
   <mat-card-content> 
   
-    <table mat-table [dataSource]=listaFAs class="mat-elevation-z8"> 
+    <table mat-table [dataSource]="listaFAs | pageFilter:page" class="mat-elevation-z8"> 
+<!--     <table mat-table *ngFor="let element of listaFAs | pageFilter" class="mat-elevation-z8">  -->
     <!-- <table mat-table *ngFor="let element of myroster" class="mat-elevation-z8">  -->
   
    
@@ -137,6 +138,15 @@
     </table>
      
   </mat-card-content>
+
+  <mat-card-actions>
+
+    <button mat-raised-button extended color="warn" (click)="prevPage()" >
+        <mat-icon>navigate_before</mat-icon>Anterior</button>
+    <span class="spacer"></span>
+            <button mat-raised-button extended color="warn" (click)="nextPage()" >
+                <mat-icon>navigate_next</mat-icon>Siguiente</button>
+  </mat-card-actions>
   
   </mat-card>
   <!--   <mat-selection-list #myAsset>
