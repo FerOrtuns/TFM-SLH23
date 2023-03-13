@@ -79,11 +79,12 @@
             <td mat-cell *matCellDef="let element"  class="mypTIPO2"> 
                 <mat-card-actions>
                     <!-- <span class="spacer"></span> -->
-                    <button mat-fab extended color="accent"  [routerLink]="['/dashboard/myteam/players', element.AKA]">
+                    <button mat-fab extended color="accent" [routerLink]="['/dashboard/myleague/pujar', element.PLAYER]">
                         <mat-icon>2k</mat-icon>Pujar</button>
                 </mat-card-actions>
                 </td>
           </ng-container>
+
    
      
        <ng-container matColumnDef="POS">
@@ -141,10 +142,10 @@
 
   <mat-card-actions>
 
-    <button mat-raised-button extended color="warn" (click)="prevPage()" >
+    <button mat-raised-button extended color="primary" (click)="prevPage()" >
         <mat-icon>navigate_before</mat-icon>Anterior</button>
     <span class="spacer"></span>
-            <button mat-raised-button extended color="warn" (click)="nextPage()" >
+            <button mat-raised-button extended color="primary" (click)="nextPage()" >
                 <mat-icon>navigate_next</mat-icon>Siguiente</button>
   </mat-card-actions>
   

@@ -15,6 +15,7 @@ import { MatInputModule } from '@angular/material/input';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatInputModule,
     MatBadgeModule,
     MatCheckboxModule,
-    MatTabsModule
+    MatTabsModule,
+    MatButtonToggleModule
     
   ]
 })

@@ -11,6 +11,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class AgencialibreComponent implements OnInit {
 
+  PLAYER!: string ; //revisar si hace falta, creo que no..
   
   pujaFAForm : FormGroup = this.fb.group({
     nameP: ['',[Validators.required]],
@@ -25,13 +26,17 @@ export class AgencialibreComponent implements OnInit {
 
 
 
-public page : number = 0;
+
  
   
   
 
 
   listaFAs! : MyPlayer[];
+
+ /*  data: any = this.listaFAs; */
+  
+  public page : number = 0;
 
   
  displayedColumns: string[] = ['PUJAR', 'POS', 'PLAYER', 'SALARIO', 'YEARS','EQUIPO', 'TIMELINE' ];

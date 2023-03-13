@@ -9,4 +9,11 @@ export class SpinnerComponent {
 
   loaded : boolean = false;
 
+/*   
+  loaded : boolean = false;
+
+  if( data ){this.loaded = true;}
+
+ */
+
 }

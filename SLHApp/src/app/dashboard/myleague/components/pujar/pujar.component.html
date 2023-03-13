@@ -1,0 +1,78 @@
+
+
+<mat-grid-list cols="1" *ngIf="!data; else divLoadedPuja">
+    <mat-grid-tile>
+        <mat-spinner></mat-spinner>
+    </mat-grid-tile>
+  </mat-grid-list>
+  
+  
+  <ng-template #divLoadedPuja>
+
+
+<mat-card>
+
+<div class="pujar">
+
+    <mat-card-header>
+        <mat-card-title><small>Hacer Oferta por: </small> 
+            <br>
+            <div class="Player">
+            {{ this.PLAYER}}
+            </div>
+    </mat-card-title>
+    </mat-card-header>
+
+    <br>
+    <mat-divider></mat-divider>
+    <br>
+
+    <mat-card-content>
+
+        <mat-form-field>
+            <mat-label>Salario</mat-label>
+                <input matInput type="number" required>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field>
+            <mat-label>Años</mat-label>
+                <input matInput type="number" required>
+        </mat-form-field>
+
+    </mat-card-content>
+</div>
+
+    <mat-card-actions>
+
+        <div fxLayout="row wrap" fxFlex="100">
+
+           <!--  <div fxFlex="100"> -->
+                <div fxFlex="50" align="center">
+
+        <button mat-raised-button extended color="accent" (click)="cancelar()" routerLink="/dashboard/myleague/playersfa">
+            <mat-icon>cancel</mat-icon>Cancelar</button>
+        <!-- <span class="spacer"></span> -->
+                </div>
+            <div fxFlex="50" align="center">
+                <button mat-raised-button extended color="warn" (click)="pujar()" >
+                    <mat-icon class="material-icons-outlined">check_circle</mat-icon>Pujar</button>
+
+                </div>
+            </div>
+                           
+    </mat-card-actions>
+
+    <div class="pujar">
+        <mat-card-footer>
+
+        Resumen de la operacion : <!-- {{ pujaNew.PLAYER}} -->
+
+       <!--  {{ pujaNew.PLAYER}} | {{pujaNew.startTime}} -->
+
+        </mat-card-footer>
+</div>
+</mat-card>
+
+  </ng-template>

@@ -10,6 +10,11 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { PageFilterPipe } from './pipes/page-filter.pipe';
+import { ButtonPageFilterComponent } from './components/button-page-filter/button-page-filter.component';
+
+import { CountdownModule } from 'ngx-countdown';
+
+const countdown = require('countdown');
 
 
 @NgModule({
@@ -19,20 +24,25 @@ import { PageFilterPipe } from './pipes/page-filter.pipe';
     MenunavComponent,
     SpinnerComponent,
     PageFilterPipe,
+    ButtonPageFilterComponent,
     
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    CountdownModule,
   ],
   exports: [
     HeadComponent,
     MenunavComponent,
     SpinnerComponent,
     FlexLayoutModule,
-    PageFilterPipe
+    PageFilterPipe,
+    ButtonPageFilterComponent,
+    CountdownModule, // revisar?
+    
   ]
 })
 export class DashboardModule { }

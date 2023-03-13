@@ -9,7 +9,8 @@ import { TradeComponent } from './pages/trade/trade.component';
 import { NormativaComponent } from './pages/normativa/normativa.component';
 import  {  PdfViewerModule  }  from  'ng2-pdf-viewer';
 import { FormsModule } from '@angular/forms';
-import { DashboardModule } from "../dashboard.module"; // revisar si es necesario
+import { DashboardModule } from "../dashboard.module";
+import { PujarComponent } from './components/pujar/pujar.component'; // revisar si es necesario
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { DashboardModule } from "../dashboard.module"; // revisar si es necesari
         EquiposComponent,
         AgencialibreComponent,
         TradeComponent,
-        NormativaComponent
+        NormativaComponent,
+        PujarComponent
     ],
     imports: [
         CommonModule,
