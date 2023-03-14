@@ -6,3 +6,49 @@
     text-align: center;
     color: rgb(255, 77, 0);
 }
+
+.validFormAlert{
+    font-size: x-small;
+    color: red;
+    background: black;
+    
+    text-align: center;
+}
+
+.mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  .mypTIPO{
+      border-right: 1px solid currentColor;
+      background: #334455;
+  }
+  .mypTIPO2{
+      border-right: 1px solid currentColor;
+      text-align: center;
+      
+  }
+  .mypTIPO3{
+      text-align: center;
+      background-color: #334455;
+      color: #e70768;
+      font-size: x-large;
+  }
+  .mypNONMBRE{
+      color: #e70768;
+      font-size: x-large;
+      text-align: center;
+      background-color: #334455;
+  }
+
+  .tituloEquipo{
+    background: linear-gradient( #444444,#e70768);
+    color: #FFFFFF;
+    font-size: x-large;
+    align-self: center;
+    width: 100%;
+    padding: 10px;
+  }
+  .cBoxSection {
+    margin: 12px 0;
+  }

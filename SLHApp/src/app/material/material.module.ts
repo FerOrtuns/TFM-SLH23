@@ -11,12 +11,12 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatTableModule} from '@angular/material/table';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
+import {MatInputModule} from '@angular/material/input';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
-
+import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 
 @NgModule({
   exports: [
@@ -35,7 +35,8 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     MatBadgeModule,
     MatCheckboxModule,
     MatTabsModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatBottomSheetModule
     
   ]
 })

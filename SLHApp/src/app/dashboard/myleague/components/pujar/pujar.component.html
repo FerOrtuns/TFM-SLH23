@@ -29,17 +29,27 @@
 
     <mat-card-content>
 
+        <form autocomplete="off" [formGroup]="pujaFAForm">
+
         <mat-form-field>
             <mat-label>Salario</mat-label>
-                <input matInput type="number" required>
+                <input matInput type="number" required formControlName="salarioOffer">
         </mat-form-field>
 
         <br>
 
         <mat-form-field>
             <mat-label>Años</mat-label>
-                <input matInput type="number" required>
+                <input matInput type="number" required formControlName="years">
+
+                
+        <span matCardSubtitle *ngIf="camposNoValidos('years')" class="validFormAlert">Los años de contrato solo pueden ser de 1 a 3 </span>
+
+        
         </mat-form-field>
+
+
+        </form>
 
     </mat-card-content>
 </div>
@@ -56,7 +66,7 @@
         <!-- <span class="spacer"></span> -->
                 </div>
             <div fxFlex="50" align="center">
-                <button mat-raised-button extended color="warn" (click)="pujar()" >
+                <button mat-raised-button extended color="warn" (click)="pujar()" (click)="openBottomSheet()" type="submit" [disabled]="pujaFAForm.invalid">
                     <mat-icon class="material-icons-outlined">check_circle</mat-icon>Pujar</button>
 
                 </div>
@@ -67,12 +77,26 @@
     <div class="pujar">
         <mat-card-footer>
 
-        Resumen de la operacion : <!-- {{ pujaNew.PLAYER}} -->
-
-       <!--  {{ pujaNew.PLAYER}} | {{pujaNew.startTime}} -->
+      <!--   Resumen de la operacion : 
+        
+        <br> -->
+        
 
         </mat-card-footer>
-</div>
+
+    </div>
 </mat-card>
 
   </ng-template>
+<!-- 
+       <span>Valid : <pre>{{pujaFAForm.valid}}</pre> </span>
+       
+       <pre>{{pujaFAForm.value | json}}</pre>
+
+       
+            <pre>{{ PLAYER }}</pre>
+            <pre>{{ startDate | json}}</pre>
+            <pre>{{ EQUIPOOffer }}</pre>
+            <pre>{{ endDate | json }}</pre> -->
+
+           

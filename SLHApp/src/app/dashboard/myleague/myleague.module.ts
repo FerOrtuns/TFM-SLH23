@@ -8,9 +8,10 @@ import { AgencialibreComponent } from './pages/agencialibre/agencialibre.compone
 import { TradeComponent } from './pages/trade/trade.component';
 import { NormativaComponent } from './pages/normativa/normativa.component';
 import  {  PdfViewerModule  }  from  'ng2-pdf-viewer';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardModule } from "../dashboard.module";
-import { PujarComponent } from './components/pujar/pujar.component'; // revisar si es necesario
+import { PujarComponent } from './components/pujar/pujar.component';
+import { PujaFAComponent } from './components/puja-fa/puja-fa.component'; // revisar si es necesario
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { PujarComponent } from './components/pujar/pujar.component'; // revisar 
         AgencialibreComponent,
         TradeComponent,
         NormativaComponent,
-        PujarComponent
+        PujarComponent,
+        PujaFAComponent
     ],
     imports: [
         CommonModule,
@@ -28,6 +30,7 @@ import { PujarComponent } from './components/pujar/pujar.component'; // revisar 
         PdfViewerModule,
         FormsModule,
         DashboardModule,
+        ReactiveFormsModule
     ]
 })
 export class MyleagueModule { }

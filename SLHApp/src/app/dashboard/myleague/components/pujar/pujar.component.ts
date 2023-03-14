@@ -1,7 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/auth/services/auth.service';
 import { MyPuja } from 'src/app/dashboard/interfaces/MyPuja.interface';
+import { InfogmService } from 'src/app/dashboard/services/infogm.service';
 import { MyFecha } from '../../../interfaces/MyFecha.interface';
+import { MyGM } from '../../../interfaces/MyGM.interface';
+import { PujaFAComponent } from '../puja-fa/puja-fa.component';
 
 
 const countdown = require('countdown')
@@ -14,15 +21,41 @@ const countdown = require('countdown')
 })
 export class PujarComponent implements OnInit{
 
-  constructor (private route: ActivatedRoute) {}
+
+
+
+
+  constructor (private route: ActivatedRoute,
+               private fb: FormBuilder,
+               private infogmS : InfogmService,
+               private authservice : AuthService,
+               private _bottomSheet: MatBottomSheet) {}
+
+  pujaFAForm : FormGroup = this.fb.group({
+    
+    salarioOffer: ['2',[Validators.required, Validators.min(1), Validators.max(30)]],
+    years: ['3',[Validators.required, Validators.min(1), Validators.max(3)]],
+  })
+
+  /* @Input()  EQUIPO!: string; */
+
+  gminfo!: MyGM;
 
   pujaForm!: MyPuja;
 
-  pujaNew!: MyPuja;
+  pujaNew!: MyPuja[];
 
   data: boolean = false;
+  dataPuja: boolean = false;
 
   PLAYER!: string ;
+
+  EQUIPOOffer!: string;
+
+  
+ displayedColumns: string[] = ['PLAYER', 'SALARIO', 'YEARS','EQUIPO', 'STARTTIME', 'ENDTIME' ];
+
+ dataSource = new MatTableDataSource(this.pujaNew);
 
 
   startDate!: MyFecha ;
@@ -35,7 +68,25 @@ export class PujarComponent implements OnInit{
     this.PLAYER = selectedPlayer!; 
 
     
+
+    //TRAER INFO DEL EQUIPO
+
+    const email = this.authservice.user.email;
+
+              this.infogmS.getInfoGmByEmail(email!)
+                .subscribe( resp => {
+                  this.gminfo = resp;
+              this.EQUIPOOffer= resp.EQUIPO!;
+
+                   })
+
+/* 
+console.log('equipo',this.gminfo.EQUIPO); */
+
+
+   
   if(this.PLAYER){ this.data = true;}
+
 /* 
 
     this.pujaNew.PLAYER = this.PLAYER; */
@@ -98,7 +149,6 @@ export class PujarComponent implements OnInit{
     };
 
     this.startDate = startDate;
-    console.log('startDate', this.startDate);
 
     let pujaDeadTime : Date = date;
     let dateS: number = date.getDate();
@@ -114,19 +164,62 @@ export class PujarComponent implements OnInit{
  */    
     
 
-    let endDate: MyFecha = this.startDate;
+
+const endDate : MyFecha = {
+
+  dia: date.getDate(),
+  mes: date.getMonth(),
+  fullyear: date.getFullYear(),
+  hora: date.getHours(),
+  min: date.getMinutes(),
+  sec: date.getSeconds(),
+  mesS: getMes(mesN),
+};
+/* 
+    let endDate: MyFecha = this.startDate; */
     let diaS : number = this.startDate.dia;
+
+    
     endDate.dia = diaS+2;
-   
+    
+
+    this.endDate= endDate;
+    
+    const pujaNew2 : MyPuja[] =[ {
+
+      PLAYER:        this.PLAYER,
+      
+      EQUIPO:        this.EQUIPOOffer,
+      SALARIO:        2,
+      YEARS:          3,
+      startTime:     this.startDate,
+      endTime:       this.endDate,
+      closed:        false
+    }]
+
+    this.pujaNew = pujaNew2;
     
 /* 
     this.pujaNew.startTime = this.startDate;
    this.pujaNew.endTime =  this.endDate;
    this.pujaNew.PLAYER = this.PLAYER;  */
-/* 
-console.log('infoP', this.pujaNew); */
 
+console.log('infoP', this.pujaNew);
+
+if(this.pujaNew){ this.dataPuja = true;}
+
+    this.openBottomSheet();
     
+  } // END OF NGONINIT
+
+  openBottomSheet(): void {
+    this._bottomSheet.open(PujaFAComponent);
+  }
+
+  camposNoValidos(campo:string){
+
+    return this.pujaFAForm.controls[campo].errors &&
+           this.pujaFAForm.controls[campo].touched; 
   }
 }
 /* function countdown(pujaDeadTime: Date) {

@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { MyPlayer } from 'src/app/dashboard/interfaces/MyPlayer.interface';
 import { InfogmService } from 'src/app/dashboard/services/infogm.service';
-import { FormControl, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-agencialibre',
   templateUrl: './agencialibre.component.html',
@@ -12,29 +10,11 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class AgencialibreComponent implements OnInit {
 
   PLAYER!: string ; //revisar si hace falta, creo que no..
-  
-  pujaFAForm : FormGroup = this.fb.group({
-    nameP: ['',[Validators.required]],
-    ofertaFA: ['',[Validators.required]],
-    years: ['',[Validators.required]],
-    team: ['',[Validators.required]],
-    startTimeOffer: ['',[Validators.required]],
-  })
-
-/*     filter: new FormControl()
- */ 
-
-
-
-
- 
-  
-  
+    
 
 
   listaFAs! : MyPlayer[];
 
- /*  data: any = this.listaFAs; */
   
   public page : number = 0;
 
@@ -44,8 +24,7 @@ export class AgencialibreComponent implements OnInit {
  dataSource = new MatTableDataSource(this.listaFAs);
 
 
-  constructor (private infogmS : InfogmService, 
-               private fb: FormBuilder){}
+  constructor (private infogmS : InfogmService){}
 
 
   ngOnInit() {

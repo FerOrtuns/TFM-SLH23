@@ -5,11 +5,11 @@ export interface MyPuja {
          
     
     _id?:           string,
-    PLAYER?:         string,
+    PLAYER:         string,
     AKA?:            Team,
-    EQUIPO?:        string,
-    SALARIO?:        number,
-    YEARS?:          number,
+    EQUIPO:        string,
+    SALARIO:        number,
+    YEARS:          number,
     startTime?:     MyFecha,
     endTime?:       MyFecha,
     closed?:         boolean
