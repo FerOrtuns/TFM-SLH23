@@ -13,6 +13,7 @@ import { PageFilterPipe } from './pipes/page-filter.pipe';
 import { ButtonPageFilterComponent } from './components/button-page-filter/button-page-filter.component';
 
 import { CountdownModule } from 'ngx-countdown';
+import { ApipageFilterPipe } from './pipes/apipage-filter.pipe';
 
 const countdown = require('countdown');
 
@@ -25,6 +26,8 @@ const countdown = require('countdown');
     SpinnerComponent,
     PageFilterPipe,
     ButtonPageFilterComponent,
+    ApipageFilterPipe,
+    
     
   ],
   imports: [
@@ -42,6 +45,7 @@ const countdown = require('countdown');
     PageFilterPipe,
     ButtonPageFilterComponent,
     CountdownModule, // revisar?
+    ApipageFilterPipe
     
   ]
 })

@@ -1,0 +1,146 @@
+
+<mat-grid-list cols="1" *ngIf="!dataSource; else divLoadedN1">
+    <mat-grid-tile>
+        <mat-spinner></mat-spinner>
+    </mat-grid-tile>
+  </mat-grid-list>
+  
+  
+  <ng-template #divLoadedN1>
+
+<mat-card>
+
+    <mat-card-header>
+        <mat-card-title class="headtitle">
+            Estadisticas de Jugadores NBA actualizadas
+        </mat-card-title>
+    </mat-card-header>
+
+    <mat-divider></mat-divider>
+
+
+<mat-card-content>
+    
+    <div fxLayout="row wrap">
+
+        <div fxFlex="100">
+    
+            <div fxFlex="20" align="center">
+
+
+                <mat-card-actions>
+
+                    <mat-form-field class="example-form-field">
+                        <mat-label>Buscar jugador</mat-label>
+                        <input matInput type="text" (keyup.enter)="buscar('$event')" #txtBuscar>
+                        <!-- <button *ngIf="txtBuscar" matSuffix mat-icon-button aria-label="Clear" (click)="txtBuscar=''"> -->
+                       <!--  <button matInput>
+                          <mat-icon>close</mat-icon>
+                        </button> -->
+                      </mat-form-field>
+                    
+                    </mat-card-actions>
+
+                    <mat-card-content>
+                        <mat-list>
+                            <mat-action-list>
+                                <mat-list-item *ngFor="let item of historial">{{item | titlecase}}</mat-list-item>
+                            </mat-action-list>
+                        </mat-list>
+                    </mat-card-content>
+
+            </div>
+            <div fxFlex="80" align="center">
+                <mat-card-header>
+                    <mat-card-title>
+                        Resultados:
+                    </mat-card-title>
+                </mat-card-header>
+
+                <mat-card-content>
+
+<!--                     <table mat-table [dataSource]="dataSource | apipageFilter:page" class="mat-elevation-z8">  -->
+
+                    <table mat-table *ngFor="let element of resPlayer" class="mat-elevation-z8"> 
+                          
+                           
+                           <!-- 
+                              <mat-selection-list #myp2>
+                                  <mat-list-option *ngFor="let myp of myroster"> -->
+                            
+                                    <!--         {{myp.TIPO }} - {{myp.POS}} : {{myp.PLAYER}} - {{myp.SALARIO}} $ - {{myp.YEARS}}
+                          
+                                      </mat-selection-list> 
+                             
+                                -->
+                        
+                                <ng-container matColumnDef="PUJAR">
+                                    <th mat-header-cell *matHeaderCellDef class="mypTIPO3"><small> Assists </small> </th>
+                                    <td mat-cell *matCellDef="let element"  class="mypTIPO2"> {{element.Assists}}
+                                       
+                                        </td>
+                                  </ng-container>
+                        
+                           
+                             
+                               <ng-container matColumnDef="POS">
+                                 <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> <small> Pos </small></th>
+                                 <td mat-cell *matCellDef="let element" class="mypTIPO2"> {{element.POS}} </td>
+                               </ng-container>
+                              
+                             
+                               <ng-container matColumnDef="PLAYER">
+                                 <th mat-header-cell *matHeaderCellDef class="mypNONMBRE"> Nombre </th>
+                                 <td mat-cell *matCellDef="let element" class="mypTIPO2" style="font-size: larger; text-align: left;"> {{element.PLAYER}} </td>
+                               </ng-container>
+                             
+                               <ng-container matColumnDef="SALARIO">
+                                 <th mat-header-cell *matHeaderCellDef class="mypTIPO3"><small> Salario</small> </th>
+                                 <td mat-cell *matCellDef="let element" class="mypTIPO2"> 0 </td>
+                               </ng-container>
+                              
+                            
+                               <ng-container matColumnDef="YEARS">
+                                 <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> Años </th>
+                                 <td mat-cell *matCellDef="let element"  class="mypTIPO2"> 0 </td>
+                               </ng-container>
+                        
+                               <ng-container matColumnDef="EQUIPO">
+                                 <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> Equipo </th>
+                                 <td mat-cell *matCellDef="let element"  class="mypTIPO2"> {{element.EQUIPO}} </td>
+                               </ng-container>
+                              
+                             
+                               <ng-container matColumnDef="TIMELINE">
+                                 <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> Timeline </th>
+                                 <td mat-cell *matCellDef="let element"  class="mypTIPO2"> </td>
+                               </ng-container>
+                             
+                             
+                             
+                             
+                               <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                               <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                              
+                             <!--     Row shown when there is no matching data.  -->
+                             <!-- 
+                               <tr class="mat-row" *matNoDataRow>
+                                 <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                               </tr>
+                              -->
+                             <!-- 
+                                  </mat-list-option> -->
+                             
+                            
+                            </table>
+
+                </mat-card-content>
+            </div>
+        </div>
+    </div>        
+</mat-card-content>
+</mat-card>
+
+  </ng-template>
+
+<!--  [(ngModel)]="value"  -->

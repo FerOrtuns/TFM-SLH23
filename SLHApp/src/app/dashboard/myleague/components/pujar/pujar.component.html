@@ -29,7 +29,7 @@
 
     <mat-card-content>
 
-        <form autocomplete="off" [formGroup]="pujaFAForm">
+        <form (ngSubmit)="guardarPuja()" autocomplete="off" [formGroup]="pujaFAForm">
 
         <mat-form-field>
             <mat-label>Salario</mat-label>

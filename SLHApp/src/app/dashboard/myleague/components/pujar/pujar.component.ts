@@ -209,8 +209,16 @@ console.log('infoP', this.pujaNew);
 if(this.pujaNew){ this.dataPuja = true;}
 
     this.openBottomSheet();
+
+    this.guardarPuja();
     
   } // END OF NGONINIT
+
+  guardarPuja(){
+
+    console.log('guardando puja', this.pujaFAForm.value);
+    
+  }
 
   openBottomSheet(): void {
     this._bottomSheet.open(PujaFAComponent);

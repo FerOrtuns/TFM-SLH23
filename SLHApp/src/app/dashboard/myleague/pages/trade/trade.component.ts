@@ -12,12 +12,9 @@ export class TradeComponent {
   constructor (private infogmS : InfogmService, 
     private fb: FormBuilder){}
 
-  tradeForm : FormGroup = this.fb.group({
+/*   tradeForm : FormGroup = this.fb.group({
     nameP: ['yo',[Validators.required]],
-    ofertaFA: ['2',[Validators.required]],
-    years: ['2',[Validators.required]],
     team: ['Atlanta Hawks',[Validators.required]],
-    startTimeOffer: ['time.now',[Validators.required]],
-  })
+  }) */
 
 }
