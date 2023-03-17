@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Apiplayers } from '../interfaces/Apiplayers.interface';
+import { Apinews } from '../interfaces/ApiNews.interface';
+import { Apiscoresbox } from '../interfaces/ApiScorebox.interface';
 
 interface PlayerMatch {
   Name: string,
@@ -34,9 +36,18 @@ export class SearchApiService {
 
   public playerMatch!: PlayerMatch ;
 
+  private _resNews! : Apinews[]; 
+
+  public resScorebox! : Apiscoresbox[];
+
   get historial (){
 
     return [...this._historial];
+  }
+
+  get resNews(): Apinews[] {
+
+    return [...this._resNews];
   }
 
   buscarPlayers (){
@@ -129,6 +140,40 @@ export class SearchApiService {
     
   } // END OF BUSCAR PLAYER
 
+  apiNews () {
+
+    const url = `${this._nbaApiUrl}/News?key=${this._key}`
+
     
+
+    return this.http.get<Apinews[]>(url, )
+                    .subscribe ( (resp: Apinews[]) => {
+                      /* console.log(resp); */
+                      this._resNews = resp;
+
+                      console.log(this._resNews);
+                      
+                      
+                    })
+
+  }
+
+  apiScorebox (reqDate:string) {
+
+    const url = `${this._nbaApiUrl}/BoxScores/${reqDate}?key=${this._key}`
+
+    
+
+    return this.http.get<Apiscoresbox[]>(url, )
+                    .subscribe ( (resp: Apiscoresbox[]) => {
+                      /* console.log(resp); */
+                      this.resScorebox= resp;
+
+                      console.log(this.resScorebox);
+                      
+                      
+                    })
+
+  }
 
 }

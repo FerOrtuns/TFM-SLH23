@@ -1,0 +1,29 @@
+<mat-grid-list cols="1" *ngIf="!nbaNews; else divLoadedNews">
+    <mat-grid-tile>
+        <mat-spinner></mat-spinner>
+    </mat-grid-tile>
+  </mat-grid-list>
+  
+  
+  <ng-template #divLoadedNews>
+
+        <mat-card *ngFor="let element of nbaNews">
+            <mat-card-header>
+                <mat-card-title> {{element.Title}}</mat-card-title>
+                <mat-card-subtitle> {{element.Source}}</mat-card-subtitle>
+            </mat-card-header>
+
+            <mat-card-content>
+                <div fxLayout="row wrap" fxFlex="100">
+
+                    
+                         <div fxFlex="50" align="center">
+                         <div fxFlex="50" align="center">
+
+                             </div>
+                         </div>
+                        </div>
+            </mat-card-content>
+        </mat-card>
+
+  </ng-template>

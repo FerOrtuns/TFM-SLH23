@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NbaNewsComponent } from './components/nba-news/nba-news.component';
+import { NbaScoreBoxComponent } from './components/nba-score-box/nba-score-box.component';
 import { NbahomeComponent } from './pages/nbahome/nbahome.component';
 import { NbastatsrefComponent } from './pages/nbastatsref/nbastatsref.component';
 
@@ -11,6 +13,14 @@ const routes: Routes = [
       {
         path:'nbastatsref',
         component: NbastatsrefComponent
+      },
+      {
+        path:'nbanews',
+        component: NbaNewsComponent
+      },
+      {
+        path:'nbaScorebox',
+        component: NbaScoreBoxComponent
       },
       {
         path:'**', redirectTo:''

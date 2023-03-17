@@ -9,6 +9,8 @@ import { MaterialModule } from 'src/app/material/material.module';
 
 import { BuscarComponent } from './components/buscar/buscar.component';
 import { ResultadosComponent } from './components/resultados/resultados.component';
+import { NbaNewsComponent } from './components/nba-news/nba-news.component';
+import { NbaScoreBoxComponent } from './components/nba-score-box/nba-score-box.component';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { ResultadosComponent } from './components/resultados/resultados.componen
         NbahomeComponent,
         NbastatsrefComponent,
         BuscarComponent,
-        ResultadosComponent
+        ResultadosComponent,
+        NbaNewsComponent,
+        NbaScoreBoxComponent
     ],
     imports: [
         CommonModule,

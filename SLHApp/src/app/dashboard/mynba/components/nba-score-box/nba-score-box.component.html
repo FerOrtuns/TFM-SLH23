@@ -1,0 +1,29 @@
+<mat-grid-list cols="1" *ngIf="!todayScorebox; else divLoadedNews">
+    <mat-grid-tile>
+        <mat-spinner></mat-spinner>
+    </mat-grid-tile>
+  </mat-grid-list>
+  
+  
+  <ng-template #divLoadedNews>
+
+        <mat-card *ngFor="let element of todayScorebox.Game | keyvalue">
+            <mat-card-header>
+                <mat-card-title> {{element.key}}: {{element.value}}</mat-card-title>
+                <mat-card-subtitle> {{element.key}} vs {{element.value}}</mat-card-subtitle>
+            </mat-card-header>
+
+            <mat-card-content>
+                <div fxLayout="row wrap" fxFlex="100">
+
+                    
+                         <div fxFlex="50" align="center">
+                         <div fxFlex="50" align="center">
+
+                             </div>
+                         </div>
+                        </div>
+            </mat-card-content>
+        </mat-card>
+
+  </ng-template>
