@@ -4,11 +4,9 @@ import { environment } from 'src/environments/environment';
 import { Apiplayers } from '../interfaces/Apiplayers.interface';
 import { Apinews } from '../interfaces/ApiNews.interface';
 import { Apiscoresbox } from '../interfaces/ApiScorebox.interface';
+import { PlayerMatch } from '../interfaces/ApiPlayerFound.interface';
 
-interface PlayerMatch {
-  Name: string,
-  PlayerId: number
-}
+
 
 @Injectable({
   providedIn: 'root'
@@ -45,7 +43,7 @@ export class SearchApiService {
     return [...this._historial];
   }
 
-  get resNews(): Apinews[] {
+  get resNews(){
 
     return [...this._resNews];
   }
@@ -78,6 +76,62 @@ export class SearchApiService {
     this._historial = this._historial.splice(0,7);
                                            }
 
+    const url = `${this._nbaApiUrl}/Players?key=${this._key}`
+
+    
+
+     this.http.get<Apiplayers[]>(url, )
+                    .subscribe ( (resp: Apiplayers[]) => {
+
+
+                      this.resPlayers = resp;
+
+                      let match: number = 0;
+                      
+                    this.resPlayers.forEach(element => {
+
+                        const pl = element.LastName.toLocaleLowerCase();
+                        
+
+                        if (pl  === query){
+                      
+                          match = 1;
+
+                      console.log('son iguales');
+
+                      console.log(element,'elem');
+                      
+                      const playerMatch: PlayerMatch = {
+
+                        PlayerId: element.PlayerID,
+                        Position: element.Position,
+                        PhotoUrl: element.PhotoUrl,
+                        YahooName: element.YahooName,
+                        Team: element.Team,
+                       
+                      }
+                      
+                  }
+               })
+
+                    if(match === 0){console.log('nomatch men');
+                  }
+                                       
+                    }) 
+    
+  } // END OF BUSCAR PLAYER
+
+  buscarPlayer2022 (query:string=''){
+
+    query = query.trim().toLocaleLowerCase();
+
+    if( !this._historial.includes(query) ) {
+
+    this._historial.unshift(query);
+
+    this._historial = this._historial.splice(0,7);
+                                           }
+
     const url = `${this._nbaApiUrl}/PlayerSeasonStats/2022?key=${this._key}`
 
     
@@ -94,11 +148,14 @@ export class SearchApiService {
                         let playerMatch!: PlayerMatch ;
 
                       
-                      this.resPlayers.forEach(element => {
+                      resp.forEach(element => {
 
 /*                            this.playersName.unshift(element.Name.toLowerCase()); */
+/* 
+                        const pl = element.LastName.toLocaleLowerCase(); */
 
-                      if (element.Name.trim().toLocaleLowerCase() === query){
+                      if (element.LastName === query){
+                        
 
                         console.log('son iguales');
                         
@@ -118,6 +175,7 @@ export class SearchApiService {
                         
                          }
                      
+                        console.log(element.LastName, 'appelido');
                         
                       })
 
@@ -138,7 +196,7 @@ export class SearchApiService {
                       console.log('obio',this.playerMatch);  */                    
                     }) //
     
-  } // END OF BUSCAR PLAYER
+  } // END OF BUSCAR PLAYER BYSEASON
 
   apiNews () {
 
@@ -146,15 +204,8 @@ export class SearchApiService {
 
     
 
-    return this.http.get<Apinews[]>(url, )
-                    .subscribe ( (resp: Apinews[]) => {
-                      /* console.log(resp); */
-                      this._resNews = resp;
-
-                      console.log(this._resNews);
-                      
-                      
-                    })
+      return this.http.get<Apinews[]>(url, )
+                    
 
   }
 

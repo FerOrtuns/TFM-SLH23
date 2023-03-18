@@ -13,25 +13,37 @@ export class NbaNewsComponent implements OnInit{
 
   get resNews()  {
     
-    return this.sapi.apiNews; 
+    return this.sapi.apiNews(); 
   }
 
+  nbaNews0!: any;
   nbaNews!: Apinews[];
-  
+  data:boolean=false;
+  resNews2!: Apinews[];
 
   constructor (private sapi: SearchApiService){}
 
   ngOnInit() {
- /* 
-    this.nbaNews = this.resNews;  */
-    console.log(this.resNews,'rnews');
-    
-  }
 
+    this.sapi.apiNews()
+              .subscribe ( (resp: Apinews[]) => {
+                /* console.log(resp); */
+                this.resNews2 = resp;
+
+                console.log(this.resNews2);
+                
+                
+              })
+  /*   this.nbaNews0 = this.resNews; 
+   
+    this.nbaNews0 = this.nbaNews ;
+
+    this.data=true; */
+  }
   
   nextPage(){
 
-    if(this.page< this.nbaNews.length-3){
+    if(this.page< this.resNews2.length-3){
       this.page += 3;
     }
     

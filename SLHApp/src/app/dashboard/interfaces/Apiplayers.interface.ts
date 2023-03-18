@@ -8,68 +8,55 @@
 // match the expected interface, even if the JSON is valid.
 
 export interface Apiplayers {
-    StatID:                        number;
-    TeamID:                        number;
-    PlayerID:                      number;
-    SeasonType:                    number;
-    Season:                        number;
-    Name:                          string;
-    Team:                          string;
-    Position:                      Position;
-    Started:                       number;
-    GlobalTeamID:                  number;
-    Updated:                       Date;
-    Games:                         number;
-    FantasyPoints:                 number;
-    Minutes:                       number;
-    Seconds:                       number;
-    FieldGoalsMade:                number;
-    FieldGoalsAttempted:           number;
-    FieldGoalsPercentage:          number;
-    EffectiveFieldGoalsPercentage: number;
-    TwoPointersMade:               number;
-    TwoPointersAttempted:          number;
-    TwoPointersPercentage:         number;
-    ThreePointersMade:             number;
-    ThreePointersAttempted:        number;
-    ThreePointersPercentage:       number;
-    FreeThrowsMade:                number;
-    FreeThrowsAttempted:           number;
-    FreeThrowsPercentage:          number;
-    OffensiveRebounds:             number;
-    DefensiveRebounds:             number;
-    Rebounds:                      number;
-    OffensiveReboundsPercentage:   number;
-    DefensiveReboundsPercentage:   number;
-    TotalReboundsPercentage:       number;
-    Assists:                       number;
-    Steals:                        number;
-    BlockedShots:                  number;
-    Turnovers:                     number;
-    PersonalFouls:                 number;
-    Points:                        number;
-    TrueShootingAttempts:          number;
-    TrueShootingPercentage:        number;
-    PlayerEfficiencyRating:        number;
-    AssistsPercentage:             number;
-    StealsPercentage:              number;
-    BlocksPercentage:              number;
-    TurnOversPercentage:           number;
-    UsageRatePercentage:           number;
-    FantasyPointsFanDuel:          number;
-    FantasyPointsDraftKings:       number;
-    FantasyPointsYahoo:            number;
-    PlusMinus:                     number;
-    DoubleDoubles:                 number;
-    TripleDoubles:                 number;
-    FantasyPointsFantasyDraft:     number;
-    IsClosed:                      boolean;
-    LineupConfirmed:               null;
-    LineupStatus:                  LineupStatus;
-}
-
-export enum LineupStatus {
-    Scrambled = "Scrambled",
+    PlayerID:                            number;
+    SportsDataID:                        string;
+    Status:                              Status;
+    TeamID:                              number;
+    Team:                                string;
+    Jersey:                              number | null;
+    PositionCategory:                    PositionCategory;
+    Position:                            Position;
+    FirstName:                           string;
+    LastName:                            string;
+    Height:                              number;
+    Weight:                              number;
+    BirthDate:                           Date;
+    BirthCity:                           string;
+    BirthState:                          null | string;
+    BirthCountry:                        string;
+    HighSchool:                          null | string;
+    College:                             string;
+    Salary:                              number | null;
+    PhotoUrl:                            string;
+    Experience:                          number | null;
+    SportRadarPlayerID:                  string;
+    RotoworldPlayerID:                   number | null;
+    RotoWirePlayerID:                    number;
+    FantasyAlarmPlayerID:                number | null;
+    StatsPlayerID:                       number | null;
+    SportsDirectPlayerID:                number | null;
+    XmlTeamPlayerID:                     number | null;
+    InjuryStatus:                        Injury;
+    InjuryBodyPart:                      Injury;
+    InjuryStartDate:                     Date | null;
+    InjuryNotes:                         Injury;
+    FanDuelPlayerID:                     number;
+    DraftKingsPlayerID:                  number | null;
+    YahooPlayerID:                       number;
+    FanDuelName:                         string;
+    DraftKingsName:                      null | string;
+    YahooName:                           string;
+    DepthChartPosition:                  Position | null;
+    DepthChartOrder:                     number | null;
+    GlobalTeamID:                        number;
+    FantasyDraftName:                    null | string;
+    FantasyDraftPlayerID:                number | null;
+    UsaTodayPlayerID:                    number | null;
+    UsaTodayHeadshotUrl:                 null | string;
+    UsaTodayHeadshotNoBackgroundUrl:     null | string;
+    UsaTodayHeadshotUpdated:             Date | null;
+    UsaTodayHeadshotNoBackgroundUpdated: Date | null;
+    NbaDotComPlayerID:                   number | null;
 }
 
 export enum Position {
@@ -78,6 +65,21 @@ export enum Position {
     Pf = "PF",
     Sf = "SF",
     Sg = "SG",
+}
+
+export enum Injury {
+    Scrambled = "Scrambled",
+}
+
+export enum PositionCategory {
+    C = "C",
+    F = "F",
+    G = "G",
+}
+
+export enum Status {
+    Active = "Active",
+    Suspended = "Suspended",
 }
 
 // Converts JSON strings to/from your types
@@ -246,73 +248,73 @@ function r(name: string) {
 
 const typeMap: any = {
     "Apiplayers": o([
-        { json: "StatID", js: "StatID", typ: 0 },
-        { json: "TeamID", js: "TeamID", typ: 0 },
         { json: "PlayerID", js: "PlayerID", typ: 0 },
-        { json: "SeasonType", js: "SeasonType", typ: 0 },
-        { json: "Season", js: "Season", typ: 0 },
-        { json: "Name", js: "Name", typ: "" },
+        { json: "SportsDataID", js: "SportsDataID", typ: "" },
+        { json: "Status", js: "Status", typ: r("Status") },
+        { json: "TeamID", js: "TeamID", typ: 0 },
         { json: "Team", js: "Team", typ: "" },
+        { json: "Jersey", js: "Jersey", typ: u(0, null) },
+        { json: "PositionCategory", js: "PositionCategory", typ: r("PositionCategory") },
         { json: "Position", js: "Position", typ: r("Position") },
-        { json: "Started", js: "Started", typ: 0 },
+        { json: "FirstName", js: "FirstName", typ: "" },
+        { json: "LastName", js: "LastName", typ: "" },
+        { json: "Height", js: "Height", typ: 0 },
+        { json: "Weight", js: "Weight", typ: 0 },
+        { json: "BirthDate", js: "BirthDate", typ: Date },
+        { json: "BirthCity", js: "BirthCity", typ: "" },
+        { json: "BirthState", js: "BirthState", typ: u(null, "") },
+        { json: "BirthCountry", js: "BirthCountry", typ: "" },
+        { json: "HighSchool", js: "HighSchool", typ: u(null, "") },
+        { json: "College", js: "College", typ: "" },
+        { json: "Salary", js: "Salary", typ: u(0, null) },
+        { json: "PhotoUrl", js: "PhotoUrl", typ: "" },
+        { json: "Experience", js: "Experience", typ: u(0, null) },
+        { json: "SportRadarPlayerID", js: "SportRadarPlayerID", typ: "" },
+        { json: "RotoworldPlayerID", js: "RotoworldPlayerID", typ: u(0, null) },
+        { json: "RotoWirePlayerID", js: "RotoWirePlayerID", typ: 0 },
+        { json: "FantasyAlarmPlayerID", js: "FantasyAlarmPlayerID", typ: u(0, null) },
+        { json: "StatsPlayerID", js: "StatsPlayerID", typ: u(0, null) },
+        { json: "SportsDirectPlayerID", js: "SportsDirectPlayerID", typ: u(0, null) },
+        { json: "XmlTeamPlayerID", js: "XmlTeamPlayerID", typ: u(0, null) },
+        { json: "InjuryStatus", js: "InjuryStatus", typ: r("Injury") },
+        { json: "InjuryBodyPart", js: "InjuryBodyPart", typ: r("Injury") },
+        { json: "InjuryStartDate", js: "InjuryStartDate", typ: u(Date, null) },
+        { json: "InjuryNotes", js: "InjuryNotes", typ: r("Injury") },
+        { json: "FanDuelPlayerID", js: "FanDuelPlayerID", typ: 0 },
+        { json: "DraftKingsPlayerID", js: "DraftKingsPlayerID", typ: u(0, null) },
+        { json: "YahooPlayerID", js: "YahooPlayerID", typ: 0 },
+        { json: "FanDuelName", js: "FanDuelName", typ: "" },
+        { json: "DraftKingsName", js: "DraftKingsName", typ: u(null, "") },
+        { json: "YahooName", js: "YahooName", typ: "" },
+        { json: "DepthChartPosition", js: "DepthChartPosition", typ: u(r("Position"), null) },
+        { json: "DepthChartOrder", js: "DepthChartOrder", typ: u(0, null) },
         { json: "GlobalTeamID", js: "GlobalTeamID", typ: 0 },
-        { json: "Updated", js: "Updated", typ: Date },
-        { json: "Games", js: "Games", typ: 0 },
-        { json: "FantasyPoints", js: "FantasyPoints", typ: 3.14 },
-        { json: "Minutes", js: "Minutes", typ: 0 },
-        { json: "Seconds", js: "Seconds", typ: 0 },
-        { json: "FieldGoalsMade", js: "FieldGoalsMade", typ: 3.14 },
-        { json: "FieldGoalsAttempted", js: "FieldGoalsAttempted", typ: 3.14 },
-        { json: "FieldGoalsPercentage", js: "FieldGoalsPercentage", typ: 3.14 },
-        { json: "EffectiveFieldGoalsPercentage", js: "EffectiveFieldGoalsPercentage", typ: 3.14 },
-        { json: "TwoPointersMade", js: "TwoPointersMade", typ: 3.14 },
-        { json: "TwoPointersAttempted", js: "TwoPointersAttempted", typ: 3.14 },
-        { json: "TwoPointersPercentage", js: "TwoPointersPercentage", typ: 3.14 },
-        { json: "ThreePointersMade", js: "ThreePointersMade", typ: 3.14 },
-        { json: "ThreePointersAttempted", js: "ThreePointersAttempted", typ: 3.14 },
-        { json: "ThreePointersPercentage", js: "ThreePointersPercentage", typ: 3.14 },
-        { json: "FreeThrowsMade", js: "FreeThrowsMade", typ: 3.14 },
-        { json: "FreeThrowsAttempted", js: "FreeThrowsAttempted", typ: 3.14 },
-        { json: "FreeThrowsPercentage", js: "FreeThrowsPercentage", typ: 3.14 },
-        { json: "OffensiveRebounds", js: "OffensiveRebounds", typ: 3.14 },
-        { json: "DefensiveRebounds", js: "DefensiveRebounds", typ: 3.14 },
-        { json: "Rebounds", js: "Rebounds", typ: 3.14 },
-        { json: "OffensiveReboundsPercentage", js: "OffensiveReboundsPercentage", typ: 3.14 },
-        { json: "DefensiveReboundsPercentage", js: "DefensiveReboundsPercentage", typ: 3.14 },
-        { json: "TotalReboundsPercentage", js: "TotalReboundsPercentage", typ: 3.14 },
-        { json: "Assists", js: "Assists", typ: 3.14 },
-        { json: "Steals", js: "Steals", typ: 3.14 },
-        { json: "BlockedShots", js: "BlockedShots", typ: 3.14 },
-        { json: "Turnovers", js: "Turnovers", typ: 3.14 },
-        { json: "PersonalFouls", js: "PersonalFouls", typ: 3.14 },
-        { json: "Points", js: "Points", typ: 3.14 },
-        { json: "TrueShootingAttempts", js: "TrueShootingAttempts", typ: 3.14 },
-        { json: "TrueShootingPercentage", js: "TrueShootingPercentage", typ: 3.14 },
-        { json: "PlayerEfficiencyRating", js: "PlayerEfficiencyRating", typ: 3.14 },
-        { json: "AssistsPercentage", js: "AssistsPercentage", typ: 3.14 },
-        { json: "StealsPercentage", js: "StealsPercentage", typ: 3.14 },
-        { json: "BlocksPercentage", js: "BlocksPercentage", typ: 3.14 },
-        { json: "TurnOversPercentage", js: "TurnOversPercentage", typ: 3.14 },
-        { json: "UsageRatePercentage", js: "UsageRatePercentage", typ: 3.14 },
-        { json: "FantasyPointsFanDuel", js: "FantasyPointsFanDuel", typ: 3.14 },
-        { json: "FantasyPointsDraftKings", js: "FantasyPointsDraftKings", typ: 3.14 },
-        { json: "FantasyPointsYahoo", js: "FantasyPointsYahoo", typ: 3.14 },
-        { json: "PlusMinus", js: "PlusMinus", typ: 3.14 },
-        { json: "DoubleDoubles", js: "DoubleDoubles", typ: 3.14 },
-        { json: "TripleDoubles", js: "TripleDoubles", typ: 3.14 },
-        { json: "FantasyPointsFantasyDraft", js: "FantasyPointsFantasyDraft", typ: 3.14 },
-        { json: "IsClosed", js: "IsClosed", typ: true },
-        { json: "LineupConfirmed", js: "LineupConfirmed", typ: null },
-        { json: "LineupStatus", js: "LineupStatus", typ: r("LineupStatus") },
+        { json: "FantasyDraftName", js: "FantasyDraftName", typ: u(null, "") },
+        { json: "FantasyDraftPlayerID", js: "FantasyDraftPlayerID", typ: u(0, null) },
+        { json: "UsaTodayPlayerID", js: "UsaTodayPlayerID", typ: u(0, null) },
+        { json: "UsaTodayHeadshotUrl", js: "UsaTodayHeadshotUrl", typ: u(null, "") },
+        { json: "UsaTodayHeadshotNoBackgroundUrl", js: "UsaTodayHeadshotNoBackgroundUrl", typ: u(null, "") },
+        { json: "UsaTodayHeadshotUpdated", js: "UsaTodayHeadshotUpdated", typ: u(Date, null) },
+        { json: "UsaTodayHeadshotNoBackgroundUpdated", js: "UsaTodayHeadshotNoBackgroundUpdated", typ: u(Date, null) },
+        { json: "NbaDotComPlayerID", js: "NbaDotComPlayerID", typ: u(0, null) },
     ], false),
-    "LineupStatus": [
-        "Scrambled",
-    ],
     "Position": [
         "C",
         "PG",
         "PF",
         "SF",
         "SG",
+    ],
+    "Injury": [
+        "Scrambled",
+    ],
+    "PositionCategory": [
+        "C",
+        "F",
+        "G",
+    ],
+    "Status": [
+        "Active",
+        "Suspended",
     ],
 };

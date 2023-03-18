@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { PlayerMatch } from 'src/app/dashboard/interfaces/ApiPlayerFound.interface';
 import { SearchApiService } from 'src/app/dashboard/services/search-api.service';
 
 /* 
@@ -19,6 +20,8 @@ export class NbastatsrefComponent {
 
   public page : number = 0;
 
+  playerFound!: PlayerMatch;
+
   constructor (private sapi: SearchApiService){}
 
   get resPlayer()  {
@@ -26,12 +29,12 @@ export class NbastatsrefComponent {
     return this.sapi.resPlayers; 
   }
 
-  displayedColumns: string[] = ['PUJAR', 'POS', 'PLAYER', 'SALARIO', 'YEARS','EQUIPO', 'TIMELINE' ];
+  /* displayedColumns: string[] = ['PUJAR', 'POS', 'PLAYER', 'SALARIO', 'YEARS','EQUIPO', 'TIMELINE' ];
 
-  dataSource = new MatTableDataSource(this.resPlayer);
+  dataSource = new MatTableDataSource(this.resPlayer); */
  
-/* 
-  dataSource: boolean = true; */
+
+  dataSource: boolean = true;
 
   get historial () {
     return this.sapi.historial;
@@ -45,7 +48,10 @@ export class NbastatsrefComponent {
 
     if( valor.trim().length === 0){return;}
     
-    this.sapi.buscarPlayer(valor);
+     const plFounded = this.sapi.buscarPlayer(valor);
+
+     this.playerFound = plFounded!;
+    
     
     this.txtBuscar.nativeElement.value = '';
 

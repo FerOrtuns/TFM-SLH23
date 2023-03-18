@@ -1,5 +1,6 @@
 .example-form-field {
     width: 200px;
+    overflow: visible;
   }
 .headtitle{
     align-content: center;
