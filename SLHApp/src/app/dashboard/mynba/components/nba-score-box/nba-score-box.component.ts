@@ -19,8 +19,8 @@ interface GameHoy {
 })
 export class NbaScoreBoxComponent implements OnInit{
 
-  todayScorebox!: any;
-  todayGames!: GameHoy;
+  todayScorebox!: Apiscoresbox[];
+  
   
 
   constructor( private sapi: SearchApiService){}
@@ -33,15 +33,27 @@ export class NbaScoreBoxComponent implements OnInit{
 
     const yyyy = hoy.getFullYear().toString();
     const mm = (hoy.getMonth()+1).toString();
-    const dd = hoy.getDate().toString();
+    const dd = (hoy.getDate()-1).toString();
 
     const date : string = yyyy+'-'+mm+'-'+dd;
     
-console.log(date, 'date');
+    console.log(date, 'date');
 
+    this.sapi.apiScorebox(date)
+    .subscribe ( (resp: Apiscoresbox[]) => {
+      /* console.log(resp); */
+      this.todayScorebox= resp;
+
+      console.log(this.todayScorebox);
+      
+      
+    })
+
+
+    /* 
     const restodayScorebox = this.sapi.apiScorebox(date);
-    
-    this.todayScorebox= restodayScorebox;
+     */
+   /*  this.todayScorebox= restodayScorebox;
     
     this.todayScorebox.array.forEach((element: Apiscoresbox) => {
 
@@ -55,7 +67,7 @@ console.log(date, 'date');
     });
     
 
-    console.log(this.todayGames,'tg');
+    console.log(this.todayGames,'tg'); */
   }
 
 

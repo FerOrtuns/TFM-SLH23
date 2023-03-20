@@ -216,15 +216,7 @@ export class SearchApiService {
     
 
     return this.http.get<Apiscoresbox[]>(url, )
-                    .subscribe ( (resp: Apiscoresbox[]) => {
-                      /* console.log(resp); */
-                      this.resScorebox= resp;
-
-                      console.log(this.resScorebox);
-                      
-                      
-                    })
-
+                    
   }
 
 }
