@@ -11,6 +11,7 @@ import { BuscarComponent } from './components/buscar/buscar.component';
 import { ResultadosComponent } from './components/resultados/resultados.component';
 import { NbaNewsComponent } from './components/nba-news/nba-news.component';
 import { NbaScoreBoxComponent } from './components/nba-score-box/nba-score-box.component';
+import { NbaplayersComponent } from './pages/nbaplayers/nbaplayers.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { NbaScoreBoxComponent } from './components/nba-score-box/nba-score-box.c
         BuscarComponent,
         ResultadosComponent,
         NbaNewsComponent,
-        NbaScoreBoxComponent
+        NbaScoreBoxComponent,
+        NbaplayersComponent
     ],
     imports: [
         CommonModule,

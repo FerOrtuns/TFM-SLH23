@@ -1,10 +1,9 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { query } from '@angular/animations';
+import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { PlayerMatch } from 'src/app/dashboard/interfaces/ApiPlayerFound.interface';
+import { Apiplayers } from 'src/app/dashboard/interfaces/Apiplayers.interface';
 import { SearchApiService } from 'src/app/dashboard/services/search-api.service';
 
-/* 
-import statsBRef from 'src/assets/dataJson/statsNBAReference'; */
 
 
 @Component({
@@ -12,73 +11,45 @@ import statsBRef from 'src/assets/dataJson/statsNBAReference'; */
   templateUrl: './nbastatsref.component.html',
   styleUrls: ['./nbastatsref.component.css']
 })
-export class NbastatsrefComponent {
-
-  @ViewChild('txtBuscar') txtBuscar!: ElementRef<HTMLInputElement>; 
+export class NbastatsrefComponent implements OnInit{
 /* 
-  sbr: any = statsBRef; */
+  @ViewChild('txtBuscar') txtBuscar!: ElementRef<HTMLInputElement>; 
+ */
 
   public page : number = 0;
 
-  playerFound!: PlayerMatch;
+  public resPlayers :  Apiplayers[] = [];
+
+  displayedColumns: string[] = ['JUGADOR', 'POS', 'TEAM', 'GAMES', 'Started','FantasyPoints',
+                               'Minutes', 'Points', 'Assists', 'Turnovers', 'Rebounds', 'Steals',
+                                'BlockedShots', 'FieldGoalsPercentage' ];
+  
+    dataSource = new MatTableDataSource(this.resPlayers);
 
   constructor (private sapi: SearchApiService){}
+  
+  
+  ngOnInit(){
 
-  get resPlayer()  {
-    
-    return this.sapi.resPlayers; 
-  }
+      this.sapi.buscarAllPlayers2022()
+       .subscribe ( (resp: Apiplayers[]) => {
+        console.log(resp);
+        this.resPlayers = resp;
+})
+};
 
-  /* displayedColumns: string[] = ['PUJAR', 'POS', 'PLAYER', 'SALARIO', 'YEARS','EQUIPO', 'TIMELINE' ];
-
-  dataSource = new MatTableDataSource(this.resPlayer); */
- 
-
-  dataSource: boolean = true;
-
-  get historial () {
-    return this.sapi.historial;
-  }
-
-
-  buscar(query:string=''){
-
-    const valor = this.txtBuscar.nativeElement.value;
-    
-
-    if( valor.trim().length === 0){return;}
-    
-     const plFounded = this.sapi.buscarPlayer(valor);
-
-     this.playerFound = plFounded!;
-    
-    
-    this.txtBuscar.nativeElement.value = '';
-
-  }
-  buscarAll(){
-
-    const valor = this.txtBuscar.nativeElement.value;
-
-    if( valor.trim().length === 0){return;}
-    
-    this.sapi.buscarPlayers();
-    
-    this.txtBuscar.nativeElement.value = '';
-
-  }
 
   nextPage(){
 
-    if(this.page< this.resPlayer.length-5){
-      this.page += 5;
+    if(this.page< this.resPlayers.length-7){
+      this.page += 7;
     }
     
   }
 
   prevPage(){
     if(this.page > 0){
-      this.page -= 5;
+      this.page -= 7;
     }
   
   }

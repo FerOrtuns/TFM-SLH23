@@ -65,6 +65,19 @@ export class SearchApiService {
     
   }
 
+  buscarAllPlayersInfo (){
+
+  
+
+    const url = `${this._nbaApiUrl}/Players?key=${this._key}`
+
+    
+
+    return this.http.get<Apiplayers[]>(url, )
+                   
+    
+  }
+
   buscarPlayer (query:string=''){
 
     query = query.trim().toLocaleLowerCase();
@@ -121,82 +134,15 @@ export class SearchApiService {
     
   } // END OF BUSCAR PLAYER
 
-  buscarPlayer2022 (query:string=''){
-
-    query = query.trim().toLocaleLowerCase();
-
-    if( !this._historial.includes(query) ) {
-
-    this._historial.unshift(query);
-
-    this._historial = this._historial.splice(0,7);
-                                           }
-
-    const url = `${this._nbaApiUrl}/PlayerSeasonStats/2022?key=${this._key}`
-
-    
-
-     this.http.get<Apiplayers[]>(url, )
-                    .subscribe ( (resp: Apiplayers[]) => {
-                      console.log(resp);
-                      this.resPlayers = resp;
-
-                     /* 
-                      
-                      const playersName: string [] = []; */
-
-                        let playerMatch!: PlayerMatch ;
-
-                      
-                      resp.forEach(element => {
-
-/*                            this.playersName.unshift(element.Name.toLowerCase()); */
-/* 
-                        const pl = element.LastName.toLocaleLowerCase(); */
-
-                      if (element.LastName === query){
-                        
-
-                        console.log('son iguales');
-                        
-/* 
-                         element.Name=playerMatch.Name;
-                         element.PlayerID=playerMatch.PlayerId;  */
-
-                         /* if(element.Name.trim().toLocaleLowerCase().includes(query)){
-                            element.PlayerID = this.pillaPlayerID;
-
-                          console.log('playerID',this.pillaPlayerID); */
-                          
-
-                         }
-                         else{
-                          console.log('player not found men');
-                        
-                         }
-                     
-                        console.log(element.LastName, 'appelido');
-                        
-                      })
-
-                      /* this.playersName.forEach(element => {
-
-                         
-                      if(query === element){
-                        console.log('bingo', element.name);
-                        
-                      } */
-                       // END OF FOREACH
+  buscarAllPlayers2022 (){
 
 
-                      /* this.playersName = this.playersName;  
-                                          
+    const url = `${this._nbaApiUrl}/PlayerSeasonStats/{2022}?key=${this._key}`
 
-                      console.log('pid',this.playersName);                     
-                      console.log('obio',this.playerMatch);  */                    
-                    }) //
+    return this.http.get<Apiplayers[]>(url, )
     
   } // END OF BUSCAR PLAYER BYSEASON
+
 
   apiNews () {
 

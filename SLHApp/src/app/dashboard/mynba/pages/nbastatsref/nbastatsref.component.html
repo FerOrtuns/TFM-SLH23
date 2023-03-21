@@ -1,169 +1,122 @@
 
+<mat-grid-list cols="1" *ngIf="!resPlayers; else divLoaded2">
+  <mat-grid-tile>
+      <mat-spinner></mat-spinner>
+  </mat-grid-tile>
+</mat-grid-list>
 
 
-<mat-card>
+<ng-template #divLoaded2>
+  <mat-card>
 
-    <mat-card-header>
-        <mat-card-title class="headtitle">
-            Detalle del Jugador
-        </mat-card-title>
-    </mat-card-header>
-
-    <mat-divider></mat-divider>
-
-
-<mat-card-content>
+  
+    <mat-card-content> 
     
-    <div fxLayout="row wrap">
+      <table mat-table [dataSource]=" resPlayers| apiplayerpageFilter:page" class="mat-elevation-z8"> 
 
-        <div fxFlex="100">
+  
+          <ng-container matColumnDef="JUGADOR">
+              <th mat-header-cell *matHeaderCellDef class="mypNONMBRE"><small> Jugador </small> </th>
+              <td mat-cell *matCellDef="let element" class="mypTIPO2" style="font-size: larger; text-align: left;"> 
+                  <mat-card-actions>
+                      <!-- <span class="spacer"></span> -->
+                      <button mat-fab extended color="accent" [routerLink]="['/dashboard/mynba/nbaPlayers', element.Name]">
+                          <mat-icon>info</mat-icon>{{element.Name}}</button>
+                  </mat-card-actions>
+                  </td>
+            </ng-container>
+  
+     
+       
+         <ng-container matColumnDef="POS">
+           <th mat-header-cell *matHeaderCellDef class="mypTIPO3">  Pos </th>
+           <td mat-cell *matCellDef="let element" class="mypTIPO2"> {{element.Position}} </td>
+         </ng-container>
+        
+       
+         <ng-container matColumnDef="TEAM">
+           <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> Team </th>
+           <td mat-cell *matCellDef="let element" class="mypTIPO2"> {{element.Team}} </td>
+         </ng-container>
+       
+         <ng-container matColumnDef="GAMES">
+           <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> Games </th>
+           <td mat-cell *matCellDef="let element" class="mypTIPO2"> {{ element.Games }}</td>
+         </ng-container>
+        
+      
+         <ng-container matColumnDef="Started">
+           <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> Started </th>
+           <td mat-cell *matCellDef="let element"  class="mypTIPO2"> {{ element.Started}} </td>
+         </ng-container>
+  
+         <ng-container matColumnDef="FantasyPoints">
+           <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> FanPtos </th>
+           <td mat-cell *matCellDef="let element"  class="mypTIPO2"> {{element.FantasyPoints}} </td>
+         </ng-container>
+        
+       
+         <ng-container matColumnDef="Minutes">
+           <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> Minutes </th>
+           <td mat-cell *matCellDef="let element"  class="mypTIPO2">{{element.Minutes}} </td>
+         </ng-container>
+         
+         <ng-container matColumnDef="Points">
+           <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> Points </th>
+           <td mat-cell *matCellDef="let element"  class="mypTIPO2">{{element.Points}} </td>
+         </ng-container>
+       
+         <ng-container matColumnDef="Assists">
+           <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> Assists </th>
+           <td mat-cell *matCellDef="let element"  class="mypTIPO2">{{element.Assists}} </td>
+         </ng-container>
+       
+         <ng-container matColumnDef="Turnovers">
+           <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> Turnovers </th>
+           <td mat-cell *matCellDef="let element"  class="mypTIPO2">{{element.Turnovers}} </td>
+         </ng-container>
+       
+         <ng-container matColumnDef="Rebounds">
+           <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> Reb </th>
+           <td mat-cell *matCellDef="let element"  class="mypTIPO2">{{element.Rebounds}} </td>
+         </ng-container>
+
+         <ng-container matColumnDef="Steals">
+           <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> Robos </th>
+           <td mat-cell *matCellDef="let element"  class="mypTIPO2">{{element.Steals}} </td>
+         </ng-container>
+
+         <ng-container matColumnDef="BlockedShots">
+           <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> Tapones </th>
+           <td mat-cell *matCellDef="let element"  class="mypTIPO2">{{element.BlockedShots}} </td>
+         </ng-container>
+       
+         <ng-container matColumnDef="FieldGoalsPercentage">
+           <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> FG% </th>
+           <td mat-cell *matCellDef="let element"  class="mypTIPO2">{{element.FieldGoalsPercentage}} </td>
+         </ng-container>
+       
+       
+       
+       
+         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        
+      
+      </table>
+       
+    </mat-card-content>
+  
+    <mat-card-actions>
+  
+      <button mat-raised-button extended color="primary" (click)="prevPage()" >
+          <mat-icon>navigate_before</mat-icon>Anterior</button>
+      <span class="spacer"></span>
+              <button mat-raised-button extended color="primary" (click)="nextPage()" >
+                  <mat-icon>navigate_next</mat-icon>Siguiente</button>
+    </mat-card-actions>
     
-            <div fxFlex="20" align="center">
-
-              <mat-card-actions>
-                <button mat-raised-button color="accent" (click)="buscar('$event')">Buscar</button>
-              </mat-card-actions>
-
-              <mat-divider></mat-divider>
-                    <mat-form-field class="example-form-field">
-                        <mat-label>Buscar jugador</mat-label>
-                        <input matInput type="text" (keyup.enter)="buscar('$event')" #txtBuscar/>
-                        
-                        <!-- <button matInput>
-                          <mat-icon>close</mat-icon>
-                        </button> -->
-                      </mat-form-field>
-                      
-               
-
-                    <mat-card-content>
-                        <mat-list>
-                            <mat-action-list>
-                                <mat-list-item *ngFor="let item of historial">{{item | titlecase}}</mat-list-item>
-                            </mat-action-list>
-                        </mat-list>
-                    </mat-card-content>
-
-            </div>
-
-            <div fxFlex="80" align="center">
-
-            <mat-grid-list cols="1" *ngIf="!playerFound; else divLoadedN1">
-              <mat-grid-tile>
-                  <mat-spinner></mat-spinner>
-              </mat-grid-tile>
-            </mat-grid-list>
-            
-            
-            <ng-template #divLoadedN1>
-
-              <div fxFlex="35"></div>
-              <div fxFlex="65">
-                <mat-card-header>
-                    <mat-card-title>
-                        Resultados:
-                    </mat-card-title>
-                </mat-card-header>
-              </div>
-                <mat-card-content>
-                  <div fxFlex="65">
-                    <h1>{{playerFound.YahooName}}</h1>
-                    <h2>{{playerFound.Team}}</h2>
-                    <mat-divider></mat-divider>
-                    <h3>{{playerFound.Position}}</h3>
-                    <h3>{{playerFound.Position}}</h3>
-
-                  </div>
-                  <div fxFlex="35">
-
-                    <img matCardImage [src]=playerFound.PhotoUrl>
-
-                  </div>
-             
-
-<!--                     <table mat-table [dataSource]="dataSource | apipageFilter:page" class="mat-elevation-z8">  -->
-
-                   <!--  <table mat-table *ngFor="let element of resPlayer" class="mat-elevation-z8"> 
-                           -->
-                           
-                           <!-- 
-                              <mat-selection-list #myp2>
-                                  <mat-list-option *ngFor="let myp of myroster"> -->
-                            
-                                    <!--         {{myp.TIPO }} - {{myp.POS}} : {{myp.PLAYER}} - {{myp.SALARIO}} $ - {{myp.YEARS}}
-                          
-                                      </mat-selection-list> 
-                             
-                                -->
-                        
-                             <!--    <ng-container matColumnDef="PUJAR">
-                                    <th mat-header-cell *matHeaderCellDef class="mypTIPO3"><small> Assists </small> </th>
-                                    <td mat-cell *matCellDef="let element"  class="mypTIPO2"> {{element.Assists}}
-                                       
-                                        </td>
-                                  </ng-container>
-                        
-                           
-                             
-                               <ng-container matColumnDef="POS">
-                                 <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> <small> Pos </small></th>
-                                 <td mat-cell *matCellDef="let element" class="mypTIPO2"> {{element.POS}} </td>
-                               </ng-container>
-                              
-                             
-                               <ng-container matColumnDef="PLAYER">
-                                 <th mat-header-cell *matHeaderCellDef class="mypNONMBRE"> Nombre </th>
-                                 <td mat-cell *matCellDef="let element" class="mypTIPO2" style="font-size: larger; text-align: left;"> {{element.PLAYER}} </td>
-                               </ng-container>
-                             
-                               <ng-container matColumnDef="SALARIO">
-                                 <th mat-header-cell *matHeaderCellDef class="mypTIPO3"><small> Salario</small> </th>
-                                 <td mat-cell *matCellDef="let element" class="mypTIPO2"> 0 </td>
-                               </ng-container>
-                              
-                            
-                               <ng-container matColumnDef="YEARS">
-                                 <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> Años </th>
-                                 <td mat-cell *matCellDef="let element"  class="mypTIPO2"> 0 </td>
-                               </ng-container>
-                        
-                               <ng-container matColumnDef="EQUIPO">
-                                 <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> Equipo </th>
-                                 <td mat-cell *matCellDef="let element"  class="mypTIPO2"> {{element.EQUIPO}} </td>
-                               </ng-container>
-                              
-                             
-                               <ng-container matColumnDef="TIMELINE">
-                                 <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> Timeline </th>
-                                 <td mat-cell *matCellDef="let element"  class="mypTIPO2"> </td>
-                               </ng-container>
-                             
-                             
-                             
-                             
-                               <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                               <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> -->
-                              
-                             <!--     Row shown when there is no matching data.  -->
-                             <!-- 
-                               <tr class="mat-row" *matNoDataRow>
-                                 <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
-                               </tr>
-                              -->
-                             <!-- 
-                                  </mat-list-option> -->
-                             
-                            
-                          <!--   </table> -->
-
-                </mat-card-content>
-              </ng-template>
-
-              </div>
-        </div>
-    </div>        
-</mat-card-content>
-</mat-card>
-
-
-<!--  [(ngModel)]="value"  -->
+    </mat-card>
+   
+  
+</ng-template>
