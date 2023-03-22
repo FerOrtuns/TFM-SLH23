@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+
 import { Apiplayers } from 'src/app/dashboard/interfaces/Apiplayers.interface';
 import { SearchApiService } from 'src/app/dashboard/services/search-api.service';
 
@@ -15,20 +15,22 @@ export class NbaplayersComponent implements OnInit{
     
     public page : number = 0;
   
-    playerFound!: Apiplayers;
 
+    historial : string [] = [];
+    
     playersFound: Apiplayers[]=[];
 
-    playersIDFound: number[] = []
 
-/*     playerFounded!: PlayerMatch; */
-
-   allPlayersInfo! : Apiplayers[];
-   dataSource! : Apiplayers[];
+    allPlayersInfo! : Apiplayers[];
+    dataSource!     : Apiplayers[];
     
   
-    constructor (private sapi: SearchApiService,
-                 private router: Router,){}
+    constructor (private sapi: SearchApiService){
+
+      if(localStorage.getItem('historial')){
+        this.historial= JSON.parse( localStorage.getItem('historial')!);
+      }
+    }
 
     ngOnInit() {
 
@@ -43,36 +45,18 @@ export class NbaplayersComponent implements OnInit{
       
     }
 
- 
-  
-   /*  get resPlayer()  {
-      
-      return this.sapi.resPlayers; 
-    } */
-  
-    /* displayedColumns: string[] = ['PUJAR', 'POS', 'PLAYER', 'SALARIO', 'YEARS','EQUIPO', 'TIMELINE' ];
-  
-    dataSource = new MatTableDataSource(this.resPlayer); */
-   
-  /* 
-    dataSource: boolean = true; */
-  /* 
-    get historial () {
-      return this.sapi.historial;
-    }
- */
-    historial : string [] = [];
-  
   
     buscar(query:string=''){
   
       let valor = this.txtBuscar.nativeElement.value;
 
-      if( !this.historial.includes(valor) ) {
+      if( !this.historial.includes(valor.trim().toLocaleLowerCase()) ) {
 
         this.historial.unshift(valor);
     
         this.historial = this.historial.splice(0,7);
+
+        localStorage.setItem('historial', JSON.stringify(this.historial))
   
       if( valor.trim().length === 0){return;}
 
@@ -95,21 +79,10 @@ export class NbaplayersComponent implements OnInit{
          
           matchnumber = matchnumber+1;
 
-          this.playersIDFound.unshift(element.PlayerID)
-
           this.playersFound.unshift(element);
 
-/*           console.log(this.playersIDFound,'playersidf');
- */
           }
             
-          
-
-/*           console.log(matchnumber,'matchnumber');
- */      
-       
-          
-
       });
 
       
@@ -140,4 +113,46 @@ export class NbaplayersComponent implements OnInit{
     
     }
 
+    
+    buscarH(termino:string){
+
+      console.log(termino,'termino');
+
+      let valor = termino;
+      
+      if( valor.trim().length === 0){return;}
+
+      valor = valor.trim().toLocaleLowerCase();
+
+       
+      let matchnumber: number=0
+
+      this.playersFound = [];
+
+      this.allPlayersInfo.forEach(element => {
+        
+        
+        const busqueda = element.YahooName.trim().toLocaleLowerCase();
+        
+
+        if(busqueda.includes(valor)){
+         
+          matchnumber = matchnumber+1;
+
+          this.playersFound.unshift(element);
+
+          }
+            
+      });
+
+      
+      if(matchnumber === 0){ return console.log('no match found tio');}
+
+      if(this.playersFound.length === 0){
+        this.dataSource =this.allPlayersInfo
+      }else{
+        this.dataSource= this.playersFound;
+      }
+
+    }
 }

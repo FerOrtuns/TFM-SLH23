@@ -43,15 +43,20 @@
                         </button>
  -->
                       </mat-form-field>
+
+                    <mat-card-subtitle>Historial de busquedas : </mat-card-subtitle>
+                    <br>
                     
+                    <mat-divider></mat-divider>
                
+                    <br>
 
                     <mat-card-content>
-                        <mat-list>
-                            <mat-action-list>
-                                <mat-card-title *ngFor="let item of historial">{{item | titlecase}}</mat-card-title>
-                            </mat-action-list>
-                        </mat-list>
+            
+                      <div style="margin: 5px;"  *ngFor="let item of historial">
+                      <button mat-raised-button extended color="accent" (click)="buscarH(item)">{{item | titlecase}}</button>
+                      </div>  
+                        
                     </mat-card-content>
 
             </div> 
