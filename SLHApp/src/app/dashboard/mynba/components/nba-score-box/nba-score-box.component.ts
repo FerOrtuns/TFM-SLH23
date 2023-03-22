@@ -32,12 +32,15 @@ export class NbaScoreBoxComponent implements OnInit{
     console.log(hoy,'hoy');
 
     const yyyy = hoy.getFullYear().toString();
-    const mm = (hoy.getMonth()+1).toString();
+/*     const mm = (hoy.getMonth()+1).toString(); */
     const dd = (hoy.getDate()-1).toString();
+
+     const mm = hoy.toLocaleString('default', { month: 'short' });
 
     const date : string = yyyy+'-'+mm+'-'+dd;
     
     console.log(date, 'date');
+    console.log(mm, 'mm');
 
     this.sapi.apiScorebox(date)
     .subscribe ( (resp: Apiscoresbox[]) => {

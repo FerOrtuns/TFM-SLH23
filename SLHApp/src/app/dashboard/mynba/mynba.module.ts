@@ -7,8 +7,6 @@ import { NbastatsrefComponent } from './pages/nbastatsref/nbastatsref.component'
 import { DashboardModule } from "../dashboard.module";
 import { MaterialModule } from 'src/app/material/material.module';
 
-import { BuscarComponent } from './components/buscar/buscar.component';
-import { ResultadosComponent } from './components/resultados/resultados.component';
 import { NbaNewsComponent } from './components/nba-news/nba-news.component';
 import { NbaScoreBoxComponent } from './components/nba-score-box/nba-score-box.component';
 import { NbaplayersComponent } from './pages/nbaplayers/nbaplayers.component';
@@ -18,8 +16,6 @@ import { NbaplayersComponent } from './pages/nbaplayers/nbaplayers.component';
     declarations: [
         NbahomeComponent,
         NbastatsrefComponent,
-        BuscarComponent,
-        ResultadosComponent,
         NbaNewsComponent,
         NbaScoreBoxComponent,
         NbaplayersComponent

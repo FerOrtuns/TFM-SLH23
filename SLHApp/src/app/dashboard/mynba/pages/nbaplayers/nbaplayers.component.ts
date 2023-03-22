@@ -1,4 +1,5 @@
 import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { Apiplayers } from 'src/app/dashboard/interfaces/Apiplayers.interface';
 import { SearchApiService } from 'src/app/dashboard/services/search-api.service';
@@ -20,12 +21,14 @@ export class NbaplayersComponent implements OnInit{
     
     playersFound: Apiplayers[]=[];
 
+    PLAYERselected!: string;
 
     allPlayersInfo! : Apiplayers[];
     dataSource!     : Apiplayers[];
     
   
-    constructor (private sapi: SearchApiService){
+    constructor (private sapi: SearchApiService,
+                 private route: ActivatedRoute){
 
       if(localStorage.getItem('historial')){
         this.historial= JSON.parse( localStorage.getItem('historial')!);
@@ -34,13 +37,67 @@ export class NbaplayersComponent implements OnInit{
 
     ngOnInit() {
 
-      this.sapi.buscarAllPlayersInfo()
-      .subscribe ( (resp: Apiplayers[]) => {
+      
+    let selectedPlayer: string | null = this.route.snapshot.paramMap.get("Name");
+    this.PLAYERselected = selectedPlayer!; 
+
+    this.sapi.buscarAllPlayersInfo()
+    .subscribe ( (resp: Apiplayers[]) => {
 /*         console.log(resp); */
-        this.allPlayersInfo = resp;
+      this.allPlayersInfo = resp;
+    
+      if(!selectedPlayer){
         
         this.dataSource =this.allPlayersInfo
-      })
+      }
+
+    else{
+
+      let valor = selectedPlayer;
+      
+      if( valor.trim().length === 0){return;}
+
+      valor = valor.trim().toLocaleLowerCase();
+
+       
+      let matchnumber: number=0
+
+      this.playersFound = [];
+
+      this.allPlayersInfo.forEach(element => {
+        
+        
+        const busqueda = element.YahooName.trim().toLocaleLowerCase();
+        
+
+        if(busqueda.includes(valor)){
+         
+          matchnumber = matchnumber+1;
+
+          this.playersFound.unshift(element);
+
+          this.dataSource = this.playersFound;
+
+          }
+            
+      });
+
+      
+      if(matchnumber === 0){ return console.log('no match found tio');}
+
+      if(this.playersFound.length === 0){
+        this.dataSource =this.allPlayersInfo
+      }else{
+        this.dataSource= this.playersFound;
+      }
+
+    }
+    
+    })
+
+    
+
+      
 
       
     }
@@ -52,13 +109,15 @@ export class NbaplayersComponent implements OnInit{
 
       if( !this.historial.includes(valor.trim().toLocaleLowerCase()) ) {
 
+
+        if( valor.trim().length === 0){return;}
+
         this.historial.unshift(valor);
     
         this.historial = this.historial.splice(0,7);
 
         localStorage.setItem('historial', JSON.stringify(this.historial))
   
-      if( valor.trim().length === 0){return;}
 
       valor = valor.trim().toLocaleLowerCase();
 
@@ -115,8 +174,6 @@ export class NbaplayersComponent implements OnInit{
 
     
     buscarH(termino:string){
-
-      console.log(termino,'termino');
 
       let valor = termino;
       

@@ -3,7 +3,7 @@
 export interface MyFecha {
 
     dia: number,
-    mes: number,
+    mes: Mes,
     fullyear: number,
     hora: number,
     min: number,

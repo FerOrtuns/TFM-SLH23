@@ -5,7 +5,6 @@ import { NbaScoreBoxComponent } from './components/nba-score-box/nba-score-box.c
 import { NbahomeComponent } from './pages/nbahome/nbahome.component';
 import { NbaplayersComponent } from './pages/nbaplayers/nbaplayers.component';
 import { NbastatsrefComponent } from './pages/nbastatsref/nbastatsref.component';
-import { BuscarComponent } from './components/buscar/buscar.component';
 
 const routes: Routes = [
   {
@@ -29,8 +28,8 @@ const routes: Routes = [
         component: NbaplayersComponent
       },
       {
-        path:'buscar/:txtBuscar',
-        component: BuscarComponent
+        path:'nbaPlayers/:Name',
+        component: NbaplayersComponent
       },
       {
         path:'**', redirectTo:''

@@ -79,7 +79,7 @@ export class SearchApiService {
     
   }
 
-  buscarPlayer (query:string=''){
+/*   buscarPlayer (query:string=''){
 
     query = query.trim().toLocaleLowerCase();
 
@@ -112,8 +112,6 @@ export class SearchApiService {
                           match = 1;
 
                       console.log('son iguales');
-/* 
-                      console.log(element,'elem'); */
                       
                       const playerMatch: PlayerMatch = {
 
@@ -126,8 +124,6 @@ export class SearchApiService {
                       }
 
                       this.pillaPlayerID = playerMatch.PlayerId;
-/* 
-                      console.log('id', this.pillaPlayerID); */
 
                     }
                     
@@ -137,9 +133,9 @@ export class SearchApiService {
                       console.log('nomatch men')
                     };
 
-                  })// end of foreach
+                  })
                       
-                }) // end of subscribe
+                }) 
                   
 
                 const url2 = `${this._nbaApiUrl}/Player/${this.pillaPlayerID}?key=${this._key}`
@@ -155,7 +151,8 @@ export class SearchApiService {
 });  
                                         
     
-  } // END OF BUSCAR PLAYER
+  }  END OF BUSCAR PLAYER
+ */
 
   buscarAllPlayers2022 (){
 
