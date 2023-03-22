@@ -3,12 +3,21 @@
 
 <mat-card>
 
-     <mat-card-header>
-        <mat-card-title class="headtitle">
-            Detalle del Jugador
-        </mat-card-title>
-    </mat-card-header>
 
+  
+
+     <mat-card-header>
+
+      
+      <mat-card-actions>
+        <button mat-raised-button color="warn" (click)="buscar('$event')">Buscar</button>
+      </mat-card-actions>
+        <mat-card-title-group class="headtitle">
+            Informacion detallada de los jugadores NBA en activo
+        </mat-card-title-group>
+        
+    </mat-card-header>
+    <br>
     <mat-divider></mat-divider>
 
 
@@ -20,27 +29,27 @@
     
             <div fxFlex="20" align="center">
 
-              <mat-card-actions>
-                <button mat-raised-button color="accent" (click)="buscar('$event')">Buscar</button>
-              </mat-card-actions>
 
               <mat-divider></mat-divider>
+
+              
 
                     <mat-form-field class="example-form-field">
                         <mat-label>Buscar jugador</mat-label>
                         <input matInput type="text" (keyup.enter)="buscar('$event')" #txtBuscar/>
-                        
-                        <!-- <button matInput>
-                          <mat-icon>close</mat-icon>
-                        </button> -->
+                       
+                     <!--    <button matInput>
+                          <mat-icon>search</mat-icon>
+                        </button>
+ -->
                       </mat-form-field>
-                      
+                    
                
 
                     <mat-card-content>
                         <mat-list>
                             <mat-action-list>
-                                <mat-card-subtitle *ngFor="let item of historial">{{item | titlecase}}</mat-card-subtitle>
+                                <mat-card-title *ngFor="let item of historial">{{item | titlecase}}</mat-card-title>
                             </mat-action-list>
                         </mat-list>
                     </mat-card-content>
@@ -49,7 +58,7 @@
 
             <div fxFlex="80" align="center">
 
-            <mat-grid-list cols="1" *ngIf="!allPlayersInfo; else divLoadedN1">
+            <mat-grid-list cols="1" *ngIf="!dataSource; else divLoadedN1">
               <mat-grid-tile>
                   <mat-spinner></mat-spinner>
               </mat-grid-tile>
@@ -58,9 +67,9 @@
             
             <ng-template #divLoadedN1>
 
-              <mat-card *ngFor="let element of allPlayersInfo | apiplayerinfopageFilter">
+              <mat-card >
 
-              <div fxFlex="100">  
+              <div fxFlex="100"  *ngFor="let element of dataSource | apiplayerinfopageFilter:page">  
 
                   
                   <div fxFlex="25">
@@ -114,6 +123,7 @@
                 
               </mat-card>
 
+
               <mat-card-actions>
   
                 <button mat-raised-button extended color="primary" (click)="prevPage()" >
@@ -123,7 +133,6 @@
                             <mat-icon>navigate_next</mat-icon>Siguiente</button>
               </mat-card-actions>
 
-           
               
               </ng-template>
 

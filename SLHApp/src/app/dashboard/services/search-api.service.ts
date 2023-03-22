@@ -31,6 +31,7 @@ export class SearchApiService {
 
   public pillaPlayerID: number = 0;
   public playerFinded !: Apiplayers ;
+  public playerFound !: Apiplayers ;
 
   public playerMatch!: PlayerMatch ;
 
@@ -111,8 +112,8 @@ export class SearchApiService {
                           match = 1;
 
                       console.log('son iguales');
-
-                      console.log(element,'elem');
+/* 
+                      console.log(element,'elem'); */
                       
                       const playerMatch: PlayerMatch = {
 
@@ -123,14 +124,36 @@ export class SearchApiService {
                         Team: element.Team,
                        
                       }
-                      
-                  }
-               })
 
-                    if(match === 0){console.log('nomatch men');
-                  }
-                                       
-                    }) 
+                      this.pillaPlayerID = playerMatch.PlayerId;
+/* 
+                      console.log('id', this.pillaPlayerID); */
+
+                    }
+                    
+                    if(match === 0){
+                      
+                      this.pillaPlayerID = 0;
+                      console.log('nomatch men')
+                    };
+
+                  })// end of foreach
+                      
+                }) // end of subscribe
+                  
+
+                const url2 = `${this._nbaApiUrl}/Player/${this.pillaPlayerID}?key=${this._key}`
+
+                  return this.http.get<Apiplayers>(url2, )
+                  .subscribe ( (resp: Apiplayers) => {
+
+                    this.playerFound = resp;
+
+
+                    console.log(this.playerFound,'plafound');
+                    
+});  
+                                        
     
   } // END OF BUSCAR PLAYER
 

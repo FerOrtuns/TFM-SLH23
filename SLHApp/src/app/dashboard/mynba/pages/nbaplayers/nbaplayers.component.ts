@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
-import { PlayerMatch } from 'src/app/dashboard/interfaces/ApiPlayerFound.interface';
+import { Router } from '@angular/router';
 import { Apiplayers } from 'src/app/dashboard/interfaces/Apiplayers.interface';
 import { SearchApiService } from 'src/app/dashboard/services/search-api.service';
 
@@ -15,27 +15,40 @@ export class NbaplayersComponent implements OnInit{
     
     public page : number = 0;
   
-    playerFound!: PlayerMatch;
+    playerFound!: Apiplayers;
 
-    allPlayersInfo! : Apiplayers[];
+    playersFound: Apiplayers[]=[];
+
+    playersIDFound: number[] = []
+
+/*     playerFounded!: PlayerMatch; */
+
+   allPlayersInfo! : Apiplayers[];
+   dataSource! : Apiplayers[];
+    
   
-    constructor (private sapi: SearchApiService){}
+    constructor (private sapi: SearchApiService,
+                 private router: Router,){}
 
     ngOnInit() {
 
       this.sapi.buscarAllPlayersInfo()
       .subscribe ( (resp: Apiplayers[]) => {
-        console.log(resp);
+/*         console.log(resp); */
         this.allPlayersInfo = resp;
         
+        this.dataSource =this.allPlayersInfo
       })
 
+      
     }
+
+ 
   
-    get resPlayer()  {
+   /*  get resPlayer()  {
       
       return this.sapi.resPlayers; 
-    }
+    } */
   
     /* displayedColumns: string[] = ['PUJAR', 'POS', 'PLAYER', 'SALARIO', 'YEARS','EQUIPO', 'TIMELINE' ];
   
@@ -43,42 +56,78 @@ export class NbaplayersComponent implements OnInit{
    
   /* 
     dataSource: boolean = true; */
-  
+  /* 
     get historial () {
       return this.sapi.historial;
     }
+ */
+    historial : string [] = [];
   
   
     buscar(query:string=''){
   
-      const valor = this.txtBuscar.nativeElement.value;
-      
+      let valor = this.txtBuscar.nativeElement.value;
+
+      if( !this.historial.includes(valor) ) {
+
+        this.historial.unshift(valor);
+    
+        this.historial = this.historial.splice(0,7);
   
       if( valor.trim().length === 0){return;}
+
+      valor = valor.trim().toLocaleLowerCase();
+
+       }
+    
       
-       const plFounded = this.sapi.buscarPlayer(valor);
-  
-       this.playerFound = plFounded!;
+      let matchnumber: number=0
+
+      this.playersFound = [];
+
+      this.allPlayersInfo.forEach(element => {
+        
+        
+        const busqueda = element.YahooName.trim().toLocaleLowerCase();
+        
+
+        if(busqueda.includes(valor)){
+         
+          matchnumber = matchnumber+1;
+
+          this.playersIDFound.unshift(element.PlayerID)
+
+          this.playersFound.unshift(element);
+
+/*           console.log(this.playersIDFound,'playersidf');
+ */
+          }
+            
+          
+
+/*           console.log(matchnumber,'matchnumber');
+ */      
+       
+          
+
+      });
+
       
+      if(matchnumber === 0){ return console.log('no match found tio');}
+
+      if(this.playersFound.length === 0){
+        this.dataSource =this.allPlayersInfo
+      }else{
+        this.dataSource= this.playersFound;
+      }
+
       
       this.txtBuscar.nativeElement.value = '';
   
     }
-    buscarAll(){
-  
-      const valor = this.txtBuscar.nativeElement.value;
-  
-      if( valor.trim().length === 0){return;}
-      
-      this.sapi.buscarPlayers();
-      
-      this.txtBuscar.nativeElement.value = '';
-  
-    }
-  
     nextPage(){
   
-      if(this.page< this.allPlayersInfo.length-4){
+      if(this.page< this.dataSource.length-4){
         this.page += 4;
       }
       
@@ -90,4 +139,5 @@ export class NbaplayersComponent implements OnInit{
       }
     
     }
+
 }
