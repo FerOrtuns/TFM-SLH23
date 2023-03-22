@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoaderService } from '../../../loader.service';
 
 @Component({
   selector: 'app-spinner',
@@ -6,14 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./spinner.component.css']
 })
 export class SpinnerComponent {
-
-  loaded : boolean = false;
-
-/*   
-  loaded : boolean = false;
-
-  if( data ){this.loaded = true;}
-
- */
-
+  constructor(public loader: LoaderService) { }
 }

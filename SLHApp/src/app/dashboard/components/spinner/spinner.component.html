@@ -1,10 +1,4 @@
-
-<mat-grid-list cols="1" *ngIf="!loaded; else divLoaded">
-    <mat-grid-tile>
-        <mat-spinner></mat-spinner>
-    </mat-grid-tile>
-</mat-grid-list>
-
-
-<ng-template #divLoaded> LOADED </ng-template>
-
+<div *ngIf="this.loader.getLoading()" class="cssload-container">
+  <div class="cssload-speeding-wheel"></div>
+</div>
+<app-spinner></app-spinner>

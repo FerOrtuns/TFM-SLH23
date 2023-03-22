@@ -1,23 +1,15 @@
 
-<mat-grid-list cols="1" *ngIf="!resPlayers; else divLoaded2">
-  <mat-grid-tile>
-      <mat-spinner></mat-spinner>
-  </mat-grid-tile>
-</mat-grid-list>
-
-
-<ng-template #divLoaded2>
   <mat-card>
 
-  
-    <mat-card-content> 
-    
-      <table mat-table [dataSource]=" resPlayers| apiplayerpageFilter:page" class="mat-elevation-z8"> 
 
-  
+    <mat-card-content>
+
+      <table mat-table [dataSource]=" resPlayers| apiplayerpageFilter:page" class="mat-elevation-z8">
+
+
           <ng-container matColumnDef="JUGADOR">
               <th mat-header-cell *matHeaderCellDef class="mypNONMBRE"><small> Jugador </small> </th>
-              <td mat-cell *matCellDef="let element" class="mypTIPO2" style="font-size: larger; text-align: left;"> 
+              <td mat-cell *matCellDef="let element" class="mypTIPO2" style="font-size: larger; text-align: left;">
                   <mat-card-actions>
                       <!-- <span class="spacer"></span> -->
                       <button mat-fab extended color="accent" [routerLink]="['/dashboard/mynba/nbaPlayers', element.Name]">
@@ -25,57 +17,57 @@
                   </mat-card-actions>
                   </td>
             </ng-container>
-  
-     
-       
+
+
+
          <ng-container matColumnDef="POS">
            <th mat-header-cell *matHeaderCellDef class="mypTIPO3">  Pos </th>
            <td mat-cell *matCellDef="let element" class="mypTIPO2"> {{element.Position}} </td>
          </ng-container>
-        
-       
+
+
          <ng-container matColumnDef="TEAM">
            <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> Team </th>
            <td mat-cell *matCellDef="let element" class="mypTIPO2"> {{element.Team}} </td>
          </ng-container>
-       
+
          <ng-container matColumnDef="GAMES">
            <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> Games </th>
            <td mat-cell *matCellDef="let element" class="mypTIPO2"> {{ element.Games }}</td>
          </ng-container>
-        
-      
+
+
          <ng-container matColumnDef="Started">
            <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> Started </th>
            <td mat-cell *matCellDef="let element"  class="mypTIPO2"> {{ element.Started}} </td>
          </ng-container>
-  
+
          <ng-container matColumnDef="FantasyPoints">
            <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> FanPtos </th>
            <td mat-cell *matCellDef="let element"  class="mypTIPO2"> {{element.FantasyPoints}} </td>
          </ng-container>
-        
-       
+
+
          <ng-container matColumnDef="Minutes">
            <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> Minutes </th>
            <td mat-cell *matCellDef="let element"  class="mypTIPO2">{{element.Minutes}} </td>
          </ng-container>
-         
+
          <ng-container matColumnDef="Points">
            <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> Points </th>
            <td mat-cell *matCellDef="let element"  class="mypTIPO2">{{element.Points}} </td>
          </ng-container>
-       
+
          <ng-container matColumnDef="Assists">
            <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> Assists </th>
            <td mat-cell *matCellDef="let element"  class="mypTIPO2">{{element.Assists}} </td>
          </ng-container>
-       
+
          <ng-container matColumnDef="Turnovers">
            <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> Turnovers </th>
            <td mat-cell *matCellDef="let element"  class="mypTIPO2">{{element.Turnovers}} </td>
          </ng-container>
-       
+
          <ng-container matColumnDef="Rebounds">
            <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> Reb </th>
            <td mat-cell *matCellDef="let element"  class="mypTIPO2">{{element.Rebounds}} </td>
@@ -90,33 +82,30 @@
            <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> Tapones </th>
            <td mat-cell *matCellDef="let element"  class="mypTIPO2">{{element.BlockedShots}} </td>
          </ng-container>
-       
+
          <ng-container matColumnDef="FieldGoalsPercentage">
            <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> FG% </th>
            <td mat-cell *matCellDef="let element"  class="mypTIPO2">{{element.FieldGoalsPercentage}} </td>
          </ng-container>
-       
-       
-       
-       
+
+
+
+
          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        
-      
+
+
       </table>
-       
+
     </mat-card-content>
-  
+
     <mat-card-actions>
-  
+
       <button mat-raised-button extended color="primary" (click)="prevPage()" >
           <mat-icon>navigate_before</mat-icon>Anterior</button>
       <span class="spacer"></span>
               <button mat-raised-button extended color="primary" (click)="nextPage()" >
                   <mat-icon>navigate_next</mat-icon>Siguiente</button>
     </mat-card-actions>
-    
+
     </mat-card>
-   
-  
-</ng-template>

@@ -1,127 +1,102 @@
-
-
-  
- 
-
- <mat-grid-list cols="1" *ngIf="!gminfo; else divLoaded">
-    <mat-grid-tile>
-        <mat-spinner></mat-spinner>
-    </mat-grid-tile>
-</mat-grid-list>
-
-<ng-template #divLoaded> 
-
-
-<!-- <br> -->
-<!-- <h1 align="center"> Detalle del GM </h1>
- -->
- <!-- <mat-divider></mat-divider> -->
-
-<!-- <br> -->
-
 <div fxLayout="row wrap">
 
-    <div fxFlex="100">
+  <div fxFlex="100">
 
-
-
-        <mat-card>
-            <mat-card-header>
-            <mat-card-title> {{ gminfo.EQUIPO }}</mat-card-title>
-            <br>
-            <br>
-            <mat-card-subtitle> {{ gminfo.AKA }}</mat-card-subtitle>
-
-                <span class="spacer"></span>
-
-            <img mat-card-image [src]=[gminfo.alt_img]>
-
-        </mat-card-header>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title> {{ gminfo.EQUIPO }}</mat-card-title>
         <br>
-        <mat-divider></mat-divider>
         <br>
+        <mat-card-subtitle> {{ gminfo.AKA }}</mat-card-subtitle>
 
-        <mat-card-content>
+        <span class="spacer"></span>
 
-    <div fxFlex="50" align="right">
+        <img mat-card-image [src]=[gminfo.alt_img]>
+
+      </mat-card-header>
+      <br>
+      <mat-divider></mat-divider>
+      <br>
+
+      <mat-card-content>
+
+        <div fxFlex="50" align="right">
 
 
-                   <!--  <mat-grid-list cols="2" role="list" rowHeight="300px">
+          <!--  <mat-grid-list cols="2" role="list" rowHeight="300px">
 
-                        <mat-grid-tile [colspan]="1" [rowspan]="1" [style.background]="'red'"> -->
-        
-        
-                        <mat-list-item role="listitem" align="right">Manager : <br>
-                                        Numero de Jugadores : <br>
-                                        Numero de Derechos : <br>
-                                        Ingresos : <br>
-                                        Gastos : <br>
-                                        CAP Libre : </mat-list-item>
-                       <!-- 
-                         </mat-grid-tile>
-        
-                         <mat-grid-tile role="listitem" align="left"[colspan]="1" [rowspan]="1" [style.background]="'blue'"> 
-                         -->
-    </div>
-    <div fxFlex="50" style="margin-left:10px">
+               <mat-grid-tile [colspan]="1" [rowspan]="1" [style.background]="'red'"> -->
 
-                        <mat-list-item><strong> {{ gminfo.Nickname }}</strong><br>
-                                                 {{ gminfo.JUGADORES }}<br>
-                                                 {{ gminfo.DERECHOS }}<br>
-                                                  130 <br>
-                                                 {{ gminfo.Salarios }}<br>
-                                        <strong> {{ gminfo.SalarioLibre }}</strong></mat-list-item>
-                            
-                                        
-                        <!-- </mat-grid-tile>
-        
-                    </mat-grid-list>
-         -->
-    </div>
-        </mat-card-content>
 
-       <br>
-        <mat-divider></mat-divider>
-        <br>
-        
-        <mat-card-footer>
-            <div fxLayout="row wrap">
+          <mat-list-item role="listitem" align="right">Manager : <br>
+            Numero de Jugadores : <br>
+            Numero de Derechos : <br>
+            Ingresos : <br>
+            Gastos : <br>
+            CAP Libre :
+          </mat-list-item>
+          <!--
+            </mat-grid-tile>
 
-            <div fxFlex="100">
-                <div fxFlex="50">
- 
- 
-                    <button mat-fab extended color="accent">
-                        <mat-icon>email</mat-icon>E-mail  : {{ gminfo.Mail2 }}</button>
-    
-                
+            <mat-grid-tile role="listitem" align="left"[colspan]="1" [rowspan]="1" [style.background]="'blue'">
+            -->
+        </div>
+        <div fxFlex="50" style="margin-left:10px">
+
+          <mat-list-item><strong> {{ gminfo.Nickname }}</strong><br>
+            {{ gminfo.JUGADORES }}<br>
+            {{ gminfo.DERECHOS }}<br>
+            130 <br>
+            {{ gminfo.Salarios }}<br>
+            <strong> {{ gminfo.SalarioLibre }}</strong></mat-list-item>
+
+
+          <!-- </mat-grid-tile>
+
+      </mat-grid-list>
+-->
+        </div>
+      </mat-card-content>
+
+      <br>
+      <mat-divider></mat-divider>
+      <br>
+
+      <mat-card-footer>
+        <div fxLayout="row wrap">
+
+          <div fxFlex="100">
+            <div fxFlex="50">
+
+
+              <button mat-fab extended color="accent">
+                <mat-icon>email</mat-icon>
+                E-mail : {{ gminfo.Mail2 }}</button>
+
+
             </div>
             <div fxFlex="50">
-           
 
 
+              <button mat-fab extended color="secondary">
+                <mat-icon>near_me</mat-icon>
+                Telegram : {{ gminfo.Telegram }}</button>
 
-                <button mat-fab extended color="secondary">
-                    <mat-icon>near_me</mat-icon>Telegram : {{ gminfo.Telegram }}</button>
-
-                    </div>
-                </div>
             </div>
-        </mat-card-footer>
-            
-        <mat-card-actions>
-            <span class="spacer"></span>
-            <button mat-fab extended color="primary"  [routerLink]="['/dashboard/myteam/players', gminfo.AKA]">
-                <mat-icon>groups</mat-icon>Roster</button>
-        </mat-card-actions>
-        
-       
-    
+          </div>
+        </div>
+      </mat-card-footer>
+
+      <mat-card-actions>
+        <span class="spacer"></span>
+        <button mat-fab extended color="primary" [routerLink]="['/dashboard/myteam/players', gminfo.AKA]">
+          <mat-icon>groups</mat-icon>
+          Roster
+        </button>
+      </mat-card-actions>
+
+
     </mat-card>
 
-    </div>
+  </div>
 </div>
-
-</ng-template>
-
-<!--   <pre>{{ gminfo | json }}</pre>    -->

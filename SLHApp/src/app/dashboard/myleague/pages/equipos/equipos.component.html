@@ -1,27 +1,19 @@
-<mat-grid-list cols="1" *ngIf="!dataSource; else divLoaded3">
-    <mat-grid-tile>
-        <mat-spinner></mat-spinner>
-    </mat-grid-tile>
-  </mat-grid-list>
-  
-  
-  <ng-template #divLoaded3>
 
    <!--  <div fxLayout="row wrap">
 
         <div fxFlex="100"> -->
 
     <mat-card>
-        
+
         <mat-card-content>
 
-    <table mat-table [dataSource]=equiposinfo class="mat-elevation-z8"> 
+    <table mat-table [dataSource]=equiposinfo class="mat-elevation-z8">
 
-        
+
 
         <ng-container matColumnDef="Roster">
             <th mat-header-cell *matHeaderCellDef class="equiposTableHeader"> Equipo </th>
-            <td mat-cell *matCellDef="let element"  class="mypTIPO2"> 
+            <td mat-cell *matCellDef="let element"  class="mypTIPO2">
                 <mat-card-actions>
                     <!-- <span class="spacer"></span> -->
                     <button mat-fab extended color="primary"  [routerLink]="['/dashboard/myteam/players', element.AKA]">
@@ -29,42 +21,42 @@
                 </mat-card-actions>
                 </td>
           </ng-container>
-        
+
         <ng-container matColumnDef="alt_img">
             <th mat-header-cell *matHeaderCellDef class="equiposTableHeader"> Logo </th>
-            <td mat-cell *matCellDef="let element"  class="mypTIPO2"> 
+            <td mat-cell *matCellDef="let element"  class="mypTIPO2">
                <img mat-card-image [src]=[element.alt_img]>
                 </td>
           </ng-container>
-      
-         
+
+
            <ng-container matColumnDef="Nickname">
              <th mat-header-cell *matHeaderCellDef class="equiposTableHeader"> Manager </th>
              <td mat-cell *matCellDef="let element" class="mypTIPO2" style="font-size: large"><strong> {{element.Nickname | titlecase }} </strong></td>
            </ng-container>
-          
-         
+
+
            <ng-container matColumnDef="JUGADORES">
              <th mat-header-cell *matHeaderCellDef class="equiposTableHeader"> Num </th>
              <td mat-cell *matCellDef="let element" class="mypTIPO2"> {{element.JUGADORES}} </td>
            </ng-container>
-         
+
            <ng-container matColumnDef="Salarios">
              <th mat-header-cell *matHeaderCellDef class="equiposTableHeader"> Gastos </th>
              <td mat-cell *matCellDef="let element" class="mypTIPO2"> {{element.Salarios}} </td>
            </ng-container>
-          
-        
+
+
            <ng-container matColumnDef="SalarioLibre">
              <th mat-header-cell *matHeaderCellDef class="equiposTableHeader"> Cap </th>
              <td mat-cell *matCellDef="let element"  class="mypTIPO2"> {{element.SalarioLibre}} </td>
            </ng-container>
-          
-         
+
+
 
            <ng-container matColumnDef="Mail2">
             <th mat-header-cell *matHeaderCellDef class="equiposTableHeader">  E-mail </th>
-            <td mat-cell *matCellDef="let element"  class="mypTIPO2"> 
+            <td mat-cell *matCellDef="let element"  class="mypTIPO2">
                 <mat-card-actions>
 
                     <button mat-fab extended color="secondary" href="">
@@ -73,22 +65,21 @@
                 </td>
           </ng-container>
 
-         
-         
-         
-         
+
+
+
+
            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-          
-         
-        
+
+
+
             </table>
         </mat-card-content>
 
-       
-        
+
+
     </mat-card>
 
        <!--  </div>
-    </div >   --> 
-  </ng-template>
+    </div >   -->

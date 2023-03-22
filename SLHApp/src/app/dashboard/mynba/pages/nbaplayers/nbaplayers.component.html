@@ -4,40 +4,40 @@
 <mat-card>
 
 
-  
+
 
      <mat-card-header>
 
-      
+
       <mat-card-actions>
         <button mat-raised-button color="warn" (click)="buscar('$event')">Buscar</button>
       </mat-card-actions>
         <mat-card-title-group class="headtitle">
             Informacion detallada de los jugadores NBA en activo
         </mat-card-title-group>
-        
+
     </mat-card-header>
     <br>
     <mat-divider></mat-divider>
 
 
 
-    
+
     <div fxLayout="row wrap">
 
         <div fxFlex="100">
-    
+
             <div fxFlex="20" align="center">
 
 
               <mat-divider></mat-divider>
 
-              
+
 
                     <mat-form-field class="example-form-field">
                         <mat-label>Buscar jugador</mat-label>
                         <input matInput type="text" (keyup.enter)="buscar('$event')" #txtBuscar/>
-                       
+
                      <!--    <button matInput>
                           <mat-icon>search</mat-icon>
                         </button>
@@ -46,55 +46,47 @@
 
                     <mat-card-subtitle>Historial de busquedas : </mat-card-subtitle>
                     <br>
-                    
+
                     <mat-divider></mat-divider>
-               
+
                     <br>
 
                     <mat-card-content>
-            
+
                       <div style="margin: 5px;"  *ngFor="let item of historial">
                       <button mat-raised-button extended color="accent" (click)="buscarH(item)">{{item | titlecase}}</button>
-                      </div>  
-                        
+                      </div>
+
                     </mat-card-content>
 
-            </div> 
+            </div>
 
             <div fxFlex="80" align="center">
 
-            <mat-grid-list cols="1" *ngIf="!dataSource; else divLoadedN1">
-              <mat-grid-tile>
-                  <mat-spinner></mat-spinner>
-              </mat-grid-tile>
-            </mat-grid-list>
-            
-            
-            <ng-template #divLoadedN1>
 
               <mat-card >
 
-              <div fxFlex="100"  *ngFor="let element of dataSource | apiplayerinfopageFilter:page">  
+              <div fxFlex="100"  *ngFor="let element of dataSource | apiplayerinfopageFilter:page">
 
-                  
+
                   <div fxFlex="25">
-                
+
 
                   <img matCardImage [src]=element.PhotoUrl>
 
-                
+
                   </div>
-              
+
                   <div fxFlex="25">
-            
-                 
-                   
+
+
+
                   <mat-card-header>
                     <mat-card-title>
                       {{element.YahooName }}
                     </mat-card-title>
                     <mat-card-subtitle>
-                    <strong style="font-size: larger;"> {{element.Team }}</strong> 
+                    <strong style="font-size: larger;"> {{element.Team }}</strong>
                     </mat-card-subtitle>
                     <mat-card-subtitle>
                       {{element.Position }}
@@ -110,12 +102,12 @@
                     <mat-card-subtitle>nacionalidad: {{element.BirthCountry }}</mat-card-subtitle>
                     <mat-card-subtitle>College: {{element.College }}</mat-card-subtitle>
 
-                    
-                    
+
+
                   </mat-card-content>
 
                   </div>
-                
+
                   <div fxFlex="25">
 
                     <mat-card-content>
@@ -125,12 +117,12 @@
                   </mat-card-content>
                   </div>
               </div>
-                
+
               </mat-card>
 
 
               <mat-card-actions>
-  
+
                 <button mat-raised-button extended color="primary" (click)="prevPage()" >
                     <mat-icon>navigate_before</mat-icon>Anterior</button>
                 <span class="spacer"></span>
@@ -138,11 +130,8 @@
                             <mat-icon>navigate_next</mat-icon>Siguiente</button>
               </mat-card-actions>
 
-              
-              </ng-template>
-
               </div>
         </div>
-          
+
 
 
