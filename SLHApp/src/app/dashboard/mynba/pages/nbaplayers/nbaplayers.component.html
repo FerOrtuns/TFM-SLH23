@@ -3,9 +3,6 @@
 
 <mat-card>
 
-
-
-
      <mat-card-header>
 
 
@@ -64,7 +61,7 @@
             <div fxFlex="80" align="center">
 
 
-              <mat-card >
+              <mat-card *ngIf="dataSource;">
 
               <div fxFlex="100"  *ngFor="let element of dataSource | apiplayerinfopageFilter:page">
 

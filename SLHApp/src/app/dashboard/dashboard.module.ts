@@ -29,8 +29,8 @@ const countdown = require('countdown');
     ApipageFilterPipe,
     ApiplayerpageFilterPipe,
     ApiplayerinfopageFilterPipe,
-    
-    
+
+
   ],
   imports: [
     CommonModule,
@@ -49,7 +49,7 @@ const countdown = require('countdown');
     ApipageFilterPipe,
     ApiplayerpageFilterPipe,
     ApiplayerinfopageFilterPipe
-    
+
   ]
 })
 export class DashboardModule { }
