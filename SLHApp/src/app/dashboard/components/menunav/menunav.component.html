@@ -4,7 +4,13 @@
 
     <button mat-raised-button extended color="primary" [matMenuTriggerFor]="myteam"><strong>Mi Equipo</strong></button>
 <mat-menu #myteam="matMenu">
-  <button mat-menu-item routerLink="/dashboard/myteam/infoGMs" routerLinkActive="active"><mat-icon mat-list-item>fingerprint</mat-icon>Info</button>
+  <button mat-menu-item routerLink="/dashboard/myteam/infoGMs"
+          routerLinkActive="active"><mat-icon mat-list-item>fingerprint</mat-icon>Info</button>
+  
+
+   
+  <button mat-menu-item [routerLink]="['/dashboard/myteam/players', AKA]" 
+          routerLinkActive="active"><mat-icon mat-list-item>groups</mat-icon>Roster</button>
   
   
 
@@ -35,13 +41,13 @@
 <button mat-raised-button extended color="accent" [matMenuTriggerFor]="minba"><strong>NBA</strong></button>
 <mat-menu #minba="matMenu">
   <button mat-menu-item routerLink="/dashboard/mynba/nbastatsref" routerLinkActive="active">
-    <mat-icon mat-list-item>poll</mat-icon> NBA StatsReference </button>
+    <mat-icon mat-list-item>poll</mat-icon> Estadisticas </button>
   <button mat-menu-item routerLink="/dashboard/mynba/nbanews" routerLinkActive="active">
-    <mat-icon mat-list-item>newspaper</mat-icon> NBA News </button>
+    <mat-icon mat-list-item>newspaper</mat-icon> Noticias </button>
   <button mat-menu-item routerLink="/dashboard/mynba/nbaScorebox" routerLinkActive="active">
-    <mat-icon mat-list-item>scoreboard</mat-icon> NBA ScoreBox </button>
+    <mat-icon mat-list-item>scoreboard</mat-icon> Resultados </button>
   <button mat-menu-item routerLink="/dashboard/mynba/nbaPlayers" routerLinkActive="active">
-    <mat-icon mat-list-item>info</mat-icon> NBA Players </button>
+    <mat-icon mat-list-item>info</mat-icon> Jugadores </button>
   
 </mat-menu>
 

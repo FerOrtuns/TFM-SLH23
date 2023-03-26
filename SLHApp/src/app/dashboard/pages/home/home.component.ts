@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit{
 
   gminfo!: MyGM ;
   EQUIPO!: string;
+  AKA!: string;
 
   constructor ( private infogmS : InfogmService,
     private authservice : AuthService) {}
@@ -31,8 +32,10 @@ export class HomeComponent implements OnInit{
                        this.gminfo = resp;
 
                        this.EQUIPO = this.gminfo.EQUIPO!;
+                       this.AKA = this.gminfo.AKA!;
                        
                        console.log('equipo', this.EQUIPO);
+                       console.log('equipo', this.AKA);
                        
                         })
 
