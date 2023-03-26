@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from '../pages/home/home.component';
+import { PujaComponent } from './components/puja/puja.component';
 import { PujarComponent } from './components/pujar/pujar.component';
 import { AgencialibreComponent } from './pages/agencialibre/agencialibre.component';
 import { EquiposComponent } from './pages/equipos/equipos.component';
@@ -22,7 +23,7 @@ const routes: Routes = [
       },
       {
         path:'pujar/:PLAYER',
-        component: PujarComponent
+        component: PujaComponent
       },
       {
         path:'trade',

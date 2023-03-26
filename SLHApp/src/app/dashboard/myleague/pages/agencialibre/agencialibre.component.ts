@@ -19,7 +19,7 @@ export class AgencialibreComponent implements OnInit {
   public page : number = 0;
 
   
- displayedColumns: string[] = ['PUJAR', 'POS', 'PLAYER', 'SALARIO', 'YEARS','EQUIPO', 'TIMELINE' ];
+ displayedColumns: string[] = ['PUJAR', 'POS', 'PLAYER', 'SALARIO', 'YEARS','EQUIPO' ];
 
  dataSource = new MatTableDataSource(this.listaFAs);
 

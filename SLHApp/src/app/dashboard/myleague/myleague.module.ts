@@ -11,7 +11,8 @@ import  {  PdfViewerModule  }  from  'ng2-pdf-viewer';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardModule } from "../dashboard.module";
 import { PujarComponent } from './components/pujar/pujar.component';
-import { PujaFAComponent } from './components/puja-fa/puja-fa.component'; // revisar si es necesario
+import { PujaFAComponent } from './components/puja-fa/puja-fa.component';
+import { PujaComponent } from './components/puja/puja.component'; // revisar si es necesario
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { PujaFAComponent } from './components/puja-fa/puja-fa.component'; // rev
         TradeComponent,
         NormativaComponent,
         PujarComponent,
-        PujaFAComponent
+        PujaFAComponent,
+        PujaComponent
     ],
     imports: [
         CommonModule,

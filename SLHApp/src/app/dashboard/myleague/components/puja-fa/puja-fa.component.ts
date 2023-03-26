@@ -16,13 +16,15 @@ export class PujaFAComponent implements OnInit{
   constructor(private _bottomSheetRef: MatBottomSheetRef<PujarComponent>) {}
 
 
-  @Input() pujaNew!: MyPuja[];
   
+  pujaForm!: MyPuja;
   dataPuja: boolean = true;
 
-  ngOnInit(): void {
-/* 
-      if(this.pujaNew){this.dataPuja = true}; */
+  ngOnInit() {
+
+console.log('pujaForm', this.pujaForm);
+
+
   }
 
   openLink(event: MouseEvent): void {
@@ -47,8 +49,8 @@ export class PujaFAComponent implements OnInit{
   
  displayedColumns: string[] = ['PLAYER', 'SALARIO', 'YEARS','EQUIPO', 'STARTTIME', 'ENDTIME' ];
 
- dataSource = new MatTableDataSource(this.pujaNew);
-
+/*  dataSource = new MatTableDataSource(this.pujaForm);
+ */
  
 
 

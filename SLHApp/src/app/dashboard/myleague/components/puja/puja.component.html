@@ -1,0 +1,134 @@
+<mat-grid-list cols="1" *ngIf="!pujaFormData; else divLoadedPuja">
+    <mat-grid-tile>
+        <mat-spinner></mat-spinner>
+    </mat-grid-tile>
+  </mat-grid-list>
+  
+  
+  <ng-template #divLoadedPuja>
+
+
+<mat-card>
+
+<div class="pujar">
+
+    <mat-card-header>
+        <mat-card-title><small>Hacer Oferta por: </small> 
+            <br>
+            <div class="Player">
+            {{ this.PLAYER}}
+            </div>
+    </mat-card-title>
+    </mat-card-header>
+
+    <br>
+    <mat-divider></mat-divider>
+    <br>
+
+    <mat-card-content>
+
+        <form (ngSubmit)="guardarPuja()" autocomplete="off" [formGroup]="pujaFAForm">
+
+        <mat-form-field>
+            <mat-label>Salario</mat-label>
+                <input matInput type="number" required formControlName="salarioOffer">
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field>
+            <mat-label>Años</mat-label>
+                <input matInput type="number" required formControlName="years">
+
+                
+        <span matCardSubtitle *ngIf="camposNoValidos('years')" class="validFormAlert">Los años de contrato solo pueden ser de 1 a 3 </span>
+
+        
+        </mat-form-field>
+
+
+        </form>
+
+    </mat-card-content>
+</div>
+
+    <mat-card-actions>
+
+        <div fxLayout="row wrap" fxFlex="100" *ngIf="!pujaForm">
+
+           <!--  <div fxFlex="100"> -->
+                <div fxFlex="50" align="center">
+
+        <button mat-raised-button extended color="accent" (click)="cancelar()" routerLink="/dashboard/myleague/playersfa">
+            <mat-icon>cancel</mat-icon>Cancelar</button>
+        <!-- <span class="spacer"></span> -->
+                </div>
+            <div fxFlex="50" align="center">
+                <button mat-raised-button extended color="warn" (click)="pujar()" (click)="openInfo()" type="submit" [disabled]="pujaFAForm.invalid">
+                    <mat-icon class="material-icons-outlined">check_circle</mat-icon>Pujar</button>
+
+                </div>
+            </div>
+            
+                           
+    </mat-card-actions>
+
+</mat-card>
+
+    <div class="pujar">
+
+        <mat-card>
+
+        <mat-card-content *ngIf="pujaForm">
+
+<mat-card-header>
+    <mat-card-title>        Resumen de la operacion : </mat-card-title>
+</mat-card-header>
+
+        <br>
+        <mat-divider></mat-divider>
+        
+        <mat-card-actions> 
+
+
+     
+              <button mat-raised-button extended color="secondary"> Nombre:  </button>
+              <button mat-raised-button extended color="primary">{{pujaForm.PLAYER}}</button>
+          
+              <button mat-raised-button extended color="secondary"> Salario: </button>
+              <button mat-raised-button extended color="accent"> {{pujaForm.SALARIO}} </button>
+            
+           
+         
+              <button mat-raised-button extended color="secondary"> Años: </button>
+              <button mat-raised-button extended color="accent">  {{pujaForm.YEARS}}</button>
+         
+              <button mat-raised-button extended color="secondary"> Equipo:</button>
+              <button mat-raised-button extended color="primary"> {{pujaForm.EQUIPO}}</button>
+           
+          
+              <button mat-raised-button extended color="secondary"> Desde: </button>
+              <button mat-raised-button extended color="accent"> <small>{{pujaForm.desde}}</small></button>
+          
+           
+         
+         </mat-card-actions>
+
+         <mat-divider></mat-divider>
+         <br>
+
+         <mat-card align="center">
+         <button mat-raised-button extended color="warn" (click)="cancelar()" routerLink="/dashboard/myleague/playersfa">
+             <mat-icon>navigate_next</mat-icon>Continuar</button>
+        </mat-card>
+
+        </mat-card-content>
+    </mat-card>
+    </div>
+
+
+
+  </ng-template>
+
+
+           

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { MatTableDataSource } from '@angular/material/table';
@@ -22,6 +22,7 @@ const countdown = require('countdown')
 export class PujarComponent implements OnInit{
 
 
+  @Output()  pujaForm!: MyPuja;
 
 
 
@@ -41,9 +42,8 @@ export class PujarComponent implements OnInit{
 
   gminfo!: MyGM;
 
-  pujaForm!: MyPuja;
-
   pujaNew!: MyPuja[];
+
 
   data: boolean = false;
   dataPuja: boolean = false;
@@ -185,7 +185,7 @@ const endDate : MyFecha = {
 
     this.endDate= endDate;
     
-    const pujaNew2 : MyPuja[] =[ {
+    const pujaNew2 : MyPuja = {
 
       PLAYER:        this.PLAYER,
       
@@ -195,28 +195,31 @@ const endDate : MyFecha = {
       startTime:     this.startDate,
       endTime:       this.endDate,
       closed:        false
-    }]
+    }
 
-    this.pujaNew = pujaNew2;
+    this.pujaForm = pujaNew2;
+
+    
     
 /* 
     this.pujaNew.startTime = this.startDate;
    this.pujaNew.endTime =  this.endDate;
    this.pujaNew.PLAYER = this.PLAYER;  */
 
-console.log('infoP', this.pujaNew);
+console.log('infoP', pujaNew2);
 
-if(this.pujaNew){ this.dataPuja = true;}
+if(this.pujaForm){ this.dataPuja = true;}
 
     this.openBottomSheet();
 
     this.guardarPuja();
     
-  } // END OF NGONINIT
+  } // END OF PUJAR
 
   guardarPuja(){
 
     console.log('guardando puja', this.pujaFAForm.value);
+    
     
   }
 

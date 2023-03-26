@@ -2,7 +2,8 @@
 .menubar{
 
     background: linear-gradient(#000000, #444444);
-    
+   /*  position: sticky;
+    z-index: 999; */
 
 }
 
