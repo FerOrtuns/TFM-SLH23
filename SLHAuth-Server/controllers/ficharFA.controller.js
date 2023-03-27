@@ -8,7 +8,9 @@ const players = require('../models/player');
 
 const putFa = async (req, res = response)=>{
 
-    const PLAYER = req.params.PLAYER;
+    const PLAYER = req;
+
+    console.log('player', PLAYER);
 
 
 try {
@@ -18,6 +20,8 @@ try {
 
     if (!playerfa){
 
+        
+
         return res.status(404).json({
             ok:false,
             msg:'no existe player con ese nombre en db',
@@ -25,6 +29,9 @@ try {
     }
 
     //  ACTUALIZANDO
+
+    console.log('playerFA', playerfa);
+
 
     const campos = req.body;
 

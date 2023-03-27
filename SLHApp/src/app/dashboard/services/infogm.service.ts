@@ -51,7 +51,17 @@ export class InfogmService {
     return this.http.get<MyGM[]>(url, )
   }
 
-  
+  // PUT PARA ACTUALIZAR PLAYERS Y FICHAR DE FA
+
+  putFA (AKA: string, SALARIO: number, YEARS: number) : Observable <MyPlayer> {
+
+    const url = `${this._baseUrl}/dashboard/myleague/ficharfa`
+    const body = {AKA, SALARIO, YEARS}; 
+
+    return this.http.put<MyPlayer>(url, body)
+  };
+
+
 
   getInfoGmByEmail (email: string) : Observable <MyGM> {
 

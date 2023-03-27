@@ -31,6 +31,7 @@ app.use(express.json());
 
 app.use('/slh/dashboard/myteam/infoGMs', require('./routes/dashboard') );
 app.use('/slh/dashboard/myleague/equipos', require('./routes/equipos') );
+/* app.use('/slh/dashboard/myleague/ficharfa', require('./routes/ficharFA') ); */
 app.use('/slh/dashboard/myteam/players', require('./routes/players') );
 app.use('/slh/dashboard/myteam/playersfa', require('./routes/playersFA') );
 app.use('/slh/dashboard/myteam/infoGM', require('./routes/infoGMByEmail') );
