@@ -51,6 +51,8 @@ export class InfogmService {
     return this.http.get<MyGM[]>(url, )
   }
 
+  
+
   getInfoGmByEmail (email: string) : Observable <MyGM> {
 
     const url = `${this._baseUrl}/dashboard/myteam/infoGM/${email}`

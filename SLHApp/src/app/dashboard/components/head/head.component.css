@@ -1,7 +1,13 @@
-.head{
-   /*  position: sticky;
-    z-index: 999;
-    width: 100%;
-    top: 0; */
-    top:0;
+.top-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 9;
+}
+
+.menubar{
+  background: linear-gradient(#000000, #444444);
+}
+
+button{
+  margin: 2px;
 }
