@@ -26,6 +26,9 @@ import { ReactiveFormsModule } from '@angular/forms';
         DashboardModule, // no se si es lo mejor para traer el app nav.. revisar TODO:
         MaterialModule,
         ReactiveFormsModule
+    ],
+    exports:[
+        RosterComponent
     ]
 })
 export class MyteamModule { }
