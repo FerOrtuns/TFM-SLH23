@@ -5,7 +5,7 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 import { MyFecha } from 'src/app/dashboard/interfaces/MyFecha.interface';
 import { MyGM } from 'src/app/dashboard/interfaces/MyGM.interface';
 import { MyPuja } from 'src/app/dashboard/interfaces/MyPuja.interface';
-import { MyPujaTiny } from 'src/app/dashboard/interfaces/MyPujaTiny.interface';
+import { MyPujaTiny, MyPujaTiny2 } from 'src/app/dashboard/interfaces/MyPujaTiny.interface';
 import { InfogmService } from 'src/app/dashboard/services/infogm.service';
 
 @Component({
@@ -29,12 +29,13 @@ export class PujaComponent implements OnInit {
 
   gminfo!: MyGM;
 
-  pujaNew!: MyPuja[];
+  pujaNew!: MyPujaTiny2[];
 
   PLAYER!: string ;
+  TEAM!: string;
 
   EQUIPOOffer!: string;
-  pujaForm!: MyPujaTiny;
+  pujaForm!: MyPujaTiny2;
   pujaFormData: boolean = false;
   infopuja : boolean = false;
 
@@ -56,6 +57,7 @@ export class PujaComponent implements OnInit {
                 .subscribe( resp => {
                   /* this.gminfo = resp; */
               this.EQUIPOOffer= resp.EQUIPO!;
+              this.TEAM = resp.AKA!;
 /* 
               console.log(this.EQUIPOOffer,'euipoiofer'); */
                    })
@@ -79,29 +81,53 @@ export class PujaComponent implements OnInit {
           
            
               
-              const pujaNew2 : MyPujaTiny = {
-          
+              const pujaNew2 : MyPujaTiny2 = {
+
                 PLAYER:        this.PLAYER,
-                EQUIPO:        this.EQUIPOOffer,
-                SALARIO:        this.pujaFAForm.controls['salarioOffer'].value,
-                YEARS:          this.pujaFAForm.controls['years'].value,
-                desde:          date,
-                
+                TEAM:            this.TEAM, 
+                SALARIO:        this.pujaFAForm.value.salarioOffer,
+                YEARS:          this.pujaFAForm.value.years,
+                TIPO :         "Jugador",
               }
-          
+
               this.pujaForm = pujaNew2;
           
           console.log('infoP', pujaNew2);
 
           if(this.pujaForm){this.infopuja = true;}
+
+
+   /*  this.openBottomSheet(); */
+
+    this.guardarPuja();
           
               
             } // END OF PUJA     
             
   guardarPuja(){
 
-              console.log('guardando puja', this.pujaFAForm.value);
-              
+    console.log('guardando puja', this.pujaFAForm.value);
+
+    const PLAYER = this.PLAYER;
+    const TEAM = this.TEAM;
+    const SALARIO = this.pujaForm.SALARIO;
+    const YEARS = this.pujaForm.YEARS;
+    const TIPO = "Jugador";
+
+    console.log(PLAYER,'PLAYER');
+    console.log(TEAM,'TEAM');
+    console.log(SALARIO,'SALARIO');
+    console.log(YEARS,'YEARS');
+    console.log(TIPO,'TIPO');
+    
+    
+
+    this.infogmS.putFA(PLAYER, TEAM, SALARIO, YEARS, TIPO )
+                .subscribe( resp => {
+                  this.pujaForm
+                  console.log('aqui probando');
+                  
+                })
               
             }
 

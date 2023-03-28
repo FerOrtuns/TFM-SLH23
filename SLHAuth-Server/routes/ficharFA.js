@@ -5,7 +5,7 @@ const { putFa } = require('../controllers/ficharFA.controller')
 const router = Router();
 
 
-router.put('/:PLAYER', putFa);
+router.put('/', putFa);
 
 
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { MyGM } from 'src/app/dashboard/interfaces/MyGM.interface';
 import { InfogmService } from 'src/app/dashboard/services/infogm.service';
 
@@ -29,7 +30,8 @@ export class EquiposComponent implements OnInit {
   displayedColumns: string[] = [ 'Roster', 'alt_img', 'Nickname', 'JUGADORES', 'Salarios', 'SalarioLibre', 'Mail2' ];
   
   
-  constructor ( private infogmS : InfogmService) {}
+  constructor ( private infogmS : InfogmService,
+                private router: Router) {}
   
     ngOnInit() {
       
@@ -39,4 +41,11 @@ export class EquiposComponent implements OnInit {
                           
                  })               
     }
+
+    /* navtoroster(){
+
+      this.AKA = 'LAC';
+      this.router.navigateByUrl("['/dashboard/myteam/players', this.AKA]");
+     
+    } */
 }

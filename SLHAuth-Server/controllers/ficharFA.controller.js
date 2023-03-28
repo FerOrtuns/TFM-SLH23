@@ -8,9 +8,9 @@ const players = require('../models/player');
 
 const putFa = async (req, res = response)=>{
 
-    const PLAYER = req;
+    const PLAYER = req.body.PLAYER;
 
-    console.log('player', PLAYER);
+    console.log('player del back?', PLAYER);
 
 
 try {
@@ -19,8 +19,6 @@ try {
     const playerfa = await players.findOne({ PLAYER });
 
     if (!playerfa){
-
-        
 
         return res.status(404).json({
             ok:false,
@@ -34,8 +32,14 @@ try {
 
 
     const campos = req.body;
+/* 
+    const jugadorFichado = await players.findOneAndUpdate(playerfa, campos); */
 
-    const jugadorFichado = await players.findOneAndUpdate(PLAYER, campos);
+    
+    
+const jugadorFichado = await players.findByIdAndUpdate(playerfa.id, campos, {new:true});
+
+
 
     res.json({
 

@@ -4,7 +4,7 @@ export interface MyPlayer {
     
     _id?:            string,
     PLAYER?:         string,
-    TIPO?:           Tipo,
+    TIPO?:           string,
     TEAM?:           Team,
     POS?:            Pos,
     SALARIO?:        number,

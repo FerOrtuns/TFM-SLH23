@@ -4,7 +4,7 @@ import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/auth/services/auth.service';
-import { MyPuja } from 'src/app/dashboard/interfaces/MyPuja.interface';
+import { MyPujaTiny2 } from 'src/app/dashboard/interfaces/MyPujaTiny.interface';
 import { InfogmService } from 'src/app/dashboard/services/infogm.service';
 import { MyFecha } from '../../../interfaces/MyFecha.interface';
 import { MyGM } from '../../../interfaces/MyGM.interface';
@@ -22,7 +22,7 @@ const countdown = require('countdown')
 export class PujarComponent implements OnInit{
 
 
-  @Output()  pujaForm!: MyPuja;
+  @Output()  pujaForm!: MyPujaTiny2;
 
 
 
@@ -42,7 +42,7 @@ export class PujarComponent implements OnInit{
 
   gminfo!: MyGM;
 
-  pujaNew!: MyPuja[];
+  pujaNew!: MyPujaTiny2[];
 
 
   data: boolean = false;
@@ -61,6 +61,7 @@ export class PujarComponent implements OnInit{
   startDate!: MyFecha ;
   endDate!: MyFecha ;
   mesS!: string;
+  TEAM!: string;
 
   ngOnInit() {
 
@@ -77,6 +78,7 @@ export class PujarComponent implements OnInit{
                 .subscribe( resp => {
                   this.gminfo = resp;
               this.EQUIPOOffer= resp.EQUIPO!;
+              this.TEAM = resp.AKA!;
 
                    })
 
@@ -185,19 +187,15 @@ const endDate : MyFecha = {
 
     this.endDate= endDate;
     
-    const pujaNew2 : MyPuja = {
+/*     const pujaNew2 : MyPujaTiny2 = {
 
       PLAYER:        this.PLAYER,
-      
-      EQUIPO:        this.EQUIPOOffer,
-      SALARIO:        2,
-      YEARS:          3,
-      startTime:     this.startDate,
-      endTime:       this.endDate,
-      closed:        false
+      TEAM:            this.TEAM, 
+      SALARIO:        this.pujaFAForm.value.salarioOffer,
+      YEARS:          this.pujaFAForm.value.years
     }
 
-    this.pujaForm = pujaNew2;
+    this.pujaForm = pujaNew2; */
 
     
     
@@ -205,21 +203,34 @@ const endDate : MyFecha = {
     this.pujaNew.startTime = this.startDate;
    this.pujaNew.endTime =  this.endDate;
    this.pujaNew.PLAYER = this.PLAYER;  */
-
-console.log('infoP', pujaNew2);
+/* 
+console.log('infoP', pujaNew2); */
 
 if(this.pujaForm){ this.dataPuja = true;}
 
-    this.openBottomSheet();
+   /*  this.openBottomSheet(); */
 
     this.guardarPuja();
+
+    
     
   } // END OF PUJAR
 
   guardarPuja(){
 
     console.log('guardando puja', this.pujaFAForm.value);
+
+    const PLAYER = this.PLAYER;
+    const TEAM = this.TEAM;
+    const SALARIO = this.pujaFAForm.value.SALARIO;
+    const YEARS = this.pujaFAForm.value.YEARS;
     
+/* 
+    this.infogmS.putFA(PLAYER, TEAM, SALARIO, YEARS )
+                .subscribe( resp => {
+                  this.pujaForm
+                })
+     */
     
   }
 

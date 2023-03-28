@@ -30,7 +30,11 @@ export class InfogmService {
 
     const url = `${this._baseUrl}/dashboard/myteam/players/${AKA}`
 
+    console.log(url,'url');
+
     return this.http.get<MyPlayer[]>(url)
+
+    
   };
 
   // GET DE ROSTER POR AKA DE LA DB DE PLAYERS
@@ -53,10 +57,13 @@ export class InfogmService {
 
   // PUT PARA ACTUALIZAR PLAYERS Y FICHAR DE FA
 
-  putFA (AKA: string, SALARIO: number, YEARS: number) : Observable <MyPlayer> {
+  putFA (PLAYER: string, TEAM: string, SALARIO: number, YEARS: number, TIPO: string) : Observable <MyPlayer> {
 
     const url = `${this._baseUrl}/dashboard/myleague/ficharfa`
-    const body = {AKA, SALARIO, YEARS}; 
+
+
+
+    const body = {PLAYER, TEAM, SALARIO, YEARS, TIPO}; 
 
     return this.http.put<MyPlayer>(url, body)
   };

@@ -24,6 +24,8 @@
             <td mat-cell *matCellDef="let element"  class="mypTIPO2"> 
                 <mat-card-actions>
                     <!-- <span class="spacer"></span> -->
+                    <!-- <button mat-fab extended color="primary"  (click)="navtoroster()">
+                        <mat-icon>groups</mat-icon>{{element.EQUIPO}}</button> -->
                     <button mat-fab extended color="primary"  [routerLink]="['/dashboard/myteam/players', element.AKA]">
                         <mat-icon>groups</mat-icon>{{element.EQUIPO}}</button>
                 </mat-card-actions>

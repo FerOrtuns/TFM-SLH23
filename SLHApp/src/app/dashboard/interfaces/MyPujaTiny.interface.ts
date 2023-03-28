@@ -48,3 +48,15 @@ export enum Team {
     Was = "WAS",
     }
     
+
+    export interface MyPujaTiny2 {
+
+         
+    
+        _id?:           string,
+        PLAYER:         string,
+        TEAM:           string,
+        SALARIO:        number,
+        YEARS:          number,
+        TIPO:           string
+    }
