@@ -41,15 +41,15 @@ export class NbastatsrefComponent implements OnInit{
 
   nextPage(){
 
-    if(this.page< this.resPlayers.length-7){
-      this.page += 7;
+    if(this.page< this.resPlayers.length-6){
+      this.page += 6;
     }
     
   }
 
   prevPage(){
     if(this.page > 0){
-      this.page -= 7;
+      this.page -= 6;
     }
   
   }

@@ -8,7 +8,7 @@ export class ApiplayerpageFilterPipe implements PipeTransform {
 
   transform(value: Apiplayers[], page:number=0): Apiplayers[] {
 
-    return value?.slice(page,page+7);
+    return value?.slice(page,page+6);
   }
 
 }
