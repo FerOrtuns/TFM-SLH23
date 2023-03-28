@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { MyFecha } from 'src/app/dashboard/interfaces/MyFecha.interface';
 import { MyGM } from 'src/app/dashboard/interfaces/MyGM.interface';
@@ -18,7 +18,8 @@ export class PujaComponent implements OnInit {
   constructor (private fb: FormBuilder,
                private infogmS : InfogmService,
                private authservice : AuthService,
-               private route: ActivatedRoute) {}
+               private route: ActivatedRoute,
+               private router: Router) {}
 
 
   pujaFAForm : FormGroup = this.fb.group({
@@ -71,6 +72,10 @@ export class PujaComponent implements OnInit {
   cancelar(){
     console.log('cancelar puja');
             };
+
+  /* go2roster() {
+                this.router.navigateByUrl('/dashboard/myteam/roster');
+            } */
             
   
   pujar(){
@@ -153,10 +158,8 @@ export class PujaComponent implements OnInit {
               this.infogmS.putFA(PLAYER, TEAM, SALARIO, YEARS, TIPO )
                           .subscribe( resp => {
                             this.pujaForm
-                            console.log('aqui probando');
-                            
                           })
-                        
+
                       }
 
             openInfo(){

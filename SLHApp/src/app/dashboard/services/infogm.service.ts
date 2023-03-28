@@ -74,4 +74,10 @@ export class InfogmService {
 
     return this.http.get<MyGM>(url, )
   }
+
+  isMyTeam(AKA:string): boolean {
+
+      
+      return false;
+  }
 }

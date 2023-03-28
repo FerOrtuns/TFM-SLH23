@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/auth/services/auth.service';
 import { MyGM } from 'src/app/dashboard/interfaces/MyGM.interface';
 import { MyPlayer } from 'src/app/dashboard/interfaces/MyPlayer.interface';
 
@@ -27,8 +28,12 @@ export class RosterComponent  implements OnInit {
 
   myroster!: MyPlayer[] ;
   gminfoT!: MyGM ;
+/*   gminfo!: MyGM ; */
   PLAYER!: string;
   validDrop: boolean = false;
+  isMyTeam: boolean = false;
+  myAKA!: string ;
+
   
 /*   loaded: boolean = false;
 
@@ -48,11 +53,14 @@ dataSource = new MatTableDataSource(this.myroster);
 */
 
   constructor ( private infogmS : InfogmService,
-                private route: ActivatedRoute) {}
+                private route: ActivatedRoute,
+                private authservice : AuthService) {}
 
   ngOnInit() {
 
     let AKA  = this.route.snapshot.paramMap.get("AKA");
+
+    
     
     this.infogmS.getRoster(AKA!)
                 .subscribe( resp => {
@@ -67,6 +75,24 @@ dataSource = new MatTableDataSource(this.myroster);
                   this.gminfoT = resp;
                   
                 })
+
+
+                const email = this.authservice.user.email;
+
+                this.infogmS.getInfoGmByEmail(email!)
+                  .subscribe( resp => {/* 
+                    this.gminfo = resp; */
+                    this.myAKA = resp.AKA;
+
+                    
+            console.log(AKA,'AKA');
+            console.log(this.myAKA,'myAKA');
+ 
+    if(AKA === this.myAKA){ this.isMyTeam = true;} 
+
+    console.log(this.isMyTeam,'this,ismuytime');
+    
+                     })
 
    
           }
@@ -104,5 +130,7 @@ dataSource = new MatTableDataSource(this.myroster);
                           
                         })
                       
+                        
+                        window.location.reload();
                     }
 };
