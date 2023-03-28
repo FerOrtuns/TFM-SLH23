@@ -10,7 +10,6 @@ const putFa = async (req, res = response)=>{
 
     const PLAYER = req.body.PLAYER;
 
-    console.log('player del back?', PLAYER);
 
 
 try {

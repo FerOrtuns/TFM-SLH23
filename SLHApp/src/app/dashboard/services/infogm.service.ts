@@ -30,8 +30,6 @@ export class InfogmService {
 
     const url = `${this._baseUrl}/dashboard/myteam/players/${AKA}`
 
-    console.log(url,'url');
-
     return this.http.get<MyPlayer[]>(url)
 
     

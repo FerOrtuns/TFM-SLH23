@@ -131,6 +131,34 @@ export class PujaComponent implements OnInit {
               
             }
 
+   droparPlayer(){
+
+              console.log('dropando', this.pujaFAForm.value);
+          
+              const PLAYER = this.PLAYER;
+              const TEAM = "F.A";
+              const SALARIO = 0;
+              const YEARS = 0;
+              const TIPO = "Jugador";
+          
+              console.log(PLAYER,'PLAYER');
+              console.log(TEAM,'TEAM');
+              console.log(SALARIO,'SALARIO');
+              console.log(YEARS,'YEARS');
+              console.log(TIPO,'TIPO');
+              
+              
+              
+          
+              this.infogmS.putFA(PLAYER, TEAM, SALARIO, YEARS, TIPO )
+                          .subscribe( resp => {
+                            this.pujaForm
+                            console.log('aqui probando');
+                            
+                          })
+                        
+                      }
+
             openInfo(){
 
               this.pujaFormData = true;
