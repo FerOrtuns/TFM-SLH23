@@ -18,7 +18,7 @@ ng build
 ````
 And try to make the server up: 
 ```
-ng server -o
+ng serve -o
 ```
 NOTE: 
 If you have some errors about memory, you should change the budget in the angular.json file and rise it to 

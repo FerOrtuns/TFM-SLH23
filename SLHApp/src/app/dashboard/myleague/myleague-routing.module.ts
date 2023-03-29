@@ -5,7 +5,6 @@ import { PujaComponent } from './components/puja/puja.component';
 import { AgencialibreComponent } from './pages/agencialibre/agencialibre.component';
 import { EquiposComponent } from './pages/equipos/equipos.component';
 import { NormativaComponent } from './pages/normativa/normativa.component';
-import { TradeComponent } from './pages/trade/trade.component';
 
 const routes: Routes = [
   {
@@ -23,10 +22,6 @@ const routes: Routes = [
       {
         path:'pujar/:PLAYER',
         component: PujaComponent
-      },
-      {
-        path:'trade',
-        component: TradeComponent
       },
       {
         path:'normativa',
