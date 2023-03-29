@@ -9,6 +9,8 @@ const GmInfo = require('../models/GmInfo');
 const infoGMs = async (req,res = response)=>{
 
     const  AKA = req.params.AKA;
+/* 
+    if(AKA === 'F.A.'){return}; */
 
     const dbGM = await GmInfo.findOne( {AKA: AKA}, 'idGM AKA EQUIPO Nickname Salarios SalarioLibre JUGADORES Mail2 Telegram alt_img DERECHOS');
 

@@ -28,7 +28,8 @@ import { PujaComponent } from './components/puja/puja.component'; // revisar si 
         PdfViewerModule,
         FormsModule,
         DashboardModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        
     ]
 })
 export class MyleagueModule { }

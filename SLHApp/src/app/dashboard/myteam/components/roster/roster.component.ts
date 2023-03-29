@@ -58,6 +58,8 @@ dataSource = new MatTableDataSource(this.myroster);
 
   ngOnInit() {
 
+    
+
     let AKA  = this.route.snapshot.paramMap.get("AKA");
 
     
@@ -97,6 +99,8 @@ dataSource = new MatTableDataSource(this.myroster);
    
           }
 
+
+          
      droparPlayer(PLAYER:string) {
 
       /* 
