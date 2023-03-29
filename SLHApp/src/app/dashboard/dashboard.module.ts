@@ -15,7 +15,6 @@ import { ApipageFilterPipe } from './pipes/apipage-filter.pipe';
 import { ApiplayerpageFilterPipe } from './pipes/apiplayerpage-filter.pipe';
 import { ApiplayerinfopageFilterPipe } from './pipes/apiplayerinfopage-filter.pipe';
 
-const countdown = require('countdown');
 
 
 @NgModule({
@@ -42,7 +41,6 @@ const countdown = require('countdown');
     MenunavComponent,
     FlexLayoutModule,
     PageFilterPipe,
-    CountdownModule, // revisar?
     ApipageFilterPipe,
     ApiplayerpageFilterPipe,
     ApiplayerinfopageFilterPipe

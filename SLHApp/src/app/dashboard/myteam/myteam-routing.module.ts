@@ -4,8 +4,6 @@ import { HomeComponent } from '../pages/home/home.component';
 import { InfogmComponent } from './components/infogm/infogm.component';
 import { RosterComponent } from './components/roster/roster.component';
 import { MiequipoComponent } from './pages/miequipo/miequipo.component';
-import { OfertasEnviadasComponent } from './pages/ofertas-enviadas/ofertas-enviadas.component';
-import { OfertasRecibidasComponent } from './pages/ofertas-recibidas/ofertas-recibidas.component';
 
 const routes: Routes = [
   {
@@ -23,14 +21,6 @@ const routes: Routes = [
       {
         path:'players/:AKA',
         component: RosterComponent
-      },
-      {
-        path:'ofertasEnviadas',
-        component: OfertasEnviadasComponent
-      },
-      {
-        path:'ofertasRecibidas',
-        component: OfertasRecibidasComponent
       },
       {
         path:'**', redirectTo:''
