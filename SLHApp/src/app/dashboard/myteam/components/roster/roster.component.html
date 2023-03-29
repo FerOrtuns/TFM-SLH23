@@ -1,186 +1,128 @@
-
-
 <mat-grid-list cols="1" *ngIf="!dataSource; else divLoaded2">
   <mat-grid-tile>
-      <mat-spinner></mat-spinner>
+    <mat-spinner></mat-spinner>
   </mat-grid-tile>
 </mat-grid-list>
 
 
 <ng-template #divLoaded2>
 
-<!-- 
-<div fxLayout="row wrap" fxLayoutAlign="center"> -->
-
-
   <mat-card>
 
-
-<!-- 
-  <form [formGroup]="miForm">
-
-    <mat-form-field>
-      <mat-label>Filter</mat-label>
-    
-      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input formControlName="filter">
-    </mat-form-field>
-
-
-  </form>  -->
-
-  <mat-grid-list cols="1" *ngIf="!gminfoT; else divLoadedT">
-    <mat-grid-tile>
+    <mat-grid-list cols="1" *ngIf="!gminfoT; else divLoadedT">
+      <mat-grid-tile>
         <mat-spinner></mat-spinner>
-    </mat-grid-tile>
-  </mat-grid-list>
+      </mat-grid-tile>
+    </mat-grid-list>
 
-  
-<ng-template #divLoadedT>
 
-  <mat-card>
-  
-    <mat-card-header class="tituloEquipo">
-    <mat-card-title style="margin-left: 25px;"> {{gminfoT.EQUIPO}} </mat-card-title>  
+    <ng-template #divLoadedT>
+
+      <mat-card>
+
+        <mat-card-header class="tituloEquipo">
+          <mat-card-title style="margin-left: 25px;"> {{gminfoT.EQUIPO}} </mat-card-title>
+          <br>
+          <br>
+          <mat-card-subtitle style="margin-left: 25px;"> {{ gminfoT.AKA }}</mat-card-subtitle>
+
+          <span class="spacer"></span>
+
+          <img mat-card-image [src]=[gminfoT.alt_img] style="margin-right: 25px;">
+
+        </mat-card-header>
+      </mat-card>
+
+
+    </ng-template>
+
+
     <br>
+    <mat-divider></mat-divider>
     <br>
-    <mat-card-subtitle style="margin-left: 25px;"> {{ gminfoT.AKA }}</mat-card-subtitle>
 
-        <span class="spacer"></span>
+    <mat-card-content>
 
-    <img mat-card-image [src]=[gminfoT.alt_img] style="margin-right: 25px;">
+      <mat-form-field>
+        <mat-label>Buscar</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="ex Bam" #input>
+      </mat-form-field>
 
-    </mat-card-header>
-</mat-card>
+      <table mat-table [dataSource]=myroster class="mat-elevation-z8">
 
-    
-</ng-template>
+        <ng-container matColumnDef="TIPO">
+          <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> Tipo </th>
+          <td mat-cell *matCellDef="let element" class="mypTIPO2">
+            <mat-card-actions>
+              <mat-button-toggle-group name="assetsOffer" multiple color="secondary" type="checkbox">
+                <mat-button-toggle>
+                  <mat-icon>checkbox</mat-icon> {{element.TIPO}}
+                </mat-button-toggle>
+              </mat-button-toggle-group>
+            </mat-card-actions>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="POS">
+          <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> Pos </th>
+          <td mat-cell *matCellDef="let element" class="mypTIPO2"> {{element.POS}} </td>
+        </ng-container>
 
 
-<br>
-<mat-divider></mat-divider>
-<br>
+        <ng-container matColumnDef="PLAYER">
+          <th mat-header-cell *matHeaderCellDef class="mypNONMBRE"> Nombre </th>
+          <td mat-cell *matCellDef="let element" class="mypTIPO2"> {{element.PLAYER}} </td>
+        </ng-container>
 
-<mat-card-content>
+        <ng-container matColumnDef="SALARIO">
+          <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> Salario </th>
+          <td mat-cell *matCellDef="let element" class="mypTIPO2"> {{element.SALARIO}} </td>
+        </ng-container>
 
-  <table mat-table [dataSource]=myroster class="mat-elevation-z8"> 
-  <!-- <table mat-table *ngFor="let element of myroster" class="mat-elevation-z8">  -->
 
- 
- <!-- 
-    <mat-selection-list #myp2>
-        <mat-list-option *ngFor="let myp of myroster"> -->
-  
-          <!--         {{myp.TIPO }} - {{myp.POS}} : {{myp.PLAYER}} - {{myp.SALARIO}} $ - {{myp.YEARS}}
+        <ng-container matColumnDef="YEARS">
+          <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> Años </th>
+          <td mat-cell *matCellDef="let element" class="mypTIPO2"> {{element.YEARS}} </td>
+        </ng-container>
 
-            </mat-selection-list> 
-   
-      -->
-  
-     <ng-container matColumnDef="TIPO">
-       <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> Tipo </th>
-       <td mat-cell *matCellDef="let element" class="mypTIPO2">
-        <mat-card-actions>
-          <!-- <span class="spacer"></span> -->
-          <mat-button-toggle-group name="assetsOffer" multiple color="secondary" type="checkbox">
-            <mat-button-toggle>
-              <mat-icon>checkbox</mat-icon> {{element.TIPO}}
-            </mat-button-toggle>
-            </mat-button-toggle-group>
-      </mat-card-actions> </td>
-     </ng-container>
-   
-     <ng-container matColumnDef="POS">
-       <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> Pos </th>
-       <td mat-cell *matCellDef="let element" class="mypTIPO2"> {{element.POS}} </td>
-     </ng-container>
-    
-   
-     <ng-container matColumnDef="PLAYER">
-       <th mat-header-cell *matHeaderCellDef class="mypNONMBRE"> Nombre </th>
-       <td mat-cell *matCellDef="let element" class="mypTIPO2"> {{element.PLAYER}} </td>
-     </ng-container>
-   
-     <ng-container matColumnDef="SALARIO">
-       <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> Salario </th>
-       <td mat-cell *matCellDef="let element" class="mypTIPO2"> {{element.SALARIO}} </td>
-     </ng-container>
-    
-  
-     <ng-container matColumnDef="YEARS">
-       <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> Años </th>
-       <td mat-cell *matCellDef="let element"  class="mypTIPO2"> {{element.YEARS}} </td>
-     </ng-container>
-    
-   
-     <ng-container matColumnDef="OPT">
-       <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> OPT </th>
-       <td mat-cell *matCellDef="let element"  class="mypTIPO2"> {{element.OPT}} </td>
-     </ng-container>
-   
-     <ng-container matColumnDef="DROP">
-      <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> DROPEAR </th>
-      <td mat-cell *matCellDef="let element" class="mypTIPO2">
-       <mat-card-actions>
 
-        <ng-template [ngIf]="isMyTeam">
-        <div *ngIf="element.SALARIO<=2">       
-             <button mat-raised-button extended color="warn" (click)="droparPlayer(element.PLAYER)" [disabled]="validDrop">
-             <mat-icon>cancel</mat-icon> Cortar
-             </button>
-        </div>
-        </ng-template>
-     </mat-card-actions> </td>
-    </ng-container>
-  
-   
-   
-     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    
-   <!--     Row shown when there is no matching data.  -->
-   <!-- 
-     <tr class="mat-row" *matNoDataRow>
-       <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
-     </tr>
-    -->
-   <!-- 
-        </mat-list-option> -->
-   
-  
-  </table>
-   
-</mat-card-content>
+        <ng-container matColumnDef="OPT">
+          <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> OPT </th>
+          <td mat-cell *matCellDef="let element" class="mypTIPO2"> {{element.OPT}} </td>
+        </ng-container>
 
-</mat-card>
-<!--   <mat-selection-list #myAsset>
-    <mat-list-option *ngFor="let element of myroster">  
-    </mat-list-option>
-    
-</mat-selection-list> -->
-  
-<!-- 
-</div> -->
+        <ng-container matColumnDef="DROP">
+          <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> DROPEAR </th>
+          <td mat-cell *matCellDef="let element" class="mypTIPO2">
+            <mat-card-actions>
+
+              <ng-template [ngIf]="isMyTeam">
+                <div *ngIf="element.SALARIO<=2">
+                  <button mat-raised-button extended color="warn" (click)="droparPlayer(element.PLAYER)"
+                    [disabled]="validDrop">
+                    <mat-icon>cancel</mat-icon> Cortar
+                  </button>
+                </div>
+              </ng-template>
+            </mat-card-actions>
+          </td>
+        </ng-container>
+
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        </tr>
+
+
+
+      </table>
+
+    </mat-card-content>
+
+  </mat-card>
 
 </ng-template>
-
-
-<!-- <p>
-    Options selected: {{myp2.selectedOptions.selected.length}}
-</p>
-
-</div>
- 
-<pre>{{myroster | json }}</pre>
- 
-
-
-  
-  
-<!-     tipo numero  -->
-
-   <!--  <ng-container matColumnDef="Num">
-      <th mat-header-cell *matHeaderCellDef> No. </th>
-      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-    </ng-container> -->
-   
-  

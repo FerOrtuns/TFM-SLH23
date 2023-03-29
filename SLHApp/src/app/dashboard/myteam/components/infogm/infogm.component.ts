@@ -11,43 +11,21 @@ import { InfogmService } from '../../../services/infogm.service';
   ]
 })
 export class InfogmComponent implements OnInit {
-/* 
-idGM! : number;  */
 
-gminfo!: MyGM ;
+  gminfo!: MyGM;
 
-
-/* 
-loaded: boolean = false;
-
-if (gminfo: MyGM){this.loaded = true;}; */
-
-
-constructor ( private infogmS : InfogmService,
-              private authservice : AuthService) {}
+  constructor(private infogmS: InfogmService,
+    private authservice: AuthService) { }
 
   ngOnInit() {
-    
- /* s */
-/*                 let email  = this.route.snapshot.paramMap.get("AKA"); 
-        
- */
-              const email = this.authservice.user.email;
 
-              this.infogmS.getInfoGmByEmail(email!)
-                .subscribe( resp => {
-                  this.gminfo = resp;
-                   })
-                   
-                   
-           /*  let equipo = this.gminfo.EQUIPO;
-            console.log(equipo,'EQUIPO'); */
-            
-            /* let equipo = this.infogmS. */
+    const email = this.authservice.user.email;
 
-             }
-
-
+    this.infogmS.getInfoGmByEmail(email!)
+      .subscribe(resp => {
+        this.gminfo = resp;
+      })
+  }
 }
-  
+
 
