@@ -6,7 +6,6 @@ import { HomeComponent } from './pages/home/home.component';
 import { MaterialModule } from '../material/material.module';
 import { HeadComponent } from './components/head/head.component';
 import { MenunavComponent } from './components/menunav/menunav.component';
-import { SpinnerComponent } from './components/spinner/spinner.component';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { PageFilterPipe } from './pipes/page-filter.pipe';
@@ -24,7 +23,6 @@ const countdown = require('countdown');
     HomeComponent,
     HeadComponent,
     MenunavComponent,
-    SpinnerComponent,
     PageFilterPipe,
     ApipageFilterPipe,
     ApiplayerpageFilterPipe,
@@ -42,7 +40,6 @@ const countdown = require('countdown');
   exports: [
     HeadComponent,
     MenunavComponent,
-    SpinnerComponent,
     FlexLayoutModule,
     PageFilterPipe,
     CountdownModule, // revisar?
