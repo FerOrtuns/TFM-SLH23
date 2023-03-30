@@ -33,7 +33,7 @@
                         
                         <div fxFlex="100">
                             <div fxFlex="50" fxLayoutAlign="center">
-                                <h1> {{element.Game.HomeTeam}} 
+                                <h1> <title #aka>{{element.Game.HomeTeam | logoaka}}</title> 
                                 <div>
                                     <img mat-card-image [src]=getlogo(element.Game.HomeTeam) class="minilogo">
                                 </div>

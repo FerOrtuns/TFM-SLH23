@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MyGM } from 'src/app/dashboard/interfaces/MyGM.interface';
+import { LogoakaPipe } from 'src/app/dashboard/pipes/logoaka.pipe';
 import { InfogmService } from 'src/app/dashboard/services/infogm.service';
 import { SearchApiService } from 'src/app/dashboard/services/search-api.service';
 import { Apiscoresbox } from '../../../interfaces/ApiScorebox.interface';
@@ -80,6 +81,12 @@ export class NbaScoreBoxComponent implements OnInit {
       .subscribe((resp: Apiscoresbox[]) => {
         /* console.log(resp); */
         this.todayScorebox = resp;
+
+        resp.forEach(element => {
+         
+          /* element.Game.AwayTeam | LogoakaPipe */
+
+                  });
 
         console.log(this.todayScorebox);
 

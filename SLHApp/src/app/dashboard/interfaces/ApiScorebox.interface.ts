@@ -21,8 +21,8 @@ export interface Game {
     Status:                       string;
     Day:                          Date;
     DateTime:                     Date;
-    AwayTeam:                     Team;
-    HomeTeam:                     Team;
+    AwayTeam:                     string;
+    HomeTeam:                     string;
     AwayTeamID:                   number;
     HomeTeamID:                   number;
     StadiumID:                    number;
