@@ -1,4 +1,11 @@
 .headtitle{
     text-align: center;
     font-size: large;
+    margin-top: 15px;
+}
+
+.col2name{
+
+    margin: auto;
+    align-items: center;
 }

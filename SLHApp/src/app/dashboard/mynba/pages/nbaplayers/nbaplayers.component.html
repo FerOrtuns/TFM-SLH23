@@ -12,6 +12,9 @@
       <mat-card-actions>
         <button mat-raised-button color="warn" (click)="buscar('$event')">Buscar</button>
       </mat-card-actions>
+
+      <span class="spacer"></span>
+
         <mat-card-title-group class="headtitle">
             Informacion detallada de los jugadores NBA en activo
         </mat-card-title-group>
@@ -61,7 +64,7 @@
 
             </div> 
 
-            <div fxFlex="80" align="center">
+            <div fxFlex="80" class="col2name">
 
             <mat-grid-list cols="1" *ngIf="!dataSource; else divLoadedN1">
               <mat-grid-tile>
@@ -77,7 +80,7 @@
               <div fxFlex="100"  *ngFor="let element of dataSource | apiplayerinfopageFilter:page">  
 
                   
-                  <div fxFlex="25">
+                  <div fxFlex="25" align="center">
                 
 
                   <img matCardImage [src]=element.PhotoUrl>
@@ -89,7 +92,7 @@
             
                  
                    
-                  <mat-card-header>
+                  <mat-card-header class="col2name">
                     <mat-card-title>
                       {{element.YahooName }}
                     </mat-card-title>

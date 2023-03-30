@@ -37,8 +37,19 @@ export class EquiposComponent implements OnInit {
       
       this.infogmS.getInfoGMS()
                   .subscribe( resp => {
-                    this.equiposinfo = resp;
-                          
+
+                    this.equiposinfo=resp;
+                    
+                /*     let equiposinfo!: MyGM [];
+
+                    resp.forEach(element => {
+                      
+                      if(element.EQUIPO === ''){return }
+                      else{ this.equiposinfo.push(element)}
+
+                    }); */
+/*                     this.equiposinfo = resp;
+ */                          
                  })               
     }
 
