@@ -37,6 +37,7 @@
                         <mat-list-item role="listitem" align="right">Manager : <br>
                             Numero de Jugadores : <br>
                             Numero de Derechos : <br>
+                            Numero de Rondas : <br>
                             Ingresos : <br>
                             Gastos : <br>
                             CAP Libre : </mat-list-item>
@@ -45,11 +46,12 @@
                     <div fxFlex="50" style="margin-left:10px">
 
                         <mat-list-item><strong> {{ gminfo.Nickname | titlecase }}</strong><br>
-                            {{ gminfo.JUGADORES }}<br>
-                            {{ gminfo.DERECHOS }}<br>
+                            {{ TotalJugadores }}<br>
+                            {{ TotalDerechos }}<br>
+                            {{ TotalRondas }}<br>
                             {{130 | currency}} <br>
-                            {{ gminfo.Salarios | currency}}<br>
-                            <strong> {{ gminfo.SalarioLibre | currency}}</strong></mat-list-item>
+                            {{ TotalSalarios | currency}}<br>
+                            <strong> {{ SalarioLibre | currency}}</strong></mat-list-item>
 
                     </div>
                 </mat-card-content>
@@ -90,10 +92,17 @@
 
             <mat-card align="center">
 
+                <!-- <button mat-fab extended color="primary" (click)="showroster()">
+                    <mat-icon>groups</mat-icon>Roster</button> -->
+
                 <button mat-fab extended color="primary" [routerLink]="['/dashboard/myteam/players', gminfo.AKA]">
                     <mat-icon>groups</mat-icon>Roster</button>
 
             </mat-card>
+
+            <!-- <div *ngIf="showrosterb">
+                <app-roster></app-roster>
+            </div> -->
 
 
 

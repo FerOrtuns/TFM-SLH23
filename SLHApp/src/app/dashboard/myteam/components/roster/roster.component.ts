@@ -26,6 +26,10 @@ export class RosterComponent implements OnInit {
   validDrop: boolean = false;
   isMyTeam: boolean = false;
   myAKA!: string;
+  TotalSalarios: number = 0;
+  TotalJugadores: number = 0;
+  TotalRondas: number = 0;
+  TotalDerechos: number = 0;
 
 
 
@@ -52,11 +56,23 @@ export class RosterComponent implements OnInit {
 
     let AKA = this.route.snapshot.paramMap.get("AKA");
 
+    
 
 
     this.infogmS.getRoster(AKA!)
       .subscribe(resp => {
         this.myroster = resp;
+
+        resp.forEach(element => {
+
+          this.TotalSalarios += element.SALARIO || 0;
+
+          if (element.TIPO === 'Jugador') { this.TotalJugadores = this.TotalJugadores + 1 }
+          if (element.TIPO === 'Derecho') { this.TotalDerechos = this.TotalDerechos + 1 }
+          if (element.TIPO === 'Ronda') { this.TotalRondas = this.TotalRondas + 1 }
+
+
+        });
 
 
       })

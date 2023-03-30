@@ -97,7 +97,7 @@
             <mat-card-actions>
 
               <ng-template [ngIf]="isMyTeam">
-                <div *ngIf="element.SALARIO<=2">
+                <div *ngIf="element.SALARIO<=2" style="margin: auto;">
                   <button mat-raised-button extended color="warn" (click)="droparPlayer(element.PLAYER)"
                     [disabled]="validDrop">
                     <mat-icon>cancel</mat-icon> Cortar
