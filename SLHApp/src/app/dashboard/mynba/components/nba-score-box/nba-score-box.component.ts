@@ -34,6 +34,8 @@ export class NbaScoreBoxComponent implements OnInit {
   equiposinfo!: MyGM[];
   logos!: Logos[] ;
 
+  aka: string [] = [];
+
   dataloaded!: boolean ;
   equiposdataloaded: boolean = false;
   todayScoreboxdataloaded: boolean = false;
@@ -85,6 +87,8 @@ export class NbaScoreBoxComponent implements OnInit {
         resp.forEach(element => {
          
           /* element.Game.AwayTeam | LogoakaPipe */
+
+         this.aka.push(element.Game.AwayTeam.toString()); 
 
                   });
 
