@@ -1,6 +1,6 @@
 
 
-<mat-grid-list cols="1" *ngIf="!todayScorebox; else divLoadedSB">
+<mat-grid-list cols="1" *ngIf="!dataloaded; else divLoadedSB">
     <mat-grid-tile>
         <mat-spinner></mat-spinner>
     </mat-grid-tile>
@@ -34,6 +34,9 @@
                         <div fxFlex="100">
                             <div fxFlex="50" fxLayoutAlign="center">
                                 <h1> {{element.Game.HomeTeam}} 
+                                <div>
+                                    <img mat-card-image [src]=getlogo(element.Game.HomeTeam) class="minilogo">
+                                </div>
                                     <mat-card-actions>
                                          <button color="accent" matMiniFabButton style="font-size: x-large;">{{element.Game.HomeTeamScore}} </button>
                                     </mat-card-actions>
@@ -44,6 +47,9 @@
                             <div fxFlex="50" fxLayoutAlign="center">
 
                                 <h1> {{element.Game.AwayTeam}} 
+                                    <div>
+                                        <img mat-card-image [src]=getlogo(element.Game.AwayTeam) class="minilogo">
+                                    </div>
                                     <mat-card-actions>
                                      <button color="accent" matMiniFabButton style="font-size: x-large;">  {{element.Game.AwayTeamScore}} </button>
                                  </mat-card-actions></h1>
