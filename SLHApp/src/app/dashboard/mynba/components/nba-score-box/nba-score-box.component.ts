@@ -46,23 +46,7 @@ export class NbaScoreBoxComponent implements OnInit {
 
   ngOnInit() {
 
-    this.infogmS.getInfoGMS()
-      .subscribe(resp => {
-
-        this.equiposinfo = resp;
-
-        if(resp){this.equiposdataloaded= true;}
-
-
-        console.log('this.equiposdataloaded',this.equiposdataloaded);
-        
-        resp.forEach(element => {
-/* 
-          this.logos.push(element.alt_img!, element.AKA!); */
-        });
-
-      })
-
+   
 
     const hoy = new Date();
 
@@ -84,9 +68,8 @@ export class NbaScoreBoxComponent implements OnInit {
         /* console.log(resp); */
         this.todayScorebox = resp;
 
-        resp.forEach(element => {
+       /*  resp.forEach(element => {
          
-          /* element.Game.AwayTeam | LogoakaPipe */
 
          this.aka.push(element.Game.AwayTeam.toString()); 
 
@@ -101,7 +84,7 @@ export class NbaScoreBoxComponent implements OnInit {
         if(this.equiposdataloaded && this.todayScoreboxdataloaded){ this.dataloaded=true};
 
         console.log(this.dataloaded,'this.dataloadeds');        
-
+ */
       })
 
       
@@ -127,7 +110,7 @@ export class NbaScoreBoxComponent implements OnInit {
 
   }
 
-  getlogo(AKA: string): string {
+/*   getlogo(AKA: string): string {
 
 
     let logo: string = '';
@@ -142,7 +125,7 @@ export class NbaScoreBoxComponent implements OnInit {
     return logo;
 
 
-  }
+  } */
 
   /* setlogo(AKA: string, alt_img: string){
 

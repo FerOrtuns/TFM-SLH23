@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MyPlayer } from 'src/app/dashboard/interfaces/MyPlayer.interface';
 import { InfogmService } from 'src/app/dashboard/services/infogm.service';
@@ -9,8 +9,12 @@ import { InfogmService } from 'src/app/dashboard/services/infogm.service';
 })
 export class AgencialibreComponent implements OnInit {
 
+  
+  @ViewChild('txtBuscar') txtBuscar!: ElementRef<HTMLInputElement>; 
+
   PLAYER!: string ; //revisar si hace falta, creo que no..
-    
+  playersFound: MyPlayer[]=[];
+  dataSources: MyPlayer[]=[];
 
 
   listaFAs! : MyPlayer[];
@@ -48,5 +52,49 @@ export class AgencialibreComponent implements OnInit {
       this.page -= 5;
     }
   
+  }
+
+  buscar(query:string=''){
+  
+    
+    let valor = this.txtBuscar.nativeElement.value;
+      
+    if( valor.trim().length === 0){return;}
+
+    valor = valor.trim().toLocaleLowerCase();
+
+     
+    let matchnumber: number=0
+
+    this.playersFound = [];
+
+    this.listaFAs.forEach(element => {
+      
+      
+      const busqueda = element.PLAYER!.trim().toLocaleLowerCase();
+      
+
+      if(busqueda.includes(valor)){
+       
+        matchnumber = matchnumber+1;
+
+        this.playersFound.unshift(element);
+
+        }
+          
+    });
+
+    
+    if(matchnumber === 0){ return console.log('no match found tio');}
+
+    if(this.playersFound.length === 0){
+      this.dataSources =this.listaFAs;
+    }else{
+      this.dataSources= this.playersFound;
+    }
+
+    
+    this.txtBuscar.nativeElement.value = '';
+
   }
 }
