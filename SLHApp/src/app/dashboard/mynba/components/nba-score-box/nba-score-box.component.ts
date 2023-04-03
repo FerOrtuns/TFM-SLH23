@@ -35,7 +35,9 @@ export class NbaScoreBoxComponent implements OnInit{
 /*     const mm = (hoy.getMonth()+1).toString(); */
     const dd = (hoy.getDate()-1).toString();
 
-     const mm = hoy.toLocaleString('default', { month: 'short' });
+/*      const mm = hoy.toLoleString('default', { month: 'short' }).toLocaleUpperCase();
+ */     
+     const mm = hoy.getUTCMonth().toString();
 
     const date : string = yyyy+'-'+mm+'-'+dd;
     
@@ -44,7 +46,7 @@ export class NbaScoreBoxComponent implements OnInit{
 
     this.sapi.apiScorebox(date)
     .subscribe ( (resp: Apiscoresbox[]) => {
-      /* console.log(resp); */
+      console.log(resp);
       this.todayScorebox= resp;
 
       console.log(this.todayScorebox);
