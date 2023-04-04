@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { MyGM } from 'src/app/dashboard/interfaces/MyGM.interface';
+import { MyNews } from 'src/app/dashboard/interfaces/MyNews.interface';
 import { MyPlayer } from 'src/app/dashboard/interfaces/MyPlayer.interface';
 
 import { InfogmService } from 'src/app/dashboard/services/infogm.service';
@@ -30,6 +31,9 @@ export class RosterComponent implements OnInit {
   TotalJugadores: number = 0;
   TotalRondas: number = 0;
   TotalDerechos: number = 0;
+  desde!:  Date ;
+  EQUIPO: string = '';
+  mySLHnews: MyNews[] = [];
 
 
 
@@ -91,6 +95,7 @@ export class RosterComponent implements OnInit {
       .subscribe(resp => {
 
         this.myAKA = resp.AKA;
+        this.EQUIPO = resp.EQUIPO || '';
 
         if (AKA === this.myAKA) { this.isMyTeam = true; }
 
@@ -98,7 +103,7 @@ export class RosterComponent implements OnInit {
       })
   }
 
-  droparPlayer(PLAYER: string) {
+  droparPlayer(PLAYER: string, SALARIOanterior: number, years: number) {
 
     const TEAM = "F.A";
     const SALARIO = 0;
@@ -112,6 +117,36 @@ export class RosterComponent implements OnInit {
 
       })
 
+     
+      this.guardarSLHNewsCorte(PLAYER, SALARIOanterior, years);
+
     window.location.reload();
   }
+
+  guardarSLHNewsCorte(PLAYER: string, SALARIO: number, YEARS: number){
+
+    
+    const AKA = this.myAKA;
+    const EQUIPO = this.EQUIPO || '';
+    
+    const desde = new Date();
+    const fichadoCortado = false; 
+  
+  
+    console.log(PLAYER,'PLAYER');
+    console.log(AKA,'TEAM');
+    console.log(EQUIPO,'TEAM');
+    console.log(SALARIO,'SALARIO');
+    console.log(YEARS,'YEARS');
+    console.log(desde,'desde');
+    console.log(fichadoCortado,'fichadoCortado');
+  
+  
+    this.infogmS.putSLHNews(PLAYER, AKA, EQUIPO, SALARIO, YEARS, desde, fichadoCortado)
+    .subscribe (resp => {
+      this.mySLHnews
+    })
+  
+  }
 };
+
