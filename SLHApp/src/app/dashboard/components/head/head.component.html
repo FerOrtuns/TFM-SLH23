@@ -5,6 +5,7 @@
 
   <mat-toolbar class="menubar">
 
+
     <button mat-raised-button extended color="primary" [matMenuTriggerFor]="myteam"><strong>Mi Equipo</strong></button>
     <mat-menu #myteam="matMenu">
       <button mat-menu-item routerLink="/dashboard/myteam/infoGMs" routerLinkActive="active"><mat-icon mat-list-item>fingerprint</mat-icon>Info</button>
@@ -41,11 +42,11 @@
     </mat-menu>
 
 
-    <button mat-raised-button extended color="warn" [matMenuTriggerFor]="comis" disabled="true">Comisionado</button>
+   <!--  <button mat-raised-button extended color="warn" [matMenuTriggerFor]="comis" disabled="true">Comisionado</button>
     <mat-menu #comis="matMenu">
       <button mat-menu-item>Item 1</button>
       <button mat-menu-item>Item 2</button>
-    </mat-menu>
+    </mat-menu> -->
 
 
 
@@ -53,6 +54,10 @@
 
 
     <span class="spacer"></span>
+
+
+    <button mat-mini-fab color="warn" routerLink="/dashboard" routerLinkActive="active">
+      <mat-icon mat-list-item>home</mat-icon></button>
 
     <!--     <button mat-raised-button extended color="warn">{{ user.name }}</button> -->
 

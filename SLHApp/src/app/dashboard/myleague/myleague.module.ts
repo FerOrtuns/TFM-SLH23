@@ -10,7 +10,8 @@ import { NormativaComponent } from './pages/normativa/normativa.component';
 import  {  PdfViewerModule  }  from  'ng2-pdf-viewer';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardModule } from "../dashboard.module";
-import { PujaComponent } from './components/puja/puja.component'; // revisar si es necesario
+import { PujaComponent } from './components/puja/puja.component';
+import { MiligaComponent } from './pages/miliga/miliga.component'; // revisar si es necesario
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { PujaComponent } from './components/puja/puja.component'; // revisar si 
         EquiposComponent,
         AgencialibreComponent,
         NormativaComponent,
-        PujaComponent
+        PujaComponent,
+        MiligaComponent
     ],
     imports: [
         CommonModule,

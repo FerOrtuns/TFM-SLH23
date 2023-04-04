@@ -6,6 +6,8 @@ const router = Router();
 
 router.post('/', mySLHNews);
 
+router.get('/', mySLHNews);
+
 
 
 module.exports = router;
