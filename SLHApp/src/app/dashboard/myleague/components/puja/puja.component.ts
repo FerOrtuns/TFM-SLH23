@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { MyFecha } from 'src/app/dashboard/interfaces/MyFecha.interface';
 import { MyGM } from 'src/app/dashboard/interfaces/MyGM.interface';
+import { MyNews } from 'src/app/dashboard/interfaces/MyNews.interface';
 import { MyPuja } from 'src/app/dashboard/interfaces/MyPuja.interface';
 import { MyPujaTiny, MyPujaTiny2 } from 'src/app/dashboard/interfaces/MyPujaTiny.interface';
 import { InfogmService } from 'src/app/dashboard/services/infogm.service';
@@ -41,6 +42,8 @@ export class PujaComponent implements OnInit {
   infopuja : boolean = false;
 
   desde!:  Date ;
+
+  mySLHnews: MyNews[] = [];
 
   ngOnInit() {
 
@@ -102,13 +105,58 @@ export class PujaComponent implements OnInit {
           if(this.pujaForm){this.infopuja = true;}
 
 
-   /*  this.openBottomSheet(); */
+              const mySLHNews : MyNews ={
+
+                PLAYER:        this.PLAYER,
+                AKA:            this.TEAM, 
+                EQUIPO:         this.EQUIPOOffer,
+                SALARIO:        this.pujaFAForm.value.salarioOffer,
+                YEARS:          this.pujaFAForm.value.years,
+                desde :         date,
+                fichadoCortado: true
+  }
+
+          this.mySLHnews.push(mySLHNews); 
+
+          console.log(this.mySLHnews,'newsslh');
+          
 
     this.guardarPuja();
+    this.guardarSLHNews();
           
               
             } // END OF PUJA     
-            
+  
+  guardarSLHNews(){
+
+    
+    const PLAYER = this.PLAYER;
+    const AKA = this.TEAM;
+    const EQUIPO = this.EQUIPOOffer;
+    const SALARIO = this.pujaForm.SALARIO;
+    const YEARS = this.pujaForm.YEARS;
+    const desde = new Date();
+    const fichadoCortado = true; 
+
+
+    console.log(PLAYER,'PLAYER');
+    console.log(AKA,'TEAM');
+    console.log(EQUIPO,'TEAM');
+    console.log(SALARIO,'SALARIO');
+    console.log(YEARS,'YEARS');
+    console.log(desde,'desde');
+    console.log(fichadoCortado,'fichadoCortado');
+
+
+    this.infogmS.putSLHNews(PLAYER, AKA, EQUIPO, SALARIO, YEARS, desde, fichadoCortado)
+    .subscribe (resp => {
+      this.mySLHnews
+    })
+
+  }
+
+
+
   guardarPuja(){
 
     console.log('guardando puja', this.pujaFAForm.value);

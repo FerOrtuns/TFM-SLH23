@@ -35,6 +35,7 @@ app.use('/slh/dashboard/myleague/ficharfa', require('./routes/ficharFA') );
 app.use('/slh/dashboard/myteam/players', require('./routes/players') );
 app.use('/slh/dashboard/myteam/playersfa', require('./routes/playersFA') );
 app.use('/slh/dashboard/myteam/infoGM', require('./routes/infoGMByEmail') );
+app.use('/slh/dashboard/mySLHNews', require('./routes/mySLHNews') );
 app.use('/slh/auth', require('./routes/auth') );
 
 //DEMAS RUTAS PARA DESPLEGAR EN HEROKU

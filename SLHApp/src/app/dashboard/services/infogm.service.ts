@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { MyPlayer } from '../interfaces/MyPlayer.interface';
 import { MyGM } from '../interfaces/MyGM.interface';
+import { MyNews } from '../interfaces/MyNews.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -65,6 +66,20 @@ export class InfogmService {
 
     return this.http.put<MyPlayer>(url, body)
   };
+
+ // PUT PARA grabar LAS NOTICIAS DE SLH
+
+ putSLHNews (PLAYER: string, AKA: string, EQUIPO: string, SALARIO: number, YEARS: number, desde: Date, fichadoCortado: boolean) 
+            : Observable <MyNews> {
+
+  const url = `${this._baseUrl}/dashboard/mySLHNews`
+
+
+
+  const body = {PLAYER, AKA, EQUIPO, SALARIO, YEARS, desde, fichadoCortado}; 
+
+  return this.http.post<MyNews>(url, body)
+};
 
 
 

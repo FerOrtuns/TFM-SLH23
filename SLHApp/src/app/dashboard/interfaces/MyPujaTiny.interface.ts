@@ -1,4 +1,4 @@
-import { MyFecha } from './MyFecha.interface';
+
 
 export interface MyPujaTiny {
 
