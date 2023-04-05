@@ -48,7 +48,9 @@
         <input matInput (keyup)="applyFilter($event)" placeholder="ex Bam" #input>
       </mat-form-field>
 
-      <table mat-table [dataSource]=myroster class="mat-elevation-z8">
+      <div style="overflow-x: auto;">
+
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" class="responsive-table">
 
         <ng-container matColumnDef="TIPO">
           <th mat-header-cell *matHeaderCellDef class="mypTIPO3"> Tipo </th>
@@ -120,7 +122,7 @@
 
 
       </table>
-
+    </div>
     </mat-card-content>
 
   </mat-card>

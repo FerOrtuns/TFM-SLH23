@@ -1,0 +1,13 @@
+table{
+
+    display: block;
+    
+
+}
+
+tbody{
+
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}

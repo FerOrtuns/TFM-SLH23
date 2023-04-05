@@ -34,18 +34,22 @@ export class RosterComponent implements OnInit {
   desde!:  Date ;
   EQUIPO: string = '';
   mySLHnews: MyNews[] = [];
+  dataSource!: any;
+  
 
 
 
   displayedColumns: string[] = ['TIPO', 'POS', 'PLAYER', 'SALARIO', 'YEARS', 'OPT', 'DROP'];
 
-  dataSource = new MatTableDataSource(this.myroster);
 
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
+    console.log(filterValue,'fv');
+    
+    
 
   }
 
@@ -67,6 +71,9 @@ export class RosterComponent implements OnInit {
       .subscribe(resp => {
         this.myroster = resp;
 
+        this.dataSource = new MatTableDataSource(this.myroster);    
+
+        
         resp.forEach(element => {
 
           this.TotalSalarios += element.SALARIO || 0;
@@ -101,6 +108,7 @@ export class RosterComponent implements OnInit {
 
 
       })
+  
   }
 
   droparPlayer(PLAYER: string, SALARIOanterior: number, years: number) {
