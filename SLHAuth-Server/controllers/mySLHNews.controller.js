@@ -37,15 +37,18 @@ const mySLHNews = async (req, res = response) => {
     };
 }
 
-const getSLHNews = async (req,res = response)=>{
+const getSLHNews = async (req, res = response) => {
 
-    
 
-    const slhnewsdb = await slhnew.find(PLAYER, AKA, EQUIPO, SALARIO, YEARS, desde, fichadoCortado);
 
- 
+    const slhnewsdb = await slhnew.find({}, 'PLAYER AKA EQUIPO SALARIO YEARS desde fichadoCortado');
+
+    console.log(slhnewsdb, 'slhnewsdb')
+
     return res.json(slhnewsdb)
-        };
+
+
+};
 
 module.exports = {
     mySLHNews,

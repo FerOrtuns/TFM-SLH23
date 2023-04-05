@@ -81,6 +81,15 @@ export class InfogmService {
   return this.http.post<MyNews>(url, body)
 };
 
+ // GET INFO DE TODAS LAS NEWS
+
+ getSLHNews () : Observable <MyNews[]> {
+
+  const url = `${this._baseUrl}/dashboard/mySLHNews`
+
+  return this.http.get<MyNews[]>(url, )
+}
+
 
 
   getInfoGmByEmail (email: string) : Observable <MyGM> {

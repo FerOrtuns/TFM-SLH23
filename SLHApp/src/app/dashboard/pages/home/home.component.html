@@ -2,4 +2,56 @@
 <!-- 
 <app-menunav></app-menunav> -->
 
-<p>noticias slh</p>
+<mat-card-title align="center">Ultimas noticias en SLH</mat-card-title>
+
+<mat-grid-list cols="1" *ngIf="!mySLHnews; else divLoadedNews">
+    <mat-grid-tile>
+        <mat-spinner></mat-spinner>
+    </mat-grid-tile>
+</mat-grid-list>
+
+
+<ng-template #divLoadedNews>
+
+
+    <mat-card *ngFor="let element of mySLHnews">
+        <mat-divider></mat-divider>
+
+        <br> <mat-divider></mat-divider>
+
+        <br>
+        <mat-card-header>
+            <mat-card-title> {{element.PLAYER}}</mat-card-title>
+            <mat-card-subtitle>{{element.AKA}}</mat-card-subtitle>
+            <mat-card-title-group> Equipo SLH : {{element.EQUIPO}}</mat-card-title-group>
+
+        </mat-card-header>
+        <mat-card-content> <mat-card-title-group> Jugador <div *ngIf="!element.fichadoCortado; else divCortado"> Fichado
+                </div>
+
+                <ng-template #divCortado> Cortado </ng-template>
+            </mat-card-title-group></mat-card-content>
+
+        <br>
+        <mat-card-content>
+
+            <p *ngIf="element.fichadoCortado"> {{element.PLAYER}} ha sido Fichado por los 
+            {{element.EQUIPO}} a las {{element.desde }} con un salario de {{element.SALARIO}} millones
+            por {{element.YEARS}} años </p>
+
+
+            <p *ngIf="!element.fichadoCortado"> El jugador de los {{element.EQUIPO}} - {{element.PLAYER}} 
+            ha sido Cortado a las {{element.desde}} teniendo un contrato de {{ element.SALARIO}} por
+            {{element.YEARS}} años, y ya está disponible para fichar en la Agencia Libre </p>
+
+
+        </mat-card-content>
+        <br>
+
+        <mat-card-content><mat-card-footer>{{element.desde}}</mat-card-footer></mat-card-content>
+
+    </mat-card>
+
+    <mat-divider></mat-divider>
+
+</ng-template>
