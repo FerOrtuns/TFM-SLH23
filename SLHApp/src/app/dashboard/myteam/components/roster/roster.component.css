@@ -35,3 +35,6 @@ table {
     width: 100%;
     padding: 10px;
   }
+  .mytableresponsive{
+    overflow-x: auto;
+}

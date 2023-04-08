@@ -43,12 +43,14 @@ export class NbaplayersComponent implements OnInit{
 
     this.sapi.buscarAllPlayersInfo()
     .subscribe ( (resp: Apiplayers[]) => {
-/*         console.log(resp); */
+
       this.allPlayersInfo = resp;
     
       if(!selectedPlayer){
         
-        this.dataSource =this.allPlayersInfo
+        this.dataSource =resp;
+
+
       }
 
     else{
@@ -67,7 +69,7 @@ export class NbaplayersComponent implements OnInit{
       this.allPlayersInfo.forEach(element => {
         
         
-        const busqueda = element.YahooName.trim().toLocaleLowerCase();
+        let busqueda = element.YahooName.trim().toLocaleLowerCase();
         
 
         if(busqueda.includes(valor)){
@@ -107,7 +109,10 @@ export class NbaplayersComponent implements OnInit{
   
       let valor = this.txtBuscar.nativeElement.value;
 
+      
+
       if( !this.historial.includes(valor.trim().toLocaleLowerCase()) ) {
+
 
 
         if( valor.trim().length === 0){return;}

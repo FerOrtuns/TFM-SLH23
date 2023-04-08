@@ -11,3 +11,11 @@ tbody{
     overflow-x: auto;
     white-space: nowrap;
 }
+
+.mytableresponsive{
+    overflow-x: auto;
+}
+
+.fichadocortado{
+    background-color: blue;
+}

@@ -14,35 +14,42 @@
 <ng-template #divLoadedNews>
 
 
-    <mat-card *ngFor="let element of mySLHnews">
+    <mat-card *ngFor="let element of mySLHnews.slice().reverse()">
         <mat-divider></mat-divider>
 
         <br> <mat-divider></mat-divider>
 
         <br>
         <mat-card-header>
-            <mat-card-title> {{element.PLAYER}}</mat-card-title>
+            <mat-card-title> <strong>{{element.PLAYER}}</strong></mat-card-title>
             <mat-card-subtitle>{{element.AKA}}</mat-card-subtitle>
-            <mat-card-title-group> Equipo SLH : {{element.EQUIPO}}</mat-card-title-group>
+            <mat-card-title-group> Equipo SLH : {{element.EQUIPO}}
+                <mat-card-content> Jugador <div *ngIf="element.fichadoCortado; else divCortado" class="fichadocortado"> Fichado</div>
+                    <ng-template #divCortado><br> Cortado </ng-template>
+               </mat-card-content>
+            </mat-card-title-group>
 
-        </mat-card-header>
-        <mat-card-content> <mat-card-title-group> Jugador <div *ngIf="!element.fichadoCortado; else divCortado"> Fichado
-                </div>
+            <!-- 
+        <span class="spacer"></span> -->
 
-                <ng-template #divCortado> Cortado </ng-template>
-            </mat-card-title-group></mat-card-content>
+       
+
+</mat-card-header>
+
+
+          
 
         <br>
         <mat-card-content>
 
-            <p *ngIf="element.fichadoCortado"> {{element.PLAYER}} ha sido Fichado por los 
-            {{element.EQUIPO}} a las {{element.desde }} con un salario de {{element.SALARIO}} millones
-            por {{element.YEARS}} años </p>
+            <p *ngIf="element.fichadoCortado"> {{element.PLAYER}} ha sido Fichado por los
+                {{element.EQUIPO}} a las {{element.desde }} con un salario de {{element.SALARIO}} millones
+                por {{element.YEARS}} años </p>
 
 
-            <p *ngIf="!element.fichadoCortado"> El jugador de los {{element.EQUIPO}} - {{element.PLAYER}} 
-            ha sido Cortado a las {{element.desde}} teniendo un contrato de {{ element.SALARIO}} por
-            {{element.YEARS}} años, y ya está disponible para fichar en la Agencia Libre </p>
+            <p *ngIf="!element.fichadoCortado"> El jugador de los {{element.EQUIPO}} - {{element.PLAYER}}
+                ha sido Cortado a las {{element.desde}} teniendo un contrato de {{ element.SALARIO}} por
+                {{element.YEARS}} años, y ya está disponible para fichar en la Agencia Libre </p>
 
 
         </mat-card-content>
