@@ -42,20 +42,20 @@
         <br>
         <mat-card-content>
 
-            <p *ngIf="element.fichadoCortado"> {{element.PLAYER}} ha sido Fichado por los
-                {{element.EQUIPO}} a las {{element.desde }} con un salario de {{element.SALARIO}} millones
+            <p *ngIf="element.fichadoCortado"> {{element.PLAYER}} ha sido fichado por los
+                {{element.EQUIPO}} con un salario de {{element.SALARIO}} millones
                 por {{element.YEARS}} años </p>
 
 
-            <p *ngIf="!element.fichadoCortado"> El jugador de los {{element.EQUIPO}} - {{element.PLAYER}}
-                ha sido Cortado a las {{element.desde}} teniendo un contrato de {{ element.SALARIO}} por
+            <p *ngIf="!element.fichadoCortado"> El jugador de los {{element.EQUIPO}}  {{element.PLAYER}}
+                ha sido cortado  teniendo un contrato de {{ element.SALARIO}} por
                 {{element.YEARS}} años, y ya está disponible para fichar en la Agencia Libre </p>
 
 
         </mat-card-content>
         <br>
 
-        <mat-card-content><mat-card-footer>{{element.desde}}</mat-card-footer></mat-card-content>
+        <mat-card-content><mat-card-footer>Fecha: {{element.desde}}</mat-card-footer></mat-card-content>
 
     </mat-card>
 

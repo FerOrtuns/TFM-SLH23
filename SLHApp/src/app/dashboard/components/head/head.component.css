@@ -6,6 +6,9 @@
 
 .menubar{
   background: linear-gradient(#000000, #444444);
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
 }
 
 button{
