@@ -1,5 +1,5 @@
 
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostBinding, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { MyGM } from '../../interfaces/MyGM.interface';
@@ -12,10 +12,12 @@ import { InfogmService } from '../../services/infogm.service';
 })
 export class HeadComponent implements OnInit{
 
+  @HostBinding('class.mobile-screen') mobileScreen = false;
 
   @Input() gminfo!: MyGM ;
 
   AKA!: string;
+  movil: boolean = false;
 
   constructor (private  router : Router,
                private authService: AuthService,
@@ -30,6 +32,11 @@ export class HeadComponent implements OnInit{
         this.AKA = resp.AKA;
       })
 
+      console.log(this.mobileScreen,'mobileScreen');
+      const mediaQuery = window.matchMedia('(max-width: 600px)');
+      mediaQuery.addEventListener('change', e => this.mobileScreen = e.matches);
+      this.mobileScreen = mediaQuery.matches;
+      
   }
 
   get user (){

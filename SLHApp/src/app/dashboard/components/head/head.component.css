@@ -4,6 +4,10 @@
   z-index: 9;
 }
 
+.miniButton{
+  display: none;
+}
+
 .menubar{
   background: linear-gradient(#000000, #444444);
   justify-content: space-between;
@@ -14,3 +18,35 @@
 button{
   margin: 2px;
 }
+
+
+
+@media screen and (max-width: 768px) {
+  .menubar {
+    flex-direction: column, left;
+    align-items: center;
+  }
+
+  button{
+    margin: 2px;
+    /*max-width: 20px;
+    min-width: 20px;/* 
+    display: none; */
+
+    
+  }
+
+  .miniButton{
+    display: flex;
+  }
+}
+
+:host(.mobile-screen) {
+  background-color: #000000;
+}
+
+.spacer{
+  flex: 1 1 auto;
+}
+
+
