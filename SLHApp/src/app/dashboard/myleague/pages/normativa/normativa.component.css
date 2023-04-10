@@ -15,10 +15,9 @@ pdf-viewer {
 align-items: center;
   }
 
-  .mytableresponsive{
-    overflow-x: auto;
-}
+
 
 .normativa{
-  width: 100%;
+  width: 90vw;
+  height: 75vh;
 }
