@@ -26,3 +26,7 @@ table {
       color: pink;
       font-size: x-large;
   }
+
+  .mytableresponsive{
+    overflow-x: auto;
+}

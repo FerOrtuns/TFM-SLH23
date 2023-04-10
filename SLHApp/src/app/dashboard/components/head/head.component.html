@@ -3,9 +3,9 @@
     <img mat-card-image src="../../../../assets/images/logotopSLAPP.jpg" alt="toplogoSlapp">
   </mat-card>
 
-  <mat-toolbar class="menubar">
+  <mat-toolbar>
 
-    <div *ngIf="!mobileScreen; else divMovil">
+    <div *ngIf="!mobileScreen; else divMovil"  class="menubar">
 
       <button mat-raised-button extended color="primary" [matMenuTriggerFor]="myteam"><strong>Mi
           Equipo</strong></button>
@@ -65,6 +65,8 @@
 
     <ng-template #divMovil>
 
+      <div class="menubar">
+
       <button mat-mini-fab color="primary" [matMenuTriggerFor]="myteam" class="miniButton"><mat-icon
           mat-list-item>fingerprint</mat-icon></button>
 
@@ -111,7 +113,6 @@
 
 
       <span class="spacer"></span>
-      
 
 
       <button mat-mini-fab color="warn" routerLink="/dashboard" routerLinkActive="active">
@@ -123,7 +124,7 @@
       <button mat-mini-fab (click)="logout()">
         <mat-icon>logout</mat-icon>
       </button>
-
+    </div>
 
     </ng-template>
 

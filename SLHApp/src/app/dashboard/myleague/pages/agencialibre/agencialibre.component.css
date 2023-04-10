@@ -39,3 +39,6 @@ table {
   .cBoxSection {
     margin: 12px 0;
   }
+  .mytableresponsive{
+    overflow-x: auto;
+}

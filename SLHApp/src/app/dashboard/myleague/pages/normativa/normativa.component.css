@@ -14,3 +14,11 @@ pdf-viewer {
   .title{
 align-items: center;
   }
+
+  .mytableresponsive{
+    overflow-x: auto;
+}
+
+.normativa{
+  width: 100%;
+}
