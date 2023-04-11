@@ -15,6 +15,7 @@ import { ApipageFilterPipe } from './pipes/apipage-filter.pipe';
 import { ApiplayerpageFilterPipe } from './pipes/apiplayerpage-filter.pipe';
 import { ApiplayerinfopageFilterPipe } from './pipes/apiplayerinfopage-filter.pipe';
 import { PageagencialibrePipe } from './pipes/pageagencialibre.pipe';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 
@@ -28,6 +29,7 @@ import { PageagencialibrePipe } from './pipes/pageagencialibre.pipe';
     ApiplayerpageFilterPipe,
     ApiplayerinfopageFilterPipe,
     PageagencialibrePipe,
+    FooterComponent,
     
     
   ],
@@ -46,7 +48,8 @@ import { PageagencialibrePipe } from './pipes/pageagencialibre.pipe';
     ApipageFilterPipe,
     ApiplayerpageFilterPipe,
     ApiplayerinfopageFilterPipe,
-    PageagencialibrePipe
+    PageagencialibrePipe,
+    FooterComponent
     
   ]
 })

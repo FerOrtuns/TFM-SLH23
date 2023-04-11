@@ -25,6 +25,8 @@ export class NbaplayersComponent implements OnInit{
 
     allPlayersInfo! : Apiplayers[];
     dataSource!     : Apiplayers[];
+
+    public searchname : string = ''; 
     
   
     constructor (private sapi: SearchApiService,
@@ -50,6 +52,7 @@ export class NbaplayersComponent implements OnInit{
         
         this.dataSource =resp;
 
+      console.log(resp,'resp');
 
       }
 
@@ -66,10 +69,17 @@ export class NbaplayersComponent implements OnInit{
 
       this.playersFound = [];
 
+
+
+     
+
       this.allPlayersInfo.forEach(element => {
         
+
+        let firstname = element.FirstName.trim().toLocaleLowerCase();
+        let lastname = element.LastName.trim().toLocaleLowerCase();
         
-        let busqueda = element.YahooName.trim().toLocaleLowerCase();
+        let busqueda = firstname+lastname;
         
 
         if(busqueda.includes(valor)){
@@ -133,10 +143,16 @@ export class NbaplayersComponent implements OnInit{
 
       this.playersFound = [];
 
+
+
       this.allPlayersInfo.forEach(element => {
         
         
-        const busqueda = element.YahooName.trim().toLocaleLowerCase();
+        let firstname = element.FirstName.trim().toLocaleLowerCase();
+        let lastname = element.LastName.trim().toLocaleLowerCase();
+        
+        let busqueda = firstname+lastname;
+        
         
 
         if(busqueda.includes(valor)){
@@ -193,8 +209,11 @@ export class NbaplayersComponent implements OnInit{
 
       this.allPlayersInfo.forEach(element => {
         
+            
+        let firstname = element.FirstName.trim().toLocaleLowerCase();
+        let lastname = element.LastName.trim().toLocaleLowerCase();
         
-        const busqueda = element.YahooName.trim().toLocaleLowerCase();
+        let busqueda = firstname+lastname;
         
 
         if(busqueda.includes(valor)){
