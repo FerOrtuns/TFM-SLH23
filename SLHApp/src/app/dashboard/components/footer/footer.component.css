@@ -1,5 +1,8 @@
 .footer{
     background: linear-gradient(#444444, #000000);
+  /*   position: absolute;
+    bottom: 0;
+    width: 100%; */
 }
 
 .githublink{

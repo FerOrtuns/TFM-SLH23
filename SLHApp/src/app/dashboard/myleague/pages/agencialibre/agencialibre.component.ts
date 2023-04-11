@@ -35,9 +35,6 @@ export class AgencialibreComponent implements OnInit {
     this.infogmS.getFA()
       .subscribe(resp => {
         this.listaFAs = resp;
-/* 
-        const data = Object.values(resp); */
-
         this.dataSource = new MatTableDataSource(this.listaFAs);
       })
   }
