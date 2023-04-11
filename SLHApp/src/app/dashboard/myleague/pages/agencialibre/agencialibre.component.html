@@ -1,4 +1,4 @@
-<mat-grid-list cols="1" *ngIf="!listaFAs; else divLoaded2">
+<mat-grid-list cols="1" *ngIf="!dataSource; else divLoaded2">
   <mat-grid-tile>
     <mat-spinner></mat-spinner>
   </mat-grid-tile>
@@ -20,7 +20,7 @@
 
       <div class="mytableresponsive">
 
-        <table mat-table [dataSource]="listaFAs | pageFilter:page" class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource | pageagencialibre:page" class="mat-elevation-z8">
 
 
           <ng-container matColumnDef="PUJAR">

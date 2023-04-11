@@ -10,27 +10,22 @@ import { InfogmService } from 'src/app/dashboard/services/infogm.service';
 export class AgencialibreComponent implements OnInit {
 
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    console.log(filterValue, 'fv');
-
-
-  }
-
-
   PLAYER!: string;
 
   listaFAs!: MyPlayer[];
-
 
   public page: number = 0;
   dataSource!: any;
 
   displayedColumns: string[] = ['PUJAR', 'POS', 'PLAYER', 'SALARIO', 'YEARS', 'EQUIPO'];
 
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
 
+    console.log(filterValue, 'fv');
+
+  }
 
   constructor(private infogmS: InfogmService) { }
 
@@ -43,7 +38,7 @@ export class AgencialibreComponent implements OnInit {
 /* 
         const data = Object.values(resp); */
 
-        this.dataSource = new MatTableDataSource(resp);
+        this.dataSource = new MatTableDataSource(this.listaFAs);
       })
   }
 
