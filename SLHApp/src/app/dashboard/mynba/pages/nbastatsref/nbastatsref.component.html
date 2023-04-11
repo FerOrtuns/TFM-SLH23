@@ -20,14 +20,13 @@
       
       <div class="mytableresponsive">
     
-      <table mat-table [dataSource]=" dataSource| apiplayerpageFilter:page" class="mat-elevation-z8"> 
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8"> 
 
   
           <ng-container matColumnDef="JUGADOR">
               <th mat-header-cell *matHeaderCellDef class="mypNONMBRE"><small> Jugador </small> </th>
               <td mat-cell *matCellDef="let element" class="mypTIPO2" style="font-size: larger; text-align: left;"> 
                   <mat-card-actions>
-                      <!-- <span class="spacer"></span> -->
                       <button mat-fab extended color="accent" [routerLink]="['/dashboard/mynba/nbaPlayers', element.Name]">
                           <mat-icon>info</mat-icon>{{element.Name}}</button>
                   </mat-card-actions>
@@ -112,6 +111,8 @@
 
          <tr class="mat-row" *matNoDataRow>
           <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+
+         
         </tr>
 
         
@@ -122,11 +123,11 @@
   
     <mat-card-actions>
   
-      <button mat-raised-button extended color="primary" (click)="prevPage()" >
-          <mat-icon>navigate_before</mat-icon>Anterior</button>
-      <span class="spacer"></span>
-              <button mat-raised-button extended color="primary" (click)="nextPage()" >
-                  <mat-icon>navigate_next</mat-icon>Siguiente</button>
+      <mat-paginator [length]=totaldata
+      [pageSize]="5"
+      [pageSizeOptions]="[5, 10, 25, 100]"
+      aria-label="Select page">
+</mat-paginator>
     </mat-card-actions>
     
     </mat-card>

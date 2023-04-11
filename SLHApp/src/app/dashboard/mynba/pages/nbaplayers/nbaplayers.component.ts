@@ -43,16 +43,17 @@ export class NbaplayersComponent implements OnInit{
     let selectedPlayer: string | null = this.route.snapshot.paramMap.get("Name");
     this.PLAYERselected = selectedPlayer!; 
 
+    
+
     this.sapi.buscarAllPlayersInfo()
     .subscribe ( (resp: Apiplayers[]) => {
 
       this.allPlayersInfo = resp;
+      
     
       if(!selectedPlayer){
         
         this.dataSource =resp;
-
-      console.log(resp,'resp');
 
       }
 
@@ -62,13 +63,14 @@ export class NbaplayersComponent implements OnInit{
       
       if( valor.trim().length === 0){return;}
 
-      valor = valor.trim().toLocaleLowerCase();
+      valor = valor.trim().toLocaleLowerCase().replace(' ','');
 
-       
+
+      console.log(valor,'valor');
+
       let matchnumber: number=0
 
       this.playersFound = [];
-
 
 
      
@@ -95,7 +97,10 @@ export class NbaplayersComponent implements OnInit{
       });
 
       
-      if(matchnumber === 0){ return console.log('no match found tio');}
+      if(matchnumber === 0){  console.log('no match found tio');
+      this.dataSource =this.allPlayersInfo;
+      return;
+    }
 
       if(this.playersFound.length === 0){
         this.dataSource =this.allPlayersInfo
