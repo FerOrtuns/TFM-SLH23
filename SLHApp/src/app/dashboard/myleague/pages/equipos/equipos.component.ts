@@ -11,41 +11,27 @@ import { InfogmService } from 'src/app/dashboard/services/infogm.service';
 })
 export class EquiposComponent implements OnInit {
 
-  equiposinfo!: MyGM [];
+  equiposinfo!: MyGM[];
 
-  AKA! : string ;
-  
+  AKA!: string;
 
- /*  myaka(element: MyGM){
-
-
-  this.AKA = element.AKA;
-
-  window.location.href = "/dashboard/myteam/player/"+this.AKA;  
- 
-  }; */
 
   dataSource = new MatTableDataSource(this.equiposinfo);
 
-  displayedColumns: string[] = [ 'Roster', 'alt_img', 'Nickname', 'JUGADORES', 'Salarios', 'SalarioLibre', 'Mail2' ];
-  
-  
-  constructor ( private infogmS : InfogmService,
-                private router: Router) {}
-  
-    ngOnInit() {
-      
-      this.infogmS.getInfoGMS()
-                  .subscribe( resp => {
-                    this.equiposinfo = resp;
-                          
-                 })               
-    }
+  displayedColumns: string[] = ['Roster', 'alt_img', 'Nickname', 'JUGADORES', 'Salarios', 'SalarioLibre', 'Mail2'];
 
-    /* navtoroster(){
 
-      this.AKA = 'LAC';
-      this.router.navigateByUrl("['/dashboard/myteam/players', this.AKA]");
-     
-    } */
+  constructor(private infogmS: InfogmService,
+    private router: Router) { }
+
+  ngOnInit() {
+
+    this.infogmS.getInfoGMS()
+      .subscribe(resp => {
+        this.equiposinfo = resp;
+
+      })
+  }
+
+
 }

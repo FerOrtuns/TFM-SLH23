@@ -14,6 +14,7 @@ import { CountdownModule } from 'ngx-countdown';
 import { ApipageFilterPipe } from './pipes/apipage-filter.pipe';
 import { ApiplayerpageFilterPipe } from './pipes/apiplayerpage-filter.pipe';
 import { ApiplayerinfopageFilterPipe } from './pipes/apiplayerinfopage-filter.pipe';
+import { PageagencialibrePipe } from './pipes/pageagencialibre.pipe';
 
 
 
@@ -26,6 +27,7 @@ import { ApiplayerinfopageFilterPipe } from './pipes/apiplayerinfopage-filter.pi
     ApipageFilterPipe,
     ApiplayerpageFilterPipe,
     ApiplayerinfopageFilterPipe,
+    PageagencialibrePipe,
     
     
   ],
@@ -43,7 +45,8 @@ import { ApiplayerinfopageFilterPipe } from './pipes/apiplayerinfopage-filter.pi
     PageFilterPipe,
     ApipageFilterPipe,
     ApiplayerpageFilterPipe,
-    ApiplayerinfopageFilterPipe
+    ApiplayerinfopageFilterPipe,
+    PageagencialibrePipe
     
   ]
 })

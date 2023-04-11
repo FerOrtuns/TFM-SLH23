@@ -43,17 +43,14 @@ export class HomeComponent implements OnInit {
       })
 
     this.infogmS.getSLHNews()
-    
-      .subscribe(resp=> {
 
-        this.mySLHnews  = resp;
+      .subscribe(resp => {
 
-        /* resp.forEach(element => {
-          this.mySLHnews.push(element)
-        }); */
+        this.mySLHnews = resp;
 
-        console.log(this.mySLHnews,'mySLHnews');
-        
+
+        console.log(this.mySLHnews, 'mySLHnews');
+
       })
 
 

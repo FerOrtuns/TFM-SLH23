@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/auth/services/auth.service';
@@ -48,8 +48,6 @@ export class RosterComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
     console.log(filterValue,'fv');
-    
-    
 
   }
 

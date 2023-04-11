@@ -1,6 +1,5 @@
 <app-head></app-head>
-<!-- 
-<app-menunav></app-menunav> -->
+
 
 <mat-card-title align="center">Ultimas noticias en SLH</mat-card-title>
 
@@ -24,20 +23,17 @@
             <mat-card-title> <strong>{{element.PLAYER}}</strong></mat-card-title>
             <mat-card-subtitle>{{element.AKA}}</mat-card-subtitle>
             <mat-card-title-group> Equipo SLH : {{element.EQUIPO}}
-                <mat-card-content> Jugador <div *ngIf="element.fichadoCortado; else divCortado" class="fichadocortado"> Fichado</div>
+                <mat-card-content> Jugador <div *ngIf="element.fichadoCortado; else divCortado" class="fichadocortado">
+                        Fichado</div>
                     <ng-template #divCortado><br> Cortado </ng-template>
-               </mat-card-content>
+                </mat-card-content>
             </mat-card-title-group>
 
-            <!-- 
-        <span class="spacer"></span> -->
 
-       
-
-</mat-card-header>
+        </mat-card-header>
 
 
-          
+
 
         <br>
         <mat-card-content>
@@ -47,8 +43,8 @@
                 por {{element.YEARS}} años </p>
 
 
-            <p *ngIf="!element.fichadoCortado"> El jugador de los {{element.EQUIPO}}  {{element.PLAYER}}
-                ha sido cortado  teniendo un contrato de {{ element.SALARIO}} por
+            <p *ngIf="!element.fichadoCortado"> El jugador de los {{element.EQUIPO}} {{element.PLAYER}}
+                ha sido cortado teniendo un contrato de {{ element.SALARIO}} por
                 {{element.YEARS}} años, y ya está disponible para fichar en la Agencia Libre </p>
 
 

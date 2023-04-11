@@ -1,5 +1,5 @@
 
-<mat-grid-list cols="1" *ngIf="!resPlayers; else divLoaded2">
+<mat-grid-list cols="1" *ngIf="!dataSource; else divLoaded2">
   <mat-grid-tile>
       <mat-spinner></mat-spinner>
   </mat-grid-tile>
@@ -12,10 +12,15 @@
   
     <mat-card-content> 
 
+      <mat-form-field>
+        <mat-label>Buscar</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="ex Bam" #input>
+      </mat-form-field>
+
       
       <div class="mytableresponsive">
     
-      <table mat-table [dataSource]=" resPlayers| apiplayerpageFilter:page" class="mat-elevation-z8"> 
+      <table mat-table [dataSource]=" dataSource| apiplayerpageFilter:page" class="mat-elevation-z8"> 
 
   
           <ng-container matColumnDef="JUGADOR">
@@ -104,6 +109,11 @@
        
          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+         <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        </tr>
+
         
       
       </table>

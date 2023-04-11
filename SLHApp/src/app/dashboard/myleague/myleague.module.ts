@@ -7,11 +7,11 @@ import { EquiposComponent } from './pages/equipos/equipos.component';
 import { AgencialibreComponent } from './pages/agencialibre/agencialibre.component';
 
 import { NormativaComponent } from './pages/normativa/normativa.component';
-import  {  PdfViewerModule  }  from  'ng2-pdf-viewer';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardModule } from "../dashboard.module";
 import { PujaComponent } from './components/puja/puja.component';
-import { MiligaComponent } from './pages/miliga/miliga.component'; // revisar si es necesario
+import { MiligaComponent } from './pages/miliga/miliga.component';
 
 
 @NgModule({
@@ -30,7 +30,7 @@ import { MiligaComponent } from './pages/miliga/miliga.component'; // revisar si
         FormsModule,
         DashboardModule,
         ReactiveFormsModule,
-        
+
     ]
 })
 export class MyleagueModule { }

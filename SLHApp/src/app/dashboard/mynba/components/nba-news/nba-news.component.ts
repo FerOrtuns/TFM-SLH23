@@ -5,55 +5,51 @@ import { SearchApiService } from 'src/app/dashboard/services/search-api.service'
 @Component({
   selector: 'app-nba-news',
   templateUrl: './nba-news.component.html',
-  styleUrls: ['./nba-news.component.css']
+  styleUrls: []
 })
-export class NbaNewsComponent implements OnInit{
+export class NbaNewsComponent implements OnInit {
 
-  public page : number = 0;
+  public page: number = 0;
 
-  get resNews()  {
-    
-    return this.sapi.apiNews(); 
+  get resNews() {
+
+    return this.sapi.apiNews();
   }
 
   nbaNews0!: any;
   nbaNews!: Apinews[];
-  data:boolean=false;
+  data: boolean = false;
   resNews2!: Apinews[];
 
-  constructor (private sapi: SearchApiService){}
+  constructor(private sapi: SearchApiService) { }
 
   ngOnInit() {
 
     this.sapi.apiNews()
-              .subscribe ( (resp: Apinews[]) => {
-                /* console.log(resp); */
-                this.resNews2 = resp;
+      .subscribe((resp: Apinews[]) => {
+        /* console.log(resp); */
+        this.resNews2 = resp;
 
-                console.log(this.resNews2);
-                
-                
-              })
-  /*   this.nbaNews0 = this.resNews; 
-   
-    this.nbaNews0 = this.nbaNews ;
+        console.log(this.resNews2);
 
-    this.data=true; */
+
+      })
+
   }
-  
-  nextPage(){
 
-    if(this.page< this.resNews2.length-3){
+  nextPage() {
+
+    if (this.page < this.resNews2.length - 3) {
       this.page += 3;
     }
-    
+
   }
 
-  prevPage(){
-    if(this.page > 0){
+  prevPage() {
+    if (this.page > 0) {
       this.page -= 3;
     }
-  
+
   }
 
 }

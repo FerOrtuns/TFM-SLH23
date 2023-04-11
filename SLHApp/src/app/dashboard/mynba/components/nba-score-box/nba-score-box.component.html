@@ -1,74 +1,70 @@
-
-
 <mat-grid-list cols="1" *ngIf="!todayScorebox; else divLoadedSB">
     <mat-grid-tile>
         <mat-spinner></mat-spinner>
     </mat-grid-tile>
-  </mat-grid-list>
-  
-  
-  <ng-template #divLoadedSB>
-  
+</mat-grid-list>
+
+
+<ng-template #divLoadedSB>
+
     <div fxLayout="row wrap" fxLayoutAlign="center" fxFlex="100">
 
-     
-  <div fxLayout="row wrap" fxLayoutAlign="center" fxFlex="100">
 
-    <mat-card-title align="center">Resultados de los partidos de NBA de anoche </mat-card-title>
-    </div>
-    
+        <div fxLayout="row wrap" fxLayoutAlign="center" fxFlex="100">
+
+            <mat-card-title align="center">Resultados de los partidos de NBA de anoche </mat-card-title>
+        </div>
+
         <mat-card *ngFor="let element of todayScorebox" style="margin: 5px;">
 
-        
-        <!--     <mat-card-header>
-                <mat-card-title>Status :   {{element.Game.HomeTeamScore}}</mat-card-title>
-                <mat-card-subtitle> Fecha : {{element.TeamGames}} </mat-card-subtitle>
-            </mat-card-header> -->
 
-                <mat-card-content>
-        
+
+            <mat-card-content>
+
                 <mat-card>
 
                     <div fxLayout="row wrap" fxLayoutAlign="center">
-                        
+
                         <div fxFlex="100">
                             <div fxFlex="50" fxLayoutAlign="center">
-                                <h1> {{element.Game.HomeTeam}} 
+                                <h1> {{element.Game.HomeTeam}}
                                     <mat-card-actions>
-                                         <button color="accent" matMiniFabButton style="font-size: x-large;">{{element.Game.HomeTeamScore}} </button>
+                                        <button color="accent" matMiniFabButton
+                                            style="font-size: x-large;">{{element.Game.HomeTeamScore}} </button>
                                     </mat-card-actions>
                                 </h1>
                                 <br>
-                            </div><!-- 
-                            <div fxFlex="16" fxLayoutAlign="center"><small>vs</small></div> -->
+                            </div>
                             <div fxFlex="50" fxLayoutAlign="center">
 
-                                <h1> {{element.Game.AwayTeam}} 
+                                <h1> {{element.Game.AwayTeam}}
                                     <mat-card-actions>
-                                     <button color="accent" matMiniFabButton style="font-size: x-large;">  {{element.Game.AwayTeamScore}} </button>
-                                 </mat-card-actions></h1>
+                                        <button color="accent" matMiniFabButton style="font-size: x-large;">
+                                            {{element.Game.AwayTeamScore}} </button>
+                                    </mat-card-actions>
+                                </h1>
                             </div>
                         </div>
 
                     </div>
-                    
-                     
+
+
 
                 </mat-card>
 
-                    <h6>Status : {{element.Game.Status}}</h6>
-                    
-                    <h6>Fecha : {{element.Game.Day}} </h6>
-                    <h6>Canal : {{element.Game.Channel}} </h6>
-                    <h6>Aforo : {{element.Game.Attendance}} </h6>
-                    
+                <h6>Status : {{element.Game.Status}}</h6>
 
-        
-            
-        
-        </mat-card-content>
-        
+                <h6>Fecha : {{element.Game.Day}} </h6>
+                <h6>Canal : {{element.Game.Channel}} </h6>
+                <h6>Aforo : {{element.Game.Attendance}} </h6>
+
+
+
+
+
+            </mat-card-content>
+
         </mat-card>
 
-  </div>
-  </ng-template>
+    </div>
+</ng-template>
