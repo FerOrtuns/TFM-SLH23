@@ -17,8 +17,6 @@ export class AgencialibreComponent implements OnInit {
 
   listaFAs!: MyPlayer[];
 
-  public page: number = 0;
-
   totaldata: number =0;
   
 
@@ -58,18 +56,4 @@ export class AgencialibreComponent implements OnInit {
     
     this.dataSource.paginator = this.paginator;
   }
-  /*  nextPage() {
- 
-     if (this.page < this.dataSource.length - 5) {
-       this.page += 5;
-     }
- 
-   }
- 
-   prevPage() {
-     if (this.page > 0) {
-       this.page -= 5;
-     }
- 
-   } */
 }

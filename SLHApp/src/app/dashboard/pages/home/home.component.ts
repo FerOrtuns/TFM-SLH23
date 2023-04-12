@@ -37,8 +37,6 @@ export class HomeComponent implements OnInit {
         this.EQUIPO = this.gminfo.EQUIPO!;
         this.AKA = this.gminfo.AKA!;
 
-        console.log('equipo', this.EQUIPO);
-        console.log('equipo', this.AKA);
 
       })
 
@@ -48,8 +46,6 @@ export class HomeComponent implements OnInit {
 
         this.mySLHnews = resp;
 
-
-        console.log(this.mySLHnews, 'mySLHnews');
 
       })
 

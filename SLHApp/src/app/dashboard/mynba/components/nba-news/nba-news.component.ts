@@ -9,16 +9,7 @@ import { SearchApiService } from 'src/app/dashboard/services/search-api.service'
 })
 export class NbaNewsComponent implements OnInit {
 
-  public page: number = 0;
 
-  get resNews() {
-
-    return this.sapi.apiNews();
-  }
-
-  nbaNews0!: any;
-  nbaNews!: Apinews[];
-  data: boolean = false;
   resNews2!: Apinews[];
 
   constructor(private sapi: SearchApiService) { }
@@ -27,29 +18,13 @@ export class NbaNewsComponent implements OnInit {
 
     this.sapi.apiNews()
       .subscribe((resp: Apinews[]) => {
-        /* console.log(resp); */
+        
         this.resNews2 = resp;
-
-        console.log(this.resNews2);
 
 
       })
 
   }
 
-  nextPage() {
-
-    if (this.page < this.resNews2.length - 3) {
-      this.page += 3;
-    }
-
-  }
-
-  prevPage() {
-    if (this.page > 0) {
-      this.page -= 3;
-    }
-
-  }
 
 }

@@ -2,15 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SearchApiService } from 'src/app/dashboard/services/search-api.service';
 import { Apiscoresbox } from '../../../interfaces/ApiScorebox.interface';
 
-interface GameHoy {
 
-  Season: number,
-  AwayTeam: string,
-  HomeTeam: string,
-  AwayTeamScore: number,
-  HomeTeamScore: number
-
-}
 
 @Component({
   selector: 'app-nba-score-box',
@@ -27,9 +19,20 @@ export class NbaScoreBoxComponent implements OnInit {
 
   ngOnInit() {
 
-    const hoy = new Date();
+    let date = this.getDate();
 
-    console.log(hoy, 'hoy');
+    this.sapi.apiScorebox(date)
+      .subscribe((resp: Apiscoresbox[]) => {
+        
+        this.todayScorebox = resp;
+
+      })
+
+
+  }
+
+  getDate() {
+    const hoy = new Date();
 
     const yyyy = hoy.getFullYear().toString();
     const dd = (hoy.getDate() - 1).toString();
@@ -38,21 +41,7 @@ export class NbaScoreBoxComponent implements OnInit {
 
     const date: string = yyyy + '-' + mm + '-' + dd;
 
-    console.log(date, 'date');
-    console.log(mm, 'mm');
-
-    this.sapi.apiScorebox(date)
-      .subscribe((resp: Apiscoresbox[]) => {
-        console.log(resp);
-        this.todayScorebox = resp;
-
-
-
-      })
-
-
+    return date;
   }
-
-
 
 }

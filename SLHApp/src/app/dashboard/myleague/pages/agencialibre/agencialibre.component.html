@@ -80,17 +80,9 @@
 
     <mat-card-actions>
 
-      <mat-paginator [length]=totaldata
-              [pageSize]="5"
-              [pageSizeOptions]="[5, 10, 25, 100]"
-              aria-label="Select page">
+      <mat-paginator [length]=totaldata [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page">
       </mat-paginator>
 
-     <!--  <button mat-raised-button extended color="primary" (click)="prevPage()">
-        <mat-icon>navigate_before</mat-icon>Anterior</button>
-      <span class="spacer"></span>
-      <button mat-raised-button extended color="primary" (click)="nextPage()">
-        <mat-icon>navigate_next</mat-icon>Siguiente</button> -->
     </mat-card-actions>
 
   </mat-card>

@@ -32,7 +32,6 @@ export class HeadComponent implements OnInit{
         this.AKA = resp.AKA;
       })
 
-      console.log(this.mobileScreen,'mobileScreen');
       const mediaQuery = window.matchMedia('(max-width: 600px)');
       mediaQuery.addEventListener('change', e => this.mobileScreen = e.matches);
       this.mobileScreen = mediaQuery.matches;

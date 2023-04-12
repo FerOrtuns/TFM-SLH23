@@ -56,12 +56,11 @@
 
         <div fxLayout="row wrap" fxFlex="100" *ngIf="!pujaForm">
 
-           <!--  <div fxFlex="100"> -->
-                <div fxFlex="50" align="center">
+                       <div fxFlex="50" align="center">
 
-        <button mat-raised-button extended color="accent" (click)="cancelar()" routerLink="/dashboard/myleague/playersfa">
+        <button mat-raised-button extended color="accent" routerLink="/dashboard/myleague/playersfa">
             <mat-icon>cancel</mat-icon>Cancelar</button>
-        <!-- <span class="spacer"></span> -->
+       
                 </div>
             <div fxFlex="50" align="center">
                 <button mat-raised-button extended color="warn" (click)="pujar()" (click)="openInfo()" type="submit" [disabled]="pujaFAForm.invalid">
@@ -105,11 +104,7 @@
          
               <button mat-raised-button extended color="secondary"> Equipo:</button>
               <button mat-raised-button extended color="primary"> {{this.EQUIPOOffer}}</button>
-           
-          <!-- 
-              <button mat-raised-button extended color="secondary"> Desde: </button>
-              <button mat-raised-button extended color="accent"> <small>{{this.desde}}</small></button> -->
-          
+              
            
          
          </mat-card-actions>
