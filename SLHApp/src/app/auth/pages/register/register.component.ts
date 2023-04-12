@@ -33,8 +33,12 @@ export class RegisterComponent {
   
       if(ok === true){
   
+        
+        Swal.fire('Creado correctamente', 'ya puede logarse en la app', 'success');
+
         this.router.navigateByUrl('/auth/login');
       }else{
+
   
         Swal.fire('Error', ok, 'error');
         

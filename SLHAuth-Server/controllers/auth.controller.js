@@ -3,6 +3,7 @@ const { response} = require('express');
 const Usuario = require('../models/Usuario');
 const bcrypt = require('bcryptjs');
 const { generarJWT } = require('../helpers/jwt');
+const GmInfo = require('../models/GmInfo');
 
 
 const creaUsuario = async (req, res = response)=>{
@@ -19,10 +20,23 @@ try {
 
         if (usuario){
 
-            return res.status(400).json({
+            return res.status(401).json({
         
                 ok:false,
                 msg:'El usuario ya existe con ese Email'
+                
+                });
+        }
+         //VERIFICAR EMAIL tiene franquicia
+
+        const usuarioGM = await GmInfo.findOne( {Mail2: email} );
+
+        if (!usuarioGM){
+
+            return res.status(402).json({
+        
+                ok:false,
+                msg:'El usuario no tiene franquicia en esta Liga, habla con el comisionado o con el administrador'
                 
                 });
         }
