@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkSLHApp=self.webpackChunkSLHApp||[]).push([[674],{1674:(A,n,u)=>{u.r(n),u.d(n,{AuthModule:()=>o});var _=u(6895),a=u(951),l=u(4006),E=u(4650);class o{}o.\u0275fac=function(M){return new(M||o)},o.\u0275mod=E.oAB({type:o}),o.\u0275inj=E.cJS({imports:[_.ez,a.D,l.UX]})}}]);
