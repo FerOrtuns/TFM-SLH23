@@ -1,7 +1,21 @@
 <header class="top-sticky">
-  <mat-card>
-    <img mat-card-image src="../../../../assets/images/logotopSLAPP.jpg" alt="toplogoSlapp">
-  </mat-card>
+ 
+  <div *ngIf="!mobileScreen; else divMovilimg">
+
+    <mat-card>
+      <img mat-card-image src="../../../../assets/images/logotopSLAPP.jpg" alt="toplogoSlapp">
+    </mat-card>
+  
+    </div>
+  
+    <ng-template #divMovilimg>
+  
+      <mat-card>
+        <img mat-card-image src="../../../../assets/images/logotopSLAPPmovil18.jpg" alt="toplogoSlapp18">
+      </mat-card>
+  
+    </ng-template>
+  
 
   <mat-toolbar>
 
