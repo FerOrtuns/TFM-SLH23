@@ -2,7 +2,8 @@
 const express = require ('express');
 
 const cors = require ('cors');
-const path = require ('path');
+
+/* const path = require ('path'); */
 
 require('dotenv').config();
 
@@ -41,11 +42,11 @@ app.use('/slh/auth', require('./routes/auth') );
 
 //DEMAS RUTAS PARA DESPLEGAR EN HEROKU
 
-app.get('*', (req, res)=>{
+/* app.get('*', (req, res)=>{
 
         res.sendFile (path.resolve(__dirname, 'public/index.html'));
 });
-
+ */
 
 
 app.listen(process.env.PORT, ()=>{
