@@ -33,7 +33,7 @@ export class LoginComponent {
           this.router.navigateByUrl('/dashboard');
         } else {
 
-          Swal.fire('Error', ok, 'error');
+          Swal.fire('Error :(', ok, 'error');
 
         }
 
